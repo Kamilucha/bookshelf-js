@@ -1,33 +1,69 @@
+
+/**
+  |============================
+  | Base style
+  |============================
+*/
+
+:root {
+
+  /* light theme  */
+  --bg-color-light: #f6f6f6;
+  --header-bg-color-light: #ffffff;
+  --text-logo-bookshelf-light:#000000
+  --accent-color-light-theme: #4f2ee8;
+  --primary-text-color-light-theme: #111111;
+  --secondary-color-light-theme: #b4afaf;
+  --category-color-light:rgba(17, 17, 17, 0.6);
+  --scroll-light-theme: #E0E0E0;
+  
+
+  /* dark theme */
+
+  --bg-color-dark: #202024;
+  --header-bg-color-dark: #111111;
+  --text-logo-bookshelf-dark: #F3F3F3;
+  --accent-color-dark-theme: #eac645;
+  --primary-text-color-dark-theme: #ffffff;
+  --secondary-color-dark-theme: #b4afaf;
+  --category-color-dark: rgba(255, 255, 255, 0.6);
+  --scroll-datk-theme: rgba(17, 17, 17, 0.6);
+  
+}
+
 /**
   |============================
   | Container
   |============================
 */
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
+/* --- mobile screen --- */
 @media screen and (min-width: 375px) {
-    .container {
-        width: 375px;
-    }
+  .container {
+    width: 375px;
+  }
 }
 
+/* --- tablet screen --- */
 @media screen and (min-width: 768px) {
-    .container {
-        width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  .container {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
+/* --- desktop screen --- */
 @media screen and (min-width: 1440px) {
-    .container {
-        width: 1440px;
-        padding-left: 24px;
-        padding-right: 24px;
-    }
+  .container {
+    width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
