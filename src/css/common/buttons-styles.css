@@ -26,8 +26,9 @@
 
 /* shopping list button */
 
+
 .btn-shop-list{
-    min-width: 499px;
+    width: 499px;
     height: 64px;
     
     border: 2px solid var(--accent-color-light-theme);
@@ -41,6 +42,16 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     
+}
+
+@media screen and (max-width: 374.98px) {
+    .btn-shop-list {
+        font-size: 14px;
+        line-height: 1.29;
+
+        width: 279px;
+        height: 46px;
+    }
 }
 
 .btn-shop-list:hover,
