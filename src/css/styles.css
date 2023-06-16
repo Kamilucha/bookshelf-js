@@ -1,1 +1,13 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
 
+
+@import url(/src/css/common/utils.css);
+@import url(/src/css/reset.css);
+@import url(/src/css/common/body.css);
+
+@import url(/src/css/common/buttons-styles.css);
