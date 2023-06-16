@@ -1,0 +1,22 @@
+.progress{
+background-color: rgba(79, 46, 232, 0.3);
+position: fixed;
+bottom: 20px;
+right: 10px;
+height: 64px;
+width: 64px;
+display: grid;
+place-items: center;
+border-radius: 50%;
+box-shadow: 0 0 10px rgba(0 ,0 , 0 ,0.2);
+cursor: pointer;
+}
+.progress-value{
+display: block;
+height: 54px;
+width: 54px;
+background-color:#4F2EE8;
+border-radius: 50%;
+display: grid;
+place-items: center;
+}

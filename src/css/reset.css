@@ -41,3 +41,7 @@ p {
   text-decoration: none;
   color: currentColor;
 }
+
+*{
+  scroll-behavior: smooth;
+}
