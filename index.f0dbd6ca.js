@@ -1,0 +1,2 @@
+const e=()=>{const e={scrollProgress:document.querySelector(".progress"),progressValue:document.querySelector(".progress-value"),pos:document.documentElement.scrollTop},o=document.documentElement.scrollHeight-document.documentElement.clientHeight;Math.round(100*e.pos/o);e.pos>100?e.scrollProgress.style.display="grid":e.scrollProgress.style.display="none",e.scrollProgress.addEventListener("click",(()=>{document.documentElement.scrollTop=0}))};window.onscroll=e,window.onload=e;
+//# sourceMappingURL=index.f0dbd6ca.js.map
