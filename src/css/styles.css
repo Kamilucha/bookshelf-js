@@ -1,3 +1,16 @@
-@import './home/allCategoriesList.css';
-@import './reset.css';
-@import './common/utils.css'
+
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+
+
+@import url(/src/css/common/utils.css);
+@import url(/src/css/reset.css);
+
+@import url(/src/css/common/buttons-styles.css);
+@import url(/src/css/scrollup.css);
+
+@import url(/src/css/home/allCategoriesList.css)
