@@ -1,0 +1,77 @@
+.section-genres {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .section-genres {
+    padding-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .section-genres {
+    padding-bottom: 86px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.genres-wrapper {
+  overflow-y: scroll;
+  max-width: 335px;
+  max-height: 228px;
+}
+@media screen and (min-width: 768px) {
+  .genres-wrapper {
+    /* За макетом 340px, але довелося розширити, бо довгі назви не поміщаються в один рядок */
+    max-width: 375px;
+    max-height: 472px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .genres-wrapper {
+    max-width: 356px;
+  }
+}
+
+.genres-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .genres-item:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+.genres-btn {
+  display: block;
+  margin-right: auto;
+  font-family: 'DM Sans';
+  /* За макетом 16px */
+  font-size: 15px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+
+  border: none;
+  color: var(--category-color-light);
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: color 500ms ease, transform 500ms ease;
+}
+@media screen and (min-width: 768px) {
+    .genres-btn {
+        /* За макетом 18px */
+        font-size: 17px;
+    }
+
+}
+.genres-btn:hover,
+.genres-btn:focus {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-color-light-theme);
+
+}

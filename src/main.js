@@ -1,3 +1,4 @@
+import * as allCategoriesList from './js/home/allCategoriesList'
 import './js/scrollup'
 
 
