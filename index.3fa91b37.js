@@ -1,2 +1,0 @@
-!function(){var e=function(){var e={scrollProgress:document.querySelector(".progress"),progressValue:document.querySelector(".progress-value"),pos:document.documentElement.scrollTop},o=document.documentElement.scrollHeight-document.documentElement.clientHeight;Math.round(100*e.pos/o);e.pos>100?e.scrollProgress.style.display="grid":e.scrollProgress.style.display="none",e.scrollProgress.addEventListener("click",(function(){document.documentElement.scrollTop=0}))};window.onscroll=e,window.onload=e}();
-//# sourceMappingURL=index.3fa91b37.js.map
