@@ -1,5 +1,5 @@
 export class BooksAPIService {
-  static #BASE_URL = 'https://books-backend.p.goit.global';
+  #BASE_URL = 'https://books-backend.p.goit.global';
 
   #endpoints = {
     categoryList: '/books/category-list',
@@ -14,7 +14,7 @@ export class BooksAPIService {
 
   async getBookCategories() {
     const resp = await fetch(
-      `${BooksAPIService.#BASE_URL}${this.#endpoints.categoryList}`
+      `${this.#BASE_URL}${this.#endpoints.categoryList}`
     );
 
     if (!resp.ok) {
@@ -25,9 +25,7 @@ export class BooksAPIService {
   }
 
   async getTopBooks() {
-    const resp = await fetch(
-      `${BooksAPIService.#BASE_URL}${this.#endpoints.topBooks}`
-    );
+    const resp = await fetch(`${this.#BASE_URL}${this.#endpoints.topBooks}`);
 
     if (!resp.ok) {
       throw new Error();
@@ -38,9 +36,7 @@ export class BooksAPIService {
 
   async getBooksByCategory(query) {
     const resp = await fetch(
-      `${BooksAPIService.#BASE_URL}${
-        this.#endpoints.category
-      }?category=${query}`
+      `${this.#BASE_URL}${this.#endpoints.category}?category=${query}`
     );
 
     if (!resp.ok) {
@@ -52,7 +48,7 @@ export class BooksAPIService {
 
   async getBookInfo(id) {
     const resp = await fetch(
-      `${BooksAPIService.#BASE_URL}${this.#endpoints.bookInfo(id)}`
+      `${this.#BASE_URL}${this.#endpoints.bookInfo(id)}`
     );
 
     if (!resp.ok) {
