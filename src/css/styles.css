@@ -1,11 +1,9 @@
-
 /**
   |============================
   | include css partials with
   | default @import url()
   |============================
 */
-
 
 @import url(/src/css/common/utils.css);
 @import url(/src/css/reset.css);
@@ -17,3 +15,4 @@
 
 @import url(/src/css/home/home-page.css);
 @import url(/src/css/common/modal.css);
+@import url(/src/css/container.css);
