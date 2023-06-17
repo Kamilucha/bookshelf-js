@@ -1,0 +1,9 @@
+.books_container{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.card {
+    width: 180px;
+    height: 306px;
+}
