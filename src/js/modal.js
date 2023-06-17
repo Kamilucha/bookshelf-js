@@ -1,15 +1,15 @@
+import ShoppingList from './ShoppingList';
+
 export default function renderModal(card) {
+  let modalBackground = document.createElement('div');
+  modalBackground.className = 'modal_background';
 
-    let modalBackground = document.createElement("div")
-    modalBackground.className = "modal_background"
+  let modalBody = document.createElement('div');
+  modalBody.className = 'modal_body';
 
-    let modalBody = document.createElement("div")
-    modalBody.className = "modal_body"
+  modalBackground.append(modalBody);
 
-    modalBackground.append(modalBody)
-
-   modalBody.innerHTML = 
-        `
+  modalBody.innerHTML = `
         <div class="flex gap-24 mb-40">
             <img src="${card.book_image}" alt="">
             <div>
@@ -20,40 +20,46 @@ export default function renderModal(card) {
 
             </div>
         </div>
-        <button class="btn">Add to Shopping List</button>
-        `
-    let closeBtn = document.createElement("button")
-    closeBtn.className ="close_btn"
-    closeBtn.textContent = "x"
+        `;
+  let closeBtn = document.createElement('button');
+  closeBtn.className = 'close_btn';
+  closeBtn.textContent = 'x';
+  closeBtn.addEventListener('click', closeHandler);
 
-    closeBtn.addEventListener("click", closeHandler)
+  modalBackground.addEventListener('click', closeHandler);
 
-    modalBackground.addEventListener("click", closeHandler)
+  modalBody.onclick = function (event) {
+    event.stopPropagation();
+  };
 
-    modalBody.onclick = function(event) {
-        event.stopPropagation()
+  function closeHandler() {
+    modalBackground.remove();
+    cleanEventListeners();
+  }
+
+  function escapeHandler(event) {
+    if (event.key == 'Escape') {
+      closeHandler();
     }
+  }
 
-    function closeHandler() {
-        modalBackground.remove()
-        cleanEventListeners()
-    }
+  function cleanEventListeners() {
+    closeBtn.removeEventListener('click', closeHandler);
+    modalBackground.removeEventListener('click', closeHandler);
+    document.removeEventListener('keydown', escapeHandler);
+  }
 
-    function escapeHandler(event) {
-        if(event.key == "Escape") {
-            closeHandler()
-        }
-    }
+  let shoppingListEl = document.createElement('button');
+  shoppingListEl.className = 'btn';
+  let currentBook = new ShoppingList(card);
+  shoppingListEl.textContent =
+    (currentBook.isBookAlreadyInShoppingList ? 'Remove from the ' : 'Add to ') +
+    'Shopping List';
+  shoppingListEl.onclick = function () {
+    currentBook.handleBook(this);
+  };
 
-    function cleanEventListeners() {
-        closeBtn.removeEventListener("click", closeHandler)
-        modalBackground.removeEventListener("click", closeHandler)
-        document.removeEventListener('keydown', escapeHandler)
-    }
-
-    document.addEventListener('keydown', escapeHandler)
-
-    modalBody.append(closeBtn)
-
-    document.body.append(modalBackground)
+  document.addEventListener('keydown', escapeHandler);
+  modalBody.append(closeBtn, shoppingListEl);
+  document.body.append(modalBackground);
 }
