@@ -20,6 +20,7 @@ async function renderTopBooks() {
     card_list.append(...books)
 
     let seeMoreBtn = document.createElement("button")
+    seeMoreBtn.className = "btn-main"
     seeMoreBtn.textContent = "See More"
     groupEl.append(card_list,seeMoreBtn)
 
@@ -36,7 +37,7 @@ function renderCard(card) {
         renderModal(card)
     }
     cardEl.innerHTML = `
-        <img src="${card.book_image}" alt="${card.title}">
+        <img class="book_image" src="${card.book_image}" alt="${card.title}">
         <div class="book_title">${card.title}</div>
         <div class="book_author">${card.author}</div>
     `;
