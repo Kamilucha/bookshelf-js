@@ -123,3 +123,17 @@
     padding: 0;
     background: none;
 }
+
+.modal_body .notification {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* or 117% */
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    color: rgba(17, 17, 17, 0.5);
+}

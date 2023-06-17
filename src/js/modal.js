@@ -51,15 +51,12 @@ export default function renderModal(card) {
 
   let shoppingListEl = document.createElement('button');
   shoppingListEl.className = 'btn';
-  let currentBook = new ShoppingList(card);
-  shoppingListEl.textContent =
-    (currentBook.isBookAlreadyInShoppingList ? 'Remove from the ' : 'Add to ') +
-    'Shopping List';
+  modalBody.append(closeBtn, shoppingListEl);
+  let currentBook = new ShoppingList(card, shoppingListEl);
   shoppingListEl.onclick = function () {
-    currentBook.handleBook(this);
+    currentBook.handleBook();
   };
 
   document.addEventListener('keydown', escapeHandler);
-  modalBody.append(closeBtn, shoppingListEl);
   document.body.append(modalBackground);
 }
