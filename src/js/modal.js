@@ -9,6 +9,11 @@ export default function renderModal(card) {
 
   modalBackground.append(modalBody);
 
+  let buyLinks = card.buy_links.filter(link => ["Amazon", "Apple Books", "Bookshop"].includes(link.name)).map(link => {
+    let url = `<a href="${link.url}" title="${link.name}">SVG</a>`
+    return url
+  }).join('')
+
   modalBody.innerHTML = `
         <div class="flex gap-24 mb-40">
             <img src="${card.book_image}" alt="">
@@ -16,7 +21,10 @@ export default function renderModal(card) {
                 <div class="card_title">${card.title}</div>
                 <div class="card_author">${card.author}</div>
                 <div class="card_description">${card.description}</div>
-                <div class="flex gap-20"></div>
+                <div class="flex gap-20">
+                ${buyLinks}
+                </div>
+                
 
             </div>
         </div>
