@@ -67,3 +67,7 @@
     padding-right: 24px;
   }
 }
+
+.flex{
+  display: flex;
+}
