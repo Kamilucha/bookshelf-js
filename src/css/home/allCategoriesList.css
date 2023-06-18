@@ -1,15 +1,14 @@
 .section-genres {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
   .section-genres {
-    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 }
 @media screen and (min-width: 1440px) {
   .section-genres {
-    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 }
 @media screen and (min-width: 768px) {
