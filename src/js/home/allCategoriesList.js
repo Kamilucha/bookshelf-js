@@ -3,9 +3,12 @@ import {BooksAPIService} from '../booksAPIService'
 const list = document.querySelector('.list-js')
 const listGenres = new BooksAPIService()
 
+const loader = document.querySelector('.categories-loader');
+
 async function fetchBookCategories() {
     try {
         const data = await listGenres.getBookCategories()
+        loader.style.display = 'none'
         renderMarkupList(data)
     }
     catch(error) {
