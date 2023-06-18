@@ -1,50 +1,53 @@
 // Import Image, svg
-import getIconPath from './shop-refs'
-// const bookElList = document.querySelector('.shoplist-add');
-// const listIsEmpty = document.querySelector('.shoplist-empty');
-const { appleBooksIconPath,
+import getIconPath from './shop-refs';
+const {
+  appleBooksIconPath,
   bookShopIconPath,
   amazonIconPath,
   svgTrashIcon,
   emptyListStubImage,
 } = getIconPath();
-// Получаем значение из хранилища по ключу (по id) и преобразовываем в массив
 
-let booksInShopList = localStorage.getItem('books');
-booksInShopList = booksInShopList ? JSON.parse(booksInShopList) : [];
+const SHOPPING_LIST_STORAGE_KEY = 'shoppingList';
+const shoppingList =
+  JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
-let currentPage = 1;
-let numberPage = 3;
-let totalPages = Math.ceil(booksInShopList.length / numberPage);
-let startIndex = (currentPage - 1) * numberPage;
-let endIndex = startIndex + numberPage;
+function renderShoppingList() {
+  const shoppingListContainer = document.getElementById(
+    'shoppingListContainer'
+  );
+  shoppingListContainer.innerHTML = '';
 
-let allBooksInShopList = booksInShopList.slice(startIndex, endIndex);
-// Нужно написать функцию renderBooks
+  if (shoppingList.length === 0) {
+    const emptyMessage = document.createElement('div');
+    emptyMessage.textContent =
+      'This page is empty, add some books and proceed to order.';
+    shoppingListContainer.appendChild(emptyMessage);
+  } else {
+    const list = document.createElement('ul');
+    shoppingListContainer.appendChild(list);
 
-function renderBooks(allBooksInShopList) {
-  return allBooksInShopList
-    .map(({ _id, title, author, description, list_name, book_image, amazon_product_url,
-        buy_links: [apple, bookshop], }) => {
-      return `<article class="shopping__card">
-          <div class="about-img">
-            <img class="shopping-card-img" src="${book_image}" alt="${title}" />
-          </div>
-          <div class="about-title">
-            <h3 class="shopping-card-title">${title}</h3>
-            <p class="shopping-card-category">${list_name}</p>
-          </div>
-         <div class="about-description">
-            <p class="shopping-card-description">${description}</p>
-          </div >
-          <div class="about-author">
-            <p class="shopping-card-author">${author}</p>
-          </div>
+    shoppingList.forEach(item => {
+      const listItem = document.createElement('li');
+      listItem.textContent = item.title;
 
+      list.appendChild(listItem);
+    });
+  }
+}
+
+function renderBooks() {
+  const allBooksInShopList = shoppingList;
+  const booksContainer = document.getElementById('shoppingListContainer');
+
+  if (allBooksInShopList && allBooksInShopList.length > 0) {
+    booksContainer.innerHTML = allBooksInShopList
+      .map(({ _id, title, author, description, list_name, book_image }) => {
+        return `<article class="shopping__card">
           <div class="shoplist-url">
             <ul class="shoplist-url-list">
               <li class="shoplist-url-item">
-                <a class="shoplist-url-link" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
+                <a class="shoplist-url-link" href="${amazon_product.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
                   <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" alt="Amazon live page"/>
                 </a>
               </li>
@@ -68,25 +71,11 @@ function renderBooks(allBooksInShopList) {
           </button>
         </article>
         `;
-    })
-    .join('');
-}
-
-//  Код проверяет условия, по которым будут отображаться книги.
-// Если booksInShopList будет равен нулю, то список покупок будет пуст.
-// В таком случае будет соответсвующая разметка с сообщением, что список покупок пуст.
-
-function isEmpty() {
-  if (booksInShopList.length > 0) {
-    window.onload = function () {
-      renderBooks(booksInShopList.slice(0, numberPage));
-    };
-    window.onresize = function () {
-      renderBooks(booksInShopList.slice(0, numberPage));
-    };
+      })
+      .join('');
   } else {
-    listIsEmpty.innerHTML = `
-      <div class="shop-card-empty">
+    booksContainer.innerHTML = `
+        <div class="shop-card-empty">
       <p class="shop-card-empty-text">
         This page is empty, add some books and proceed to order.
       </p>
@@ -98,13 +87,5 @@ function isEmpty() {
   }
 }
 
-isEmpty();
-
-function removeBook(bookId) {
-  const index = booksInShopList.findIndex(book => book._id === bookId);
-  if (index !== -1) {
-    booksInShopList.splice(index, 1);
-    renderBooks(booksInShopList);
-    localStorage.setItem('books', JSON.stringify(booksInShopList));
-  }
-}
+renderShoppingList();
+renderBooks();
