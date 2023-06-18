@@ -13,10 +13,11 @@
 @import url(/src/css/scrollup.css);
 
 @import url(/src/css/home/allCategoriesList.css);
-
+@import url(/src/css/support.css);
 @import url(/src/css/home/home-page.css);
 @import url(/src/css/common/modal.css);
 @import url(/src/css/container.css);
 
 @import url(/src/css/homePageBookRender.css);
-@import url(/src/css/home/booksByCategories.css)
+@import url(/src/css/home/booksByCategories.css);
+@import url(./loaders.css);

@@ -1,11 +1,14 @@
 import { BooksAPIService } from '../booksAPIService';
 import renderModal from '../modal'
 
+const loader = document.querySelector('.best-sellers-loader');
+
 const bookApi = new BooksAPIService();
 let booksContainer = document.querySelector('.books_container');
 
 export async function renderTopBooks() {
   let topBooks = await bookApi.getTopBooks();
+  loader.style.display = 'none';
   console.log(topBooks);
   topBooks.forEach(group => {
     let books = group.books.slice(0,5).map(renderCard)
