@@ -41,8 +41,6 @@
 }
 
 .card_title{
-    font-family: 'DM Sans';
-    font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
@@ -54,7 +52,6 @@
 }
 
 .modal_body .card_author {
-    font-family: 'DM Sans';
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -66,8 +63,6 @@
     margin-bottom: 20px;
 }
 .card_description{
-    font-family: 'DM Sans';
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
@@ -125,8 +120,6 @@
 }
 
 .modal_body .notification {
-    font-family: 'DM Sans';
-    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
