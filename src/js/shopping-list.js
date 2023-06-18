@@ -24,7 +24,8 @@ let allBooksInShopList = booksInShopList.slice(startIndex, endIndex);
 
 function renderBooks(allBooksInShopList) {
   return allBooksInShopList
-    .map(({ _id, title, author, description, list_name, book_image }) => {
+    .map(({ _id, title, author, description, list_name, book_image, amazon_product_url,
+        buy_links: [apple, bookshop], }) => {
       return `<article class="shopping__card">
           <div class="about-img">
             <img class="shopping-card-img" src="${book_image}" alt="${title}" />
@@ -89,6 +90,8 @@ function isEmpty() {
       <p class="shop-card-empty-text">
         This page is empty, add some books and proceed to order.
       </p>
+      <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
+      </div>
       <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
       </div>
     `;
