@@ -20,7 +20,7 @@ export default class ShoppingList {
       'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
     this.notification.className = 'notification';
     if (this.isBookAlreadyInShoppingList) {
-      debugger
+      debugger;
       linkToBtn.insertAdjacentElement('afterend', this.notification);
     }
   }
