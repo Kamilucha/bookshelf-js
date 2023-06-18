@@ -46,7 +46,7 @@
   }
 }
 /* desctop screen  1200*/
-@media screen and (min-width: 1023px) and (max-width: 1440px) {
+@media screen and (min-width: 1023px) {
   .main-container {
     width: 1392px;
     grid-template-columns: 356px 996px;
@@ -54,14 +54,14 @@
   }
 }
 /* desctop screen  1200*/
-@media screen and (min-width: 1023px) and (max-width: 1440px) {
+@media screen and (min-width: 1023px) {
   .header {
     width: 1440px;
     height: 72px;
   }
 }
 /* desctop screen  1200*/
-@media screen and (min-width: 1023px) and (max-width: 1440px) {
+@media screen and (min-width: 1023px){
   .container-aside {
     display: grid;
     row-gap: 86px;
