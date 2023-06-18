@@ -29,14 +29,16 @@ supportList.innerHTML = markupOfSupport;
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
     slidesPerView: 6,
-    slidesPerGroup: 1,
+    slidesOffsetAfter: 0,
+    
+    // slidesPerGroup: 1,
   rewind: true,
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
     480: {
           slidesPerView: 4,
-        slidesPerGroup: 1,
+        // slidesPerGroup: 1,
     },
   },
   modules: [Navigation],
