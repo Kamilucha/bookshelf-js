@@ -7,6 +7,7 @@ export class BooksAPIService {
     category: '/books/category',
     bookInfo: id => `/books/${id}`,
   };
+  
 
   constructor() {
     this.page = 1;
