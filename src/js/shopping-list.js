@@ -1,8 +1,13 @@
 // Import Image, svg
-
+import getIconPath from './shop-refs'
 // const bookElList = document.querySelector('.shoplist-add');
 // const listIsEmpty = document.querySelector('.shoplist-empty');
-
+const { appleBooksIconPath,
+  bookShopIconPath,
+  amazonIconPath,
+  svgTrashIcon,
+  emptyListStubImage,
+} = getIconPath();
 // Получаем значение из хранилища по ключу (по id) и преобразовываем в массив
 
 let booksInShopList = localStorage.getItem('books');
@@ -37,19 +42,19 @@ function renderBooks(allBooksInShopList) {
           </div>
 
           <div class="shoplist-url">
-            <ul class="shopping-card-shoplist">
-              <li class="url-shop">
-                <a "modal-shop-img" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
+            <ul class="shoplist-url-list">
+              <li class="shoplist-url-item">
+                <a class="shoplist-url-link" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
                   <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" alt="Amazon live page"/>
                 </a>
               </li>
-              <li class="url-shop">
-                <a "modal-shop-img" href="${apple.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Apple Books link">
+              <li class="shoplist-url-item">
+                <a class="shoplist-url-link" href="${apple.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Apple Books link">
                   <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIconPath}" alt="Apple Books link" />
                 </a>
               </li>
-              <li class="url-shop">
-                <a "modal-shop-img" href="${bookshop.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="BookShop link">
+              <li class="shoplist-url-item">
+                <a class="shoplist-url-link" href="${bookshop.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="BookShop link">
                   <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIconPath}" alt="BookShop link" />
                 </a>
               </li>
@@ -58,7 +63,7 @@ function renderBooks(allBooksInShopList) {
 
           <button class="shopping-card-btn" type="button" data-book-id="${_id} aria-label="Remove book from shopping list">
             <svg class="icon-trash" data-book-id="${_id}" width="17" height="17">
-              <use href="${svgRemove}#icon-trash"></use>
+              <use href="${svgTrashIcon}#icon-trash"></use>
             </svg>
           </button>
         </article>
@@ -81,10 +86,12 @@ function isEmpty() {
     };
   } else {
     listIsEmpty.innerHTML = `
-      <div class="shop-card-emtpy">
+      <div class="shop-card-empty">
       <p class="shop-card-empty-text">
         This page is empty, add some books and proceed to order.
       </p>
+      <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
+      </div>
       <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
       </div>
     `;
