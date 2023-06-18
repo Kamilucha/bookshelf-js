@@ -16,6 +16,7 @@
   border-radius: 0px 0px 8px 8px;
 }
 .container-aside {
+  position: relative;
   grid-column-start: 1;
   width: 356px;
 }
