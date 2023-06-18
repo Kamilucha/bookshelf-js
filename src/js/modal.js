@@ -9,10 +9,13 @@ export default function renderModal(card) {
 
   modalBackground.append(modalBody);
 
-  let buyLinks = card.buy_links.filter(link => ["Amazon", "Apple Books", "Bookshop"].includes(link.name)).map(link => {
-    let url = `<a href="${link.url}" title="${link.name}">SVG</a>`
-    return url
-  }).join('')
+  let buyLinks = card.buy_links
+    .filter(link => ['Amazon', 'Apple Books', 'Bookshop'].includes(link.name))
+    .map(link => {
+      let url = `<a href="${link.url}" title="${link.name}">SVG</a>`;
+      return url;
+    })
+    .join('');
 
   modalBody.innerHTML = `
         <div class="flex gap-24 mb-40">
