@@ -5,4 +5,5 @@ import './js/scrollup'
 import './js/homePageBookRender'
 import './js/home/allCategoriesList'
 // import {BooksAPIService} from './js/booksAPIService'
+import './js/home/booksByCategories'
 

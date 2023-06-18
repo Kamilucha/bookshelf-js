@@ -1,0 +1,12 @@
+.unvisible {
+    display: none;
+}
+.category-books-wrapper {
+    max-width: 100%
+}
+.category-list {
+    flex-wrap: wrap;
+}
+.card-wrapper {
+    cursor: pointer;
+}

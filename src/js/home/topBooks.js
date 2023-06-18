@@ -4,7 +4,7 @@ import renderModal from '../modal'
 const bookApi = new BooksAPIService();
 let booksContainer = document.querySelector('.books_container');
 
-async function renderTopBooks() {
+export async function renderTopBooks() {
   let topBooks = await bookApi.getTopBooks();
   console.log(topBooks);
   topBooks.forEach(group => {
