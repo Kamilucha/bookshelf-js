@@ -91,10 +91,8 @@ function isEmpty() {
         This page is empty, add some books and proceed to order.
       </p>
       <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
-      </div>
-      <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
-      </div>
-    `;
+      </div>`
+      
   }
 }
 
