@@ -1,10 +1,10 @@
 import { supportItem } from "./support-array";
 console.log(supportItem);
 
-// import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 
-// import 'swiper/swiper.min.css';
-// import 'swiper/modules/navigation/navigation.min.css';
+import 'swiper/swiper.min.css';
+import 'swiper/modules/navigation/navigation.min.css';
 
 const supportList = document.querySelector('.support-list');
 

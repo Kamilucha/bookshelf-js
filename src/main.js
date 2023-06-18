@@ -10,3 +10,4 @@ import './js/shopping-list'
 // import {BooksAPIService} from './js/booksAPIService'
 import './js/home/booksByCategories'
 
+import './js/header'
