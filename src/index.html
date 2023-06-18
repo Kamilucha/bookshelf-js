@@ -3,29 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Bookshelf</title>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./main.js"></script>
   </head>
   <body>
     <!-- Header -->
     <include src="./partials/header.html"></include>
-
-    <!-- Aside -->
-    <aside>
-      <include src="./partials/categories-asside.html"></include>
-      <include src="./partials/support-asside.html"></include>
-    </aside>
-
-    <!-- Main -->
-    <main>
-      <include src="./partials/home-page.html"></include>
-    </main>
+    <div class="main-container container">
+      <!-- Aside -->
+      <div class="container-aside">
+        <aside>
+          <include src="./partials/categories-asside.html"></include>
+          <include src="./partials/support-asside.html"></include>
+        </aside>
+      </div>
+      <!-- Main -->
+      <main>
+        <include src="./partials/home-page.html"></include>
+        <include src="./partials/scrollup-button.html"></include>
+      </main>
+    </div>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <!-- <include src="./partials/example.html"></include> -->
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

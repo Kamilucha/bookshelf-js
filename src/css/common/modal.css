@@ -1,0 +1,139 @@
+.modal_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 17, 17, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal_body{
+    max-width: 579px;
+    min-height: 465px;
+
+    width: calc(100% - 40px);
+
+    background: #FFFFFF;
+    border: 2px solid #111111;
+    border-radius: 18px;
+
+    position: relative;
+    padding: 40px;
+
+    box-sizing: border-box;
+}
+
+.modal_body .close_btn{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.modal_body img {
+    width: 192px;
+    height: 281px;
+    border-radius: 8px;
+}
+
+.card_title{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    
+    letter-spacing: -0.04em;
+    color: #111111;
+
+    margin-bottom: 8px;
+}
+
+.modal_body .card_author {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    letter-spacing: -0.04em;
+    color: #B4AFAF;
+
+    margin-bottom: 20px;
+}
+.card_description{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    
+    letter-spacing: -0.04em;
+    color: #111111;
+
+    margin-bottom: 20px;
+}
+
+.gap-20 {
+    gap: 20px;
+}
+
+.gap-24 {
+    gap: 24px;
+
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.modal_body .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-transform: uppercase;
+
+    width: 100%;
+    height: 64px;
+
+    border: 2px solid #4F2EE8;
+    border-radius: 40px;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+
+    color: #111111;
+
+    background-color: transparent;
+}
+
+.modal_body .close_btn{
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.modal_body .notification {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* or 117% */
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    color: rgba(17, 17, 17, 0.5);
+}
