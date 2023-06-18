@@ -15,10 +15,10 @@ export default function () {
     amazonIconPath: new URL('../images/shopping-list/amazon.png', import.meta.url).href,
 
     // Empty
-    emptyListStubImage: new URL('../images/shoppingbook1.png', import.meta.url)
+    emptyListStubImage: new URL('../images/shopping-list/shoppingbook1.png', import.meta.url)
       .href,
 
     // SVG
-    svgTrashIcon: new URL('../images/shopping-list/symbol-defs.svg', import.meta.url),
+    svgTrashIcon: new URL('../svgsprite/symbol-defs.svg#icon-trash', import.meta.url),
   };
 }
