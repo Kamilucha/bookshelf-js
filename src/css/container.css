@@ -4,13 +4,15 @@
   grid-template-columns: 335px;
   row-gap: 40px;
   padding-top: 40px;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .header {
   box-sizing: border-box;
   width: 375px;
   height: 64px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .container-aside {
   width: 335px;

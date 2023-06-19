@@ -4,8 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping list</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
     <!-- Include CSS -->
   </head>
@@ -13,22 +15,28 @@
     <!-- Header -->
     <include src="./partials/header.html"></include>
     <!-- Aside -->
-    <aside>
-      <!-- Support Ukraine -->
-      <include src="./partials/support-asside.html"></include>
-    </aside>
-    <!-- Main -->
-    <main class="main-content">
-      <!-- Shopping list content -->
-      <include src="./partials/shopping-list-content.html"></include>
-      <!-- Pagination -->
-      <include src="./partials/pagination.html"></include>
-      <!-- Scroll up -->
-      <include src="./partials/scrollup-button.html"></include>
-      <!-- Burger menu -->
-      <include src="./partials/burger-menu.html"></include>
-      <!-- Autorization -->
-    </main>
+    <div class="shopping-list-container">
+      <div class="shopping-list-aside">
+        <aside>
+          <!-- Support Ukraine -->
+          <include src="./partials/support-asside.html"></include>
+        </aside>
+      </div>
+      <!-- Main -->
+      <div class="shopping-list-main">
+        <main class="main-content">
+          <!-- Shopping list content -->
+          <include src="./partials/shopping-list-content.html"></include>
+          <!-- Pagination -->
+          <include src="./partials/pagination.html"></include>
+          <!-- Scroll up -->
+          <include src="./partials/scrollup-button.html"></include>
+          <!-- Burger menu -->
+          <include src="./partials/burger-menu.html"></include>
+          <!-- Autorization -->
+        </main>
+      </div>
+    </div>
     <!-- JS -->
     <script type="module" src="./main.js"></script>
   </body>
