@@ -4,12 +4,16 @@ import renderModal from '../modal';
 
 export const boxBooks = document.querySelector('.category-books-wrapper');
 const divClean = document.querySelector('.books_container');
+const btnAllCategories = document.querySelector('.static-btn');
 
 const booksByCategories = new BooksAPIService();
 
+// Ф-ція, яка експортується до AllCategoriesList.js та отримує з бекенду книги за обраною категорією
+// Тут же викликаються ф-ції для рендерингу розмітки
 export async function fetchBooksByCategories(selectedCategory) {
   try {
     const data = await booksByCategories.getBooksByCategory(selectedCategory);
+    btnAllCategories.classList.remove('accent')
     divClean.innerHTML = '';
     renderBaseMarkupCategory();
     renderMarkupCard(data);
@@ -19,6 +23,7 @@ export async function fetchBooksByCategories(selectedCategory) {
   }
 }
 
+// Ф-ція, що рендерить основну розмітку, для того, щоб можна було вставити картки книг
 function renderBaseMarkupCategory() {
   const markup = `<h1>${selectedCategory}</h1>
   <div>
@@ -28,6 +33,7 @@ function renderBaseMarkupCategory() {
   boxBooks.insertAdjacentHTML('beforeend', markup);
 }
 
+// Ф-ція, що рендерить одну картку/книгу
 function renderMarkupCard(bookArr) {
   const markup = bookArr
     .map(({ title, book_image, author }) => {
