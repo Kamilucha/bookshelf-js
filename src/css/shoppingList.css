@@ -188,7 +188,7 @@ grid-area: 3 / 3 / 3 / 4;
 svg{max-width: 100%;
     height: auto;
     display: block;}
-
+/* BUTTON */
 .shopping-card-btn {display: flex;
     align-items: center;
     justify-content: center;
