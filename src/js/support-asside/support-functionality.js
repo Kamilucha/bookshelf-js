@@ -1,5 +1,5 @@
 import { supportItem } from "./support-array";
-console.log(supportItem);
+// console.log(supportItem);
 
 import Swiper, { Navigation } from 'swiper';
 
@@ -28,7 +28,7 @@ supportList.innerHTML = markupOfSupport;
 
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
-    slidesPerView: 6,
+    slidesPerView: 4,
     slidesOffsetAfter: 0,
     
     // slidesPerGroup: 1,
@@ -36,10 +36,10 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
-    // 480: {
-    //       slidesPerView: 4,
-    //     // slidesPerGroup: 1,
-    // },
+    376: {
+          slidesPerView: 6,
+        // slidesPerGroup: 1,
+    },
   },
   modules: [Navigation],
   navigation: {
