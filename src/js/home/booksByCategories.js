@@ -13,7 +13,7 @@ export async function fetchBooksByCategories(selectedCategory) {
     divClean.innerHTML = '';
     renderBaseMarkupCategory();
     renderMarkupCard(data);
-    // onCardClick(data)
+    onCardClick(data)
   } catch (error) {
     console.log(error);
   }
@@ -29,10 +29,16 @@ function renderBaseMarkupCategory() {
 }
 
 function renderMarkupCard(bookArr) {
+  const categoryList = document.querySelector('.category-list');
+  categoryList.innerHTML = ''
   const markup = bookArr
-    .map(({ title, book_image, author }) => {
-      return `
-        <li>
+    .map((card) => {
+      const { title, book_image, author } = card
+      let li = document.createElement('li')
+      li.onclick = function() {
+        renderModal(card)
+      }
+      li.innerHTML = `
         <div class='card-wrapper card'>
         <img class='book_image' src=${book_image} alt='${title} width='335' height='485'/>
         <div>         
@@ -40,21 +46,19 @@ function renderMarkupCard(bookArr) {
         <p>${author}</p>
         </div>
         </div>
-        </li>
         `;
+        return li
     })
-    .join('');
-  const categoryList = document.querySelector('.category-list');
-  categoryList.insertAdjacentHTML('beforeend', markup);
+  categoryList.append(...markup)
 }
 
-// function onCardClick(data) {
-//     const cardsBooks = document.querySelectorAll('.card-wrapper')
-//         cardsBooks.forEach(card => {
-//           card.addEventListener('click', () => {
-//             const data = data.map(({book_uri, buy_links}))
-//             console.log(card)
-//             renderModal(data);
-//           });
-//         });
-// }
+function onCardClick() {
+    const cardsBooks = document.querySelectorAll('.card-wrapper')
+        cardsBooks.forEach(card => {
+          card.addEventListener('click', () => {
+            const data = data.map(({book_uri, buy_links}))
+            console.log(card)
+            renderModal(data);
+          });
+        });
+}

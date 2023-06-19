@@ -49,8 +49,8 @@ function handleCategoryClick(event) {
 
 function handleAllCategoryClick() {
   boxBooks.innerHTML = '';
-  if (!onclickBtn) {
+  // if (!onclickBtn) {
     renderTopBooks();
-    onclickBtn = true;
-  }
+  //   onclickBtn = true;
+  // }
 }

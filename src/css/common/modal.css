@@ -8,15 +8,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+    width: 100vw;
 
-    padding: 20px;
 }
 
 .modal_body{
-    max-width: 579px;
+    min-width: 280px;
     min-height: 465px;
 
     width: calc(100% - 40px);
+    max-width: 335px;
 
     background: #FFFFFF;
     border: 2px solid #111111;
@@ -34,11 +36,13 @@
     right: 24px;
 }
 
-.modal_body img {
-    width: 192px;
-    height: 281px;
+.modal_image {
+    width: 287px;
+    height: 408px;
     border-radius: 8px;
 }
+
+
 
 .card_title{
     font-weight: 700;
@@ -71,19 +75,6 @@
     color: #111111;
 
     margin-bottom: 20px;
-}
-
-.gap-20 {
-    gap: 20px;
-}
-
-.gap-24 {
-    gap: 24px;
-
-}
-
-.mb-40 {
-    margin-bottom: 40px;
 }
 
 .modal_body .btn {
@@ -129,4 +120,31 @@
     letter-spacing: -0.04em;
 
     color: rgba(17, 17, 17, 0.5);
+}
+
+.modal_container{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.modal_links{
+    display: flex;
+    gap: 20px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .modal_body {
+        max-width: 579px;
+    }
+    .modal_image {
+        max-width: 192px;
+        height: 281px;
+    }
+    .modal_container{
+        flex-wrap: nowrap;
+    }
+
 }
