@@ -1,4 +1,3 @@
-
 /**
   |============================
   | include css partials with
@@ -23,3 +22,4 @@
 @import url(/src/css/loaders.css);
 
 @import url(/src/css/header.css);
+@import url(/src/css/shoppingListContainer.css);
