@@ -1,5 +1,5 @@
 // Import Image, svg
-import getIconPath from './shop-refs';
+import getIconPath from './shopRefs';
 const {
   appleBooksIconPath,
   bookShopIconPath,
@@ -67,6 +67,7 @@ function renderBooks() {
          <div class="about-description">
             <p class="shopping-card-description">${description}</p>
           </div >
+          
           <div class="about-author">
             <p class="shopping-card-author">${author}</p>
           </div>
@@ -74,17 +75,20 @@ function renderBooks() {
         <ul class="shoplist-url-list">
           <li class="shoplist-url-item">
             <a class="shoplist-url-link" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
-              <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" alt="Amazon live page"/>
+              <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" alt="Amazon live page" width= '48px';
+  height= '15px'/>
             </a>
           </li>
           <li class="shoplist-url-item">
             <a class="shoplist-url-link" href="${apple.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Apple Books link">
-              <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIconPath}" alt="Apple Books link" />
+              <img class="modal-shop-img shopping-shopimg apple" src="${appleBooksIconPath}" alt="Apple Books link" width= '28px';
+  height= '27px'/>
             </a>
           </li>
           <li class="shoplist-url-item">
             <a class="shoplist-url-link" href="${bookshop.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="BookShop link">
-              <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIconPath}" alt="BookShop link" />
+              <img class="modal-shop-img shopping-shopimg book-shop" src="${bookShopIconPath}" alt="BookShop link" width= '32px';
+  height= '30px'; />
             </a>
           </li>
         </ul>
