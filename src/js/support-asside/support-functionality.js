@@ -10,7 +10,7 @@ const supportList = document.querySelector('.support-list');
 
 function makeMarkupOfSupport({ title, url, img }, index) { 
 const number = (index + 1).toString().padStart(2, '0');
-return `<li class="swiper-slide">
+return `<li class="swiper-slide support-slide">
         <div class="support-item">
         <span class="support-index">${number}</span>
         <a class="support-link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
@@ -36,10 +36,10 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
-    480: {
-          slidesPerView: 4,
-        // slidesPerGroup: 1,
-    },
+    // 480: {
+    //       slidesPerView: 4,
+    //     // slidesPerGroup: 1,
+    // },
   },
   modules: [Navigation],
   navigation: {
