@@ -51,9 +51,7 @@
 }
 
 /*============================================================================================== */
-.shopping-list{
 
-}
 .shopping__card {
     width: 100%;
     
@@ -168,7 +166,7 @@ grid-area: 3 / 3 / 3 / 4;
     mix-blend-mode: luminosity;
 }
 
-.shoplist-url-item {
+/* .shoplist-url-item {
 
 }
 
@@ -182,7 +180,7 @@ grid-area: 3 / 3 / 3 / 4;
 
 .apple {}
 
-.book-shop {}
+.book-shop {} */
 
 svg{max-width: 100%;
     height: auto;
@@ -204,7 +202,7 @@ svg{max-width: 100%;
 
     transition: background 0.2s ease-out;}
 
-.icon-trash {}
+/* .icon-trash {} */
 .shopping__card-btn:hover,
 .shopping__card-btn:hover {
      transform: scale(1.1);
