@@ -148,7 +148,7 @@ function hidePagination() {
 renderShoppingList();
 renderBooks(1);
 
-// Pagination
+// Pagination IF?????
 if (shoppingList.length > 0) {
   const container = document.getElementById('pagination');
   const options = {
