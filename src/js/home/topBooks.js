@@ -6,7 +6,7 @@ const loader = document.querySelector('.best-sellers-loader');
 const bookApi = new BooksAPIService();
 let booksContainer = document.querySelector('.books_container');
 
-async function renderTopBooks() {
+export async function renderTopBooks() {
   let topBooks = await bookApi.getTopBooks();
   loader.style.display = 'none';
   console.log(topBooks);
