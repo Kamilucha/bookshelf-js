@@ -4,9 +4,9 @@ import { renderTopBooks } from './topBooks';
 
 const list = document.querySelector('.list-js');
 export let selectedCategory = '';
+let btnCategories;
 const btnAllCategories = document.querySelector('.static-btn');
 const divPage = document.querySelector('.books_container');
-// let onclickBtn = false;
 const listGenres = new BooksAPIService();
 
 const loader = document.querySelector('.categories-loader');
@@ -14,8 +14,8 @@ const loader = document.querySelector('.categories-loader');
 async function fetchBookCategories() {
   try {
     const data = await listGenres.getBookCategories();
-    btnAllCategories.classList.add('accent')
-    loader.style.display = 'none'
+    btnAllCategories.classList.add('accent');
+    loader.style.display = 'none';
     renderMarkupList(data);
     btnAllCategories.addEventListener('click', handleAllCategoryClick);
     onBtnCategoriesClick();
@@ -36,11 +36,19 @@ function renderMarkupList(genres) {
   list.insertAdjacentHTML('beforeend', markup);
 }
 
-// Головна ф-ція, де поставлено слухачі подій на кнопки списку категорії 
+// Головна ф-ція, де поставлено слухачі подій на кнопки списку категорії
 function onBtnCategoriesClick() {
-  const btnCategories = document.querySelectorAll('.genres-btn-js');
+  btnCategories = document.querySelectorAll('.genres-btn-js');
   btnCategories.forEach(btn => {
-    btn.addEventListener('click', handleCategoryClick);
+    btn.addEventListener('click', () => {
+      if (
+        btn.classList.contains('accent') &&
+        btn.classList.contains('genres-btn-js')
+      ) {
+        return;
+      }
+      handleCategoryClick(event);
+    });
   });
 }
 
@@ -50,22 +58,34 @@ function handleCategoryClick(event) {
   selectedCategory = event.target.textContent;
   divPage.innerHTML = '';
   fetchBooksByCategories(selectedCategory);
+  // Перевірка, яка додає або знімає клас accent
+  btnCategories.forEach(el => {
+    if (el.textContent !== selectedCategory) {
+      el.classList.remove('accent');
+    }
+    if (el.textContent === selectedCategory) {
+      el.classList.add('accent');
+    }
+  });
 }
 
-// Фу-ція описує логіку першої кнопки All categories в списку категорії. Очищається сторінка та 
+// Фу-ція описує логіку першої кнопки All categories в списку категорії. Очищається сторінка та
 // рендериться розмітка Best Sellers Books
 
 function handleAllCategoryClick() {
+  // Перевіряє чи є клас accent
+  if (
+    btnAllCategories.classList.contains('accent') &&
+    btnAllCategories.classList.contains('static-btn')
+  ) {
+    return;
+  }
+  btnAllCategories.classList.add('accent');
+  btnCategories.forEach(el => {
+    el.classList.remove('accent');
+  });
   divPage.innerHTML = '';
-      renderTopBooks();
-      // За логікою тут має блокуватися повторне натискання по кнопці, але це поганий код
-//   if (onclickBtn) {
-// return
-//   }
-//   divPage.innerHTML = '';
-//   renderTopBooks();
-//   onclickBtn = true;
-
+  renderTopBooks();
   if (btnAllCategories.classList.contains('accent')) {
     return;
   }
