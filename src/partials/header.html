@@ -1,5 +1,5 @@
-<header class="header">
-  <div class="header-container">
+<header class="header container">
+  <div class="header-container ">
     <nav class="navigation">
       <a href="/src/index.html">
         <svg class="logo">
@@ -12,7 +12,7 @@
       </a>
 
       <ul class="nav-list">
-        <li class="nav-item current">
+        <li class="nav-item">
           <a href="/src/index.html">Home</a>
         </li>
         <li class="nav-item">
@@ -28,10 +28,13 @@
       </ul>
     </nav>
 
-    <input type="checkbox" id="theme-switcher" />
-    <label for="theme-switcher"></label>
+    <div class="checkbox">
+      <input class="checkbox-input" type="checkbox" id="theme-switcher" />
+      <label class="checkbox-label" for="theme-switcher"> </label>
+    </div>
 
-    <button class="button-log" type="button"><span class="text-log">Sign up</span>
+    <button class="button-log" type="button">
+      <span class="text-log">Sign up</span>
       <svg class="icon-log" width="20" height="20">
         <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
       </svg>
@@ -48,37 +51,33 @@
       </svg>
     </button>
 
-       <button type="button" class="btn-menu-close js-close-menu" aria-label="close menu button">
-                    <svg class="icon-close" width="28" height="28">
-                        <use href="/src/svgsprite/symbol-defs.svg#icon-close"></use>
-                    </svg></button>
-
-     
-
-     <div class="menu-container js-open-menu" id="mobile-menu">
-            <nav class="nav-mobile">
-                  <ul class="nav-list-mobile ">
-        <li class="nav-item-mobile current">
-          <a href="/src/partials/home-page.html">Home</a>
-        </li>
-        <li class="nav-item-mobile">
-          <a href="/src/partials/shopping-list-content.html"
-            >Shopping list
-            <svg class="icon-shop-mobile" width="20" height="20">
-              <use
-                href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper "
-              ></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
-            </nav>
-
-             <button class="button-log-mobile" type="button"><span class="text-log-mobile">Sign up</span>
-      <svg class="icon-log-mobile" width="20" height="20">
-        <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+    <button type="button" class="btn-menu-close" aria-label="close menu button">
+      <svg class="icon-close" width="28" height="28">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-close"></use>
       </svg>
     </button>
-     </div>
   </div>
 </header>
+
+<!-- мобільне меню -->
+<div class="menu-container" id="mobile-menu">
+  <nav class="nav-mobile">
+    <ul class="nav-list-mobile">
+      <li class="nav-item-mobile .nav-item">
+        <a href="/src/partials/home-page.html">Home</a>
+      </li>
+      <li class="nav-item-mobile .nav-item">
+        <a href="/src/partials/shopping-list-content.html">Shopping list </a>
+        <svg class="icon-shop-mobile" width="20" height="20">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper "></use>
+        </svg>
+      </li>
+    </ul>
+  </nav>
+  <button class="button-log-mobile" type="button">
+    <span class="text-log-mobile">Log out</span>
+    <svg class="icon-log-mobile" width="20" height="20">
+      <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+    </svg>
+  </button>
+</div>
