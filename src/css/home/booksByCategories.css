@@ -1,12 +1,38 @@
 .unvisible {
-    display: none;
+  display: none;
 }
 .category-books-wrapper {
-    max-width: 100%
+  max-width: 100%;
 }
 .category-list {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .card-wrapper {
-    cursor: pointer;
+  cursor: pointer;
 }
+/* .title-category {
+    font-family: 'DM Sans';
+font-weight: 700;
+font-size: 32px;
+line-height: 1.19;
+
+
+letter-spacing: -0.04em;
+}
+.book-img {
+  width: 335px;
+  height: 485px;
+  border-radius: 8px;
+}
+@media screen and (min-width: 768px) {
+  .book-img {
+    width: 218px;
+    height: 316px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .book-img {
+    width: 180px;
+    height: 256px;
+  }
+} */
