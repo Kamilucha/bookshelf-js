@@ -5,7 +5,7 @@ import { renderTopBooks } from './topBooks';
 const list = document.querySelector('.list-js');
 export let selectedCategory = '';
 const btnAllCategories = document.querySelector('.static-btn');
-const div = document.querySelector('.books_container');
+const divPage = document.querySelector('.books_container');
 // let onclickBtn = false;
 const listGenres = new BooksAPIService();
 
@@ -48,20 +48,24 @@ function onBtnCategoriesClick() {
 // відповідно до обраної категорії
 function handleCategoryClick(event) {
   selectedCategory = event.target.textContent;
-  boxBooks.innerHTML = '';
+  divPage.innerHTML = '';
   fetchBooksByCategories(selectedCategory);
 }
 
 // Фу-ція описує логіку першої кнопки All categories в списку категорії. Очищається сторінка та 
 // рендериться розмітка Best Sellers Books
+
 function handleAllCategoryClick() {
-  boxBooks.innerHTML = '';
+  divPage.innerHTML = '';
       renderTopBooks();
       // За логікою тут має блокуватися повторне натискання по кнопці, але це поганий код
-  // if (!onclickBtn) {
-  //   renderTopBooks();
-  //   onclickBtn = true;
-  // }
+//   if (onclickBtn) {
+// return
+//   }
+//   divPage.innerHTML = '';
+//   renderTopBooks();
+//   onclickBtn = true;
+
   if (btnAllCategories.classList.contains('accent')) {
     return;
   }

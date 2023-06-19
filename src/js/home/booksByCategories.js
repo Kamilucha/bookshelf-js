@@ -3,7 +3,7 @@ import { selectedCategory } from './allCategoriesList';
 import renderModal from '../modal';
 
 export const boxBooks = document.querySelector('.category-books-wrapper');
-const divClean = document.querySelector('.books_container');
+const divPage = document.querySelector('.books_container');
 const btnAllCategories = document.querySelector('.static-btn');
 
 const booksByCategories = new BooksAPIService();
@@ -14,7 +14,7 @@ export async function fetchBooksByCategories(selectedCategory) {
   try {
     const data = await booksByCategories.getBooksByCategory(selectedCategory);
     btnAllCategories.classList.remove('accent')
-    divClean.innerHTML = '';
+    divPage.innerHTML = '';
     renderBaseMarkupCategory();
     renderMarkupCard(data);
     // onCardClick(data)
@@ -30,7 +30,7 @@ function renderBaseMarkupCategory() {
   <ul class='card_list category-list'></ul>
   </div>
   `;
-  boxBooks.insertAdjacentHTML('beforeend', markup);
+  divPage.insertAdjacentHTML('beforeend', markup);
 }
 
 // Ф-ція, що рендерить одну картку/книгу
