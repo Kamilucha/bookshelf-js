@@ -84,12 +84,10 @@
   }
 }
 
-.swiper-slide {
-  display: flex !important;
-  height: auto !important;
-  /* display: flex ;
-  height: auto ; */
-}
+.swiper-slide.support-slide {
+  display: flex;
+  height: auto;
+  }
 
 .icon-container {
   display: flex;
