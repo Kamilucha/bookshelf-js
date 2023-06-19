@@ -2,6 +2,7 @@
 .card_list {
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 .card {
