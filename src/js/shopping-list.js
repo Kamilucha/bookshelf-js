@@ -12,6 +12,9 @@ const SHOPPING_LIST_STORAGE_KEY = 'shoppingList';
 const shoppingList =
   JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
 
+let activePage = 1;
+const pageSize = 3;
+
 function renderShoppingList() {
   const shoppingListContainer = document.getElementById(
     'shoppingListContainer'
@@ -44,24 +47,6 @@ function renderBooks() {
     booksContainer.innerHTML = allBooksInShopList
       .map(({ _id, title, author, description, list_name, book_image }) => {
         return `<article class="shopping__card">
-        <article class="shopping__card">
-          <div class="grid-img">
-            <img class="shopping__card-img" src="${book_image}" alt="${title}" />
-          </div>
-
-          <div class="grid-title">
-            <h3 class="shopping__card-title">${title}</h3>
-            <p class="shopping__card-category">${list_name}</p>
-          </div>
-
-          <div class="grid-description">
-            <p class="shopping__card-description">${description}</p>
-          </div>
-
-          <div class="grid-author">
-            <p class="shopping__card-author">${author}</p>
-          </div>
-          
           <div class="shoplist-url">
             <ul class="shoplist-url-list">
               <li class="shoplist-url-item">
@@ -101,6 +86,25 @@ function renderBooks() {
       </div>
     `;
   }
+  const deleteButtons = document.querySelectorAll('.shopping-card-btn');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      const bookId = event.target.getAttribute('data-book-id');
+      deleteBook(bookId);
+      renderShoppingList();
+      renderBooks();
+    });
+  });
+}
+
+function deleteBook(id) {
+  const updatedShoppingList = shoppingList.filter(item => item._id !== id);
+  localStorage.setItem(
+    SHOPPING_LIST_STORAGE_KEY,
+    JSON.stringify(updatedShoppingList)
+  );
+  shoppingList.splice(0, shoppingList.length, ...updatedShoppingList);
+  renderBooks();
 }
 
 renderShoppingList();

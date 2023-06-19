@@ -1,7 +1,84 @@
-<header class="header">Header
-    <nav>
-        <a href="/src/shopping-list.html">shoppinglist</a>
-        <a href="/src/index.html">home</a>
+<header class="header">
+  <div class="header-container">
+    <nav class="navigation">
+      <a href="/src/index.html">
+        <svg class="logo">
+          <use
+            href="/src/svgsprite/symbol-defs.svg#icon-logo"
+            width="109"
+            height="28"
+          ></use>
+        </svg>
+      </a>
+
+      <ul class="nav-list">
+        <li class="nav-item current">
+          <a href="/src/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/src/shopping-list.html"
+            >Shopping list
+            <svg class="icon-shop" width="20" height="20">
+              <use
+                href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper"
+              ></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
-    
+
+    <input type="checkbox" id="theme-switcher" />
+    <label for="theme-switcher"></label>
+
+    <button class="button-log" type="button"><span class="text-log">Sign up</span>
+      <svg class="icon-log" width="20" height="20">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+      </svg>
+    </button>
+
+    <button
+      class="button-menu"
+      type="button"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <svg class="burger-svg" width="28" height="28">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-burger"></use>
+      </svg>
+    </button>
+
+       <button type="button" class="btn-menu-close js-close-menu" aria-label="close menu button">
+                    <svg class="icon-close" width="28" height="28">
+                        <use href="/src/svgsprite/symbol-defs.svg#icon-close"></use>
+                    </svg></button>
+
+     
+
+     <div class="menu-container js-open-menu" id="mobile-menu">
+            <nav class="nav-mobile">
+                  <ul class="nav-list-mobile ">
+        <li class="nav-item-mobile current">
+          <a href="/src/partials/home-page.html">Home</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="/src/partials/shopping-list-content.html"
+            >Shopping list
+            <svg class="icon-shop-mobile" width="20" height="20">
+              <use
+                href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper "
+              ></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+            </nav>
+
+             <button class="button-log-mobile" type="button"><span class="text-log-mobile">Sign up</span>
+      <svg class="icon-log-mobile" width="20" height="20">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+      </svg>
+    </button>
+     </div>
+  </div>
 </header>
