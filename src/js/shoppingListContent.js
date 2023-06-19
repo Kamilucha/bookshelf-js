@@ -1,7 +1,6 @@
-// Import Image, svg
 import getIconPath from './shopRefs';
+
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 
 const {
   appleBooksIconPath,
@@ -151,34 +150,31 @@ renderBooks(1);
 
 // Pagination
 if (shoppingList.length > 0) {
+  const container = document.getElementById('pagination');
   const options = {
     totalItems: shoppingList.length,
     itemsPerPage,
     visiblePages: 15,
     page: 1,
     centerAlign: false,
-    firstItemClassName: 'tui-first-child',
-    lastItemClassName: 'tui-last-child',
     template: {
       page: '<a href="#" class="tui-page-btn">{{page}}</a>',
       currentPage:
-        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+        '<strong class="tui-page-btn tui-is-selected current-page-button">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '<a href="#" class="tui-page-btn tui-{{type}} move-button">' +
+        '<span class="tui-ico-{{type}}"></span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '<span class="tui-page-btn tui-is-disabled tui-first tui-{{type}} disabled-move-button">' +
+        '<span class="tui-ico-{{type}}"></span>' +
         '</span>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-        '<span class="tui-ico-ellip">...</span>' +
-        '</a>',
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip more-button">{{type}}</a>',
     },
   };
 
-  const pagination = new Pagination('pagination', options);
+  const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', eventData => {
     const currentPage = eventData.page;
