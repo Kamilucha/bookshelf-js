@@ -41,8 +41,10 @@ function renderCard(card) {
     }
     cardEl.innerHTML = `
         <img class="book_image" src="${card.book_image}" alt="${card.title}">
-        <div class="book_title">${card.title}</div>
-        <div class="book_author">${card.author}</div>
+        <div class="book-info">
+        <p class="book_title">${card.title}</p>
+        <p class="book_author">${card.author}</p>
+      </div>
     `;
     return cardEl
 }
