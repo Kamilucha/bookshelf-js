@@ -1,5 +1,5 @@
 // Import Image, svg
-import getIconPath from './shop-refs';
+import getIconPath from './shopRefs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
