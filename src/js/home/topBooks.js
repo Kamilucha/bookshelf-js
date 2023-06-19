@@ -10,6 +10,7 @@ export async function renderTopBooks() {
   let topBooks = await bookApi.getTopBooks();
   loader.style.display = 'none';
   console.log(topBooks);
+  renderTitlePage()
   topBooks.forEach(group => {
     let books = group.books.slice(0,5).map(renderCard)
     let groupEl = document.createElement("div")
@@ -41,8 +42,18 @@ function renderCard(card) {
     }
     cardEl.innerHTML = `
         <img class="book_image" src="${card.book_image}" alt="${card.title}">
-        <div class="book_title">${card.title}</div>
-        <div class="book_author">${card.author}</div>
+        <div class="book-info">
+        <p class="book_title">${card.title}</p>
+        <p class="book_author">${card.author}</p>
+      </div>
     `;
     return cardEl
+}
+
+function renderTitlePage() {
+  const titlePage = 
+  `<h1 class="section-books-header">
+  Best Sellers <span class="section-books-header-span">Books</span>
+</h1>`
+booksContainer.insertAdjacentHTML('beforeend', titlePage)
 }
