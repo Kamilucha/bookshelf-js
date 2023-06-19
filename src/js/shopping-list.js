@@ -44,6 +44,24 @@ function renderBooks() {
     booksContainer.innerHTML = allBooksInShopList
       .map(({ _id, title, author, description, list_name, book_image }) => {
         return `<article class="shopping__card">
+        <article class="shopping__card">
+          <div class="grid-img">
+            <img class="shopping__card-img" src="${book_image}" alt="${title}" />
+          </div>
+
+          <div class="grid-title">
+            <h3 class="shopping__card-title">${title}</h3>
+            <p class="shopping__card-category">${list_name}</p>
+          </div>
+
+          <div class="grid-description">
+            <p class="shopping__card-description">${description}</p>
+          </div>
+
+          <div class="grid-author">
+            <p class="shopping__card-author">${author}</p>
+          </div>
+          
           <div class="shoplist-url">
             <ul class="shoplist-url-list">
               <li class="shoplist-url-item">
@@ -79,8 +97,6 @@ function renderBooks() {
       <p class="shop-card-empty-text">
         This page is empty, add some books and proceed to order.
       </p>
-      <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
-      </div>
       <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
       </div>
     `;
