@@ -1,32 +1,35 @@
 // посилання на елементи
-const btnBurgerMenu = document.querySelector(`.button-menu`) 
-const mobileMenu = document.querySelector(`.menu-container`) 
-const btnCloseMenu = document.querySelector(`.btn-menu-close`) 
-const navLink = document.querySelector(`.nav-list`)
+const btnOpenMenu = document.querySelector('.button-menu');
+const mobileMenu = document.querySelector('.menu-container');
+const btnCloseMenu = document.querySelector('.btn-menu-close');
 
+// додаємо обробника подій на кнопки бургера і закриття меню
+btnOpenMenu.addEventListener('click', toggleMenu);
+btnCloseMenu.addEventListener('click', toggleMenu);
 
-// додаємо обробника подій на кнопку бургера 
-btnBurgerMenu.addEventListener(`click`, onBtnBurgerClick) 
- 
- function onBtnBurgerClick() { 
-     mobileMenu.classList.add(`js-open-menu`) 
-     btnBurgerMenu.style.display.none; 
-     btnCloseMenu.style.display.block;
- 
-} 
- 
-// додаємо обробника подій на кнопку закриття меню
-btnCloseMenu.addEventListener(`click`, onBtnCloseMenuClick) 
- 
-function onBtnCloseMenuClick() { 
-    btnCloseMenu.classList.remove(`js-open-menu`) 
-    btnBurgerMenu.style.display.block; 
-     btnCloseMenu.style.display.none;
-} 
- 
-// додаємо обробника подій на посилання з навігаціі
-navLink.addEventListener(`click`, onNavLinkClick )
+function toggleMenu() {
+  mobileMenu.classList.toggle('js-open-menu');
+  if (mobileMenu.classList.contains('js-open-menu')) {
+    // btnOpenMenu.style.display.none;
+    // btnCloseMenu.style.display.block;
+  }
+}
+
+// отримаємо посилання з навігаціі і додаємо обробника подій
+const navigationLink = document.querySelectorAll('.nav-item');
+
+navigationLink.forEach(link => link.addEventListener('click', onNavLinkClick));
 
 function onNavLinkClick() {
-    navLink.classList.add(`active`)
+  navigationLink.classList.add('active');
+}
+
+
+
+// отримаємо посилання на чекбокс і додаємо обробника подій
+const checkboxLabel = document.querySelector('.checkbox-label')
+checkbox.addEventListener('click', onCheckboxClick)
+
+function onCheckboxClick() {
+    checkboxLabel.classList.toggle('active-check')
 }
