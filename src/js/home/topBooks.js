@@ -1,5 +1,6 @@
 import { BooksAPIService } from '../booksAPIService';
 import renderModal from '../modal'
+import fetchBooksByCategories from './booksByCategories'
 
 const loader = document.querySelector('.best-sellers-loader');
 
@@ -14,13 +15,13 @@ export async function renderTopBooks() {
   topBooks.forEach(group => {
     let books = group.books.slice(0,5).map(renderCard)
     let groupEl = document.createElement("div")
-    groupEl.className = "group"
+    groupEl.className = "book-group"
     groupEl.innerHTML = `
-        <div class="group_title">${group.list_name}</div>
+        <div class="book-group_title">${group.list_name}</div>
     `
 
     let card_list = document.createElement("div")
-    card_list.className = "card_list"
+    card_list.className = "book-card_list"
     card_list.append(...books)
 
     let seeMoreBtn = document.createElement("button")
@@ -31,11 +32,12 @@ export async function renderTopBooks() {
     booksContainer.append(groupEl)
   })
 }
+
 renderTopBooks();
 
 function renderCard(card) {
     let cardEl = document.createElement("div")
-    cardEl.className = "card";
+    cardEl.className = "book-card";
     
     cardEl.onclick = function() {
         renderModal(card)
@@ -53,7 +55,19 @@ function renderCard(card) {
 function renderTitlePage() {
   const titlePage = 
   `<h1 class="section-books-header">
-  Best Sellers <span class="section-books-header-span">Books</span>
+  Best Sellers <span class="section-books-header section-books-header-span">Books</span>
 </h1>`
 booksContainer.insertAdjacentHTML('beforeend', titlePage)
 }
+
+// function seeMoreFunction() {
+//   var seeMore = fetchBooksByCategories(selectedCategory);
+
+//   if (seeMoreBtn.isActive) {
+//     seeMoreBtn.innerHTML = "See more";
+//     seeMore.classList.add(isHidden) ;
+//   } else {
+//     seeMoreBtn.innerHTML = "See less";
+// seeMore.classList.remove(isHidden) ;
+//   }
+// }
