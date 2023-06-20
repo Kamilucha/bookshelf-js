@@ -32,6 +32,7 @@
     overflow-y: scroll;
 
     box-sizing: border-box;
+
 }
 
 .modal_body .close_btn{
@@ -143,13 +144,35 @@
     mix-blend-mode: luminosity;
 }
 
+.close_btn > svg:hover,
+.close_btn > svg:focus {
+    stroke: var(--header-bg-color-light);
+    fill: var(--header-bg-color-light);
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-color-light-theme);
+  color: var(--header-bg-color-light);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .modal_body .close_btn {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
+}
+
 
 @media screen and (min-width: 768px) {
     .modal_body {
         max-width: 579px;
         min-height: 465px;
         max-height: 501px;
-        position: initial;
+        position: relative;
     }
     .modal_image {
         max-width: 192px;
@@ -157,6 +180,12 @@
     }
     .modal_container{
         flex-wrap: nowrap;
+    }
+    .modal_body .close_btn {
+        position: fixed;
+        position: absolute;
+        top: 24px;
+        right: 24px;
     }
 
 }

@@ -86,7 +86,8 @@ export default function renderModal(card) {
 
   let shoppingListEl = document.createElement('button');
   shoppingListEl.className = 'btn';
-  modalBody.append(closeBtn, shoppingListEl);
+  modalBody.insertAdjacentElement("afterbegin", closeBtn);
+  modalBody.append(shoppingListEl);
   let currentBook = new ShoppingList(card, shoppingListEl);
   shoppingListEl.onclick = function () {
     currentBook.handleBook();
