@@ -9,18 +9,23 @@ import 'basiclightbox/src/styles/main.scss';
 
 import { refs } from './refs';
 
+// my 
+const body = document.querySelector('body');
+
 let instance = {};
 let isSignUp = false;
 
 const options = {
   handler: null,
   onShow(instance) {
+    body.style.overflow = "hidden";
     this.handler = closeModal.bind(instance);
     document.addEventListener('keydown', this.handler);
     document.addEventListener('keydown', this.handler);
   },
 
   onClose() {
+    body.style.overflow = "visible";
     document.removeEventListener('keydown', this.handler);
     refs.closeBtn.removeEventListener('click', handleClose);
   },
@@ -29,12 +34,16 @@ const options = {
 function onOpenModal(e) {
   isSignUp = false;
   instance = basicLightbox.create(
-    `<div class="modal_body">
-      <button class="close_btn" aria-label="Close modal">X</button>
+    `<div class="login-modal">
+      <button class="close_btn" aria-label="Close modal">
+        <svg class="login-icon-close">
+          <use href="../../svgsprite/symbol-defs.svg#icon-mail"></use>
+        </svg>
+      </button>
 
       <form class="form" name="logInForm">
         <div class="labels-wrapper">
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtEmail"
@@ -44,7 +53,7 @@ function onOpenModal(e) {
               data-rules="bail|required|email"
           /></label>
 
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtPsw"
@@ -57,18 +66,17 @@ function onOpenModal(e) {
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignin" type="submit">
-          Sign-in
+          Sign up
         </button>
       </form>
-
-      <div class="switch-modal-btns">
-  <button class="modal__btn js-sign-up-btn" aria-label="Switch to sign up">
-    sign up
-  </button>
-  <button class="modal__btn accent js-sign-in-btn" aria-label="Switch to sign in">
-    sign in
-  </button>
-</div>
+        <div class="switch-modal-btns">
+          <button class="modal__btn js-sign-up-btn" aria-label="Switch to sign up">
+            sign up
+          </button>
+          <button class="modal__btn login-accent js-sign-in-btn" aria-label="Switch to sign in">
+            sign in
+          </button>
+        </div>
     </div>`,
     options
   );
@@ -100,7 +108,7 @@ function handleSwitch(e) {
     refs.form.setAttribute('name', 'signUpForm');
     refs.form.innerHTML = `
         <div class="labels-wrapper">
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtName"
@@ -110,7 +118,7 @@ function handleSwitch(e) {
               title="Example &quot;John&quot;"
               data-rules="bail|required|alpha|between:2,32|x-regex:firstCapital"
           /></label>
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtEmail"
@@ -120,7 +128,7 @@ function handleSwitch(e) {
               data-rules="bail|required|email"
           /></label>
 
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtPsw"
@@ -136,8 +144,8 @@ function handleSwitch(e) {
           Sign-up
         </button>
       `;
-    e.target.classList.add('accent');
-    e.target.nextElementSibling.classList.remove('accent');
+    e.target.classList.add('login-accent');
+    e.target.nextElementSibling.classList.remove('login-accent');
     isSignUp = true;
   } else if (button.includes('js-sign-in-btn')) {
     // Знімає слухачі для підказок при введенні в поля реєстрації.
@@ -145,7 +153,7 @@ function handleSwitch(e) {
     refs.form.setAttribute('name', 'logInForm');
     refs.form.innerHTML = `
         <div class="labels-wrapper">
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtEmail"
@@ -155,7 +163,7 @@ function handleSwitch(e) {
               data-rules="bail|required"
           /></label>
 
-          <label>
+          <label class="label">
             <input
               class="input-field"
               id="txtPsw"
@@ -171,8 +179,8 @@ function handleSwitch(e) {
           Sign-in
         </button>
       `;
-    e.target.classList.add('accent');
-    e.target.previousElementSibling.classList.remove('accent');
+    e.target.classList.add('login-accent');
+    e.target.previousElementSibling.classList.remove('login-accent');
     isSignUp = false;
   }
 }
