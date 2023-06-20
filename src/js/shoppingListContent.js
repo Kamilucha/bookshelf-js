@@ -3,6 +3,7 @@ import Pagination from '/node_modules/tui-pagination';
 
 const booksContainer = document.getElementById('booksContainer');
 let pagination = null;
+
 if (booksContainer) {
   renderBooks(1, booksContainer);
 }
@@ -102,7 +103,6 @@ function renderBooks(page, booksContainer) {
         deleteBook(bookId);
       });
     });
-
     showPagination();
   }
 
@@ -113,21 +113,16 @@ function renderBooks(page, booksContainer) {
       JSON.stringify(updatedShoppingList)
     );
     shoppingList = updatedShoppingList;
-
+    updatePagination();
     const currentPage = pagination.getCurrentPage();
     const totalPages = Math.ceil(shoppingList.length / itemsPerPage);
 
     if (currentPage > totalPages) {
       pagination.movePageTo(totalPages);
     }
-
-    renderBooks(currentPage, booksContainer);
-
-    updatePagination(totalPages);
   }
 
   function updatePagination(totalPages) {
-    const currentPage = pagination.getCurrentPage();
     const paginationList = document.querySelector('.tui-pagination');
     const paginationNumbers = paginationList.querySelectorAll('.tui-page-btn');
 
@@ -139,7 +134,7 @@ function renderBooks(page, booksContainer) {
       }
     });
 
-    pagination.reset(totalPages);
+    // pagination.reset(totalPages);
   }
 
   function showPagination() {
