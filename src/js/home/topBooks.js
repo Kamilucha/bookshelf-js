@@ -1,6 +1,7 @@
 import { BooksAPIService } from '../booksAPIService';
-import renderModal from '../modal'
-import fetchBooksByCategories from './booksByCategories'
+import renderModal from '../modal';
+import { fetchBooksByCategories } from './booksByCategories';
+
 
 const loader = document.querySelector('.best-sellers-loader');
 
