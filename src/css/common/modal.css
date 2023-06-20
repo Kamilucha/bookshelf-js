@@ -144,10 +144,32 @@
     mix-blend-mode: luminosity;
 }
 
-.close_btn > svg:hover,
-.close_btn > svg:focus {
-    stroke: var(--header-bg-color-light);
-    fill: var(--header-bg-color-light);
+.close_btn{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+
+  transition: background 0.2s ease-out;
+}
+.icon_close{
+    stroke: var(--text-logo-bookshelf-light);
+    fill: var(--text-logo-bookshelf-light);
+}
+
+.icon_close:hover,
+.icon_close:focus {
+    stroke: var(--accent-color-light-theme);
+    fill: var(--accent-color-light-theme);
     cursor: pointer;
 }
 
@@ -161,8 +183,8 @@
 @media screen and (max-width: 768px) {
     .modal_body .close_btn {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 12px;
+        right: 12px;
     }
 }
 
