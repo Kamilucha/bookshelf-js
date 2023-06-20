@@ -148,6 +148,8 @@
     .modal_body {
         max-width: 579px;
         min-height: 465px;
+        max-height: 501px;
+        position: initial;
     }
     .modal_image {
         max-width: 192px;
