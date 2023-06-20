@@ -18,6 +18,7 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
     "swiper": "^9.4.1",
     "tui-pagination": "^3.4.1"

@@ -1,67 +1,71 @@
 import getIconPath from './shopRefs';
+import Pagination from '/node_modules/tui-pagination';
+document.addEventListener('DOMContentLoaded', function () {
+  const {
+    appleBooksIconPath,
+    bookShopIconPath,
+    amazonIconPath,
+    svgTrashIcon,
+    emptyListStubImage,
+  } = getIconPath();
 
-import Pagination from 'tui-pagination';
+  const SHOPPING_LIST_STORAGE_KEY = 'shoppingList';
+  let shoppingList =
+    JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
+  const itemsPerPage = 3;
 
-const {
-  appleBooksIconPath,
-  bookShopIconPath,
-  amazonIconPath,
-  svgTrashIcon,
-  emptyListStubImage,
-} = getIconPath();
-
-const SHOPPING_LIST_STORAGE_KEY = 'shoppingList';
-let shoppingList =
-  JSON.parse(localStorage.getItem(SHOPPING_LIST_STORAGE_KEY)) || [];
-const itemsPerPage = 3;
-
-function renderShoppingList() {
-  const shoppingListContainer = document.getElementById(
-    'shoppingListContainer'
-  );
-  shoppingListContainer.innerHTML = '';
-
-  if (shoppingList.length === 0) {
-    const emptyMessage = document.createElement('div');
-    emptyMessage.textContent =
-      'This page is empty, add some books and proceed to order.';
-    shoppingListContainer.appendChild(emptyMessage);
-    hidePagination();
-  } else {
-    const list = document.createElement('ul');
-    shoppingListContainer.appendChild(list);
-
-    shoppingList.forEach(item => {
-      const listItem = document.createElement('li');
-      listItem.textContent = item.title;
-
-      list.appendChild(listItem);
-    });
-    showPagination();
-  }
-  renderBooks(1);
-}
-
-function renderBooks(page) {
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const booksOnPage = shoppingList.slice(startIndex, endIndex);
   const booksContainer = document.getElementById('shoppingListContainer');
+  if (booksContainer) {
+    renderBooks(1);
+  }
 
-  if (booksOnPage.length > 0) {
-    booksContainer.innerHTML = booksOnPage
-      .map(
-        ({
-          _id,
-          title,
-          author,
-          description,
-          list_name,
-          book_image,
-          amazon_product_url,
-          buy_links: [apple, bookshop],
-        }) => {
-          return `<article class="shopping__card">
+  function renderShoppingList(shoppingListContainer) {
+    if (!shoppingListContainer) {
+      return;
+    }
+
+    shoppingListContainer.innerHTML = '';
+
+    if (shoppingList.length === 0) {
+      const emptyMessage = document.createElement('div');
+      emptyMessage.textContent =
+        'This page is empty, add some books and proceed to order.';
+      shoppingListContainer.appendChild(emptyMessage);
+      hidePagination();
+    } else {
+      const list = document.createElement('ul');
+      shoppingListContainer.appendChild(list);
+
+      shoppingList.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item.title;
+
+        list.appendChild(listItem);
+      });
+      showPagination();
+    }
+    renderBooks(1);
+  }
+
+  function renderBooks(page) {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const booksOnPage = shoppingList.slice(startIndex, endIndex);
+
+    if (booksOnPage.length > 0) {
+      booksContainer.innerHTML = booksOnPage
+        .map(
+          ({
+            _id,
+            title,
+            author,
+            description,
+            list_name,
+            book_image,
+            amazon_product_url,
+            buy_links: [apple, bookshop],
+          }) => {
+            return `<article class="shopping__card">
           <div class="about-img">
             <img class="shopping-card-img" src="${book_image}" alt="${title}" />
           </div>
@@ -101,18 +105,18 @@ function renderBooks(page) {
           </button>
         </article>
         `;
-        }
-      )
-      .join('');
-    const deleteButtons = document.querySelectorAll('.shopping-card-btn');
-    deleteButtons.forEach(button => {
-      button.addEventListener('click', event => {
-        const bookId = event.target.getAttribute('data-book-id');
-        deleteBook(bookId);
+          }
+        )
+        .join('');
+      const deleteButtons = document.querySelectorAll('.shopping-card-btn');
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', event => {
+          const bookId = event.target.getAttribute('data-book-id');
+          deleteBook(bookId);
+        });
       });
-    });
-  } else {
-    booksContainer.innerHTML = `
+    } else {
+      booksContainer.innerHTML = `
         <div class="shop-card-empty">
           <p class="shop-card-empty-text">
             This page is empty, add some books and proceed to order.
@@ -120,36 +124,68 @@ function renderBooks(page) {
           <img class="shop-card-empty-picture" src="${emptyListStubImage}" alt="Shop is Empty">
         </div>
       `;
-    hidePagination();
+      hidePagination();
+    }
   }
-}
 
-function deleteBook(id) {
-  const updatedShoppingList = shoppingList.filter(item => item._id !== id);
-  localStorage.setItem(
-    SHOPPING_LIST_STORAGE_KEY,
-    JSON.stringify(updatedShoppingList)
-  );
-  shoppingList = updatedShoppingList;
+  function deleteBook(id) {
+    const updatedShoppingList = shoppingList.filter(item => item._id !== id);
+    localStorage.setItem(
+      SHOPPING_LIST_STORAGE_KEY,
+      JSON.stringify(updatedShoppingList)
+    );
+    shoppingList = updatedShoppingList;
+
+    renderShoppingList();
+
+    const currentPage = pagination.getCurrentPage();
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const booksOnPage = shoppingList.slice(startIndex, endIndex);
+
+    if (booksOnPage.length === 0 && currentPage > 1) {
+      pagination.movePageTo(currentPage - 1);
+      updatePagination();
+    } else {
+      renderBooks(currentPage);
+    }
+  }
+
+  function updatePagination() {
+    const totalPages = Math.ceil(shoppingList.length / itemsPerPage);
+    const currentPage = pagination.getCurrentPage();
+
+    if (currentPage > totalPages) {
+      pagination.movePageTo(totalPages);
+    }
+
+    const paginationList = document.querySelector('.tui-pagination');
+    const paginationNumbers = paginationList.querySelectorAll('.tui-page-btn');
+
+    paginationNumbers.forEach(number => {
+      const pageNumber = parseInt(number.innerText);
+
+      if (pageNumber > totalPages) {
+        number.remove();
+      }
+    });
+  }
+
+  function showPagination() {
+    const paginationElement = document.getElementById('pagination');
+    paginationElement.style.display = 'block';
+  }
+
+  function hidePagination() {
+    const paginationElement = document.getElementById('pagination');
+    paginationElement.style.display = 'none';
+  }
+
   renderShoppingList();
-  renderBooks(pagination.getCurrentPage());
-}
+  renderBooks(1);
 
-function showPagination() {
-  const paginationElement = document.getElementById('pagination');
-  paginationElement.style.display = 'block';
-}
-
-function hidePagination() {
-  const paginationElement = document.getElementById('pagination');
-  paginationElement.style.display = 'none';
-}
-
-renderShoppingList();
-renderBooks(1);
-
-// Pagination IF?????
-if (shoppingList.length > 0) {
+  // Pagination
+  shoppingList.length > 0;
   const container = document.getElementById('pagination');
   const options = {
     totalItems: shoppingList.length,
@@ -178,6 +214,15 @@ if (shoppingList.length > 0) {
 
   pagination.on('afterMove', eventData => {
     const currentPage = eventData.page;
-    renderBooks(currentPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const booksOnPage = shoppingList.slice(startIndex, endIndex);
+
+    if (booksOnPage.length === 0 && currentPage > 1) {
+      pagination.movePageTo(currentPage - 1);
+    } else {
+      renderBooks(currentPage);
+      updatePagination();
+    }
   });
-}
+});
