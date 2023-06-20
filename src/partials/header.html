@@ -12,7 +12,7 @@
       </a>
 
       <ul class="nav-list">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a href="/src/index.html">Home</a>
         </li>
         <li class="nav-item" data-is-auth="false">
@@ -40,12 +40,22 @@
           <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
         </svg>
       </button>
-      <button class="js-open-modal js-greeting" type="button"></button>
-      <button class="js-logOut" type="button">Log Out</button>
+      <button class="button-user js-open-modal js-greeting" type="button">
+        <span class="text-log-user">Stephen</span>
+        <svg class="icon-log-user" width="20" height="20">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-login-down"></use>
+        </svg>
+      </button>
+      <button class="button-log-out js-logOut" type="button">
+        <span class="text-log-out">Log out</span>
+        <svg class="icon-log" width="20" height="20">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+        </svg>
+      </button>
     </div>
 
     <button
-      class="button-menu"
+      class="button-menu js-open-menu"
       type="button"
       aria-controls="mobile-menu"
       aria-expanded="false"
@@ -55,7 +65,7 @@
       </svg>
     </button>
 
-    <button type="button" class="btn-menu-close" aria-label="close menu button">
+    <button type="button" class="btn-menu-close js-close-menu" aria-label="close menu button">
       <svg class="icon-close" width="28" height="28">
         <use href="/src/svgsprite/symbol-defs.svg#icon-close"></use>
       </svg>
@@ -64,10 +74,13 @@
 </header>
 
 <!-- мобільне меню -->
-<div class="menu-container" id="mobile-menu">
+<div class="menu-container js-menu-container" id="mobile-menu">
+     <button class="button-user button-mobile js-open-modal js-greeting" type="button">
+        <span class="text-log-user">Stephen</span>
+      </button>
   <nav class="nav-mobile">
     <ul class="nav-list-mobile">
-      <li class="nav-item-mobile .nav-item">
+      <li class="nav-item-mobile .nav-item active">
         <a href="/src/partials/home-page.html">Home</a>
       </li>
       <li class="nav-item-mobile .nav-item">
@@ -78,7 +91,7 @@
       </li>
     </ul>
   </nav>
-  <button class="button-log-mobile" type="button">
+  <button class="button-log-out-mobile" type="button">
     <span class="text-log-mobile">Log out</span>
     <svg class="icon-log-mobile" width="20" height="20">
       <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>

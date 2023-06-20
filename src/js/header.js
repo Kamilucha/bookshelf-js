@@ -1,19 +1,29 @@
-// посилання на елементи
-const btnOpenMenu = document.querySelector('.button-menu');
-const mobileMenu = document.querySelector('.menu-container');
-const btnCloseMenu = document.querySelector('.btn-menu-close');
+(() => {
+  const mobileMenu = document.querySelector('.js-menu-container');
+  const openMenuBtn = document.querySelector('.js-open-menu');
+  const closeMenuBtn = document.querySelector('.js-close-menu');
 
-// додаємо обробника подій на кнопки бургера і закриття меню
-btnOpenMenu.addEventListener('click', toggleMenu);
-btnCloseMenu.addEventListener('click', toggleMenu);
+  const toggleMenu = () => {
+    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
+    mobileMenu.classList.toggle('is-open');
 
-function toggleMenu() {
-  mobileMenu.classList.toggle('js-open-menu');
-  if (mobileMenu.classList.contains('js-open-menu')) {
-    // btnOpenMenu.style.display.none;
-    // btnCloseMenu.style.display.block;
-  }
-}
+    // const scrollLockMethod = !isMenuOpen ? 'disableBodyScroll' : 'enableBodyScroll';
+    // bodyScrollLock[scrollLockMethod](document.body);
+  };
+
+  openMenuBtn.addEventListener('click', toggleMenu);
+  closeMenuBtn.addEventListener('click', toggleMenu);
+
+  // Close the mobile menu on wider screens if the device orientation changes
+  window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+    if (!e.matches) return;
+    mobileMenu.classList.remove('is-open');
+    openMenuBtn.setAttribute('aria-expanded', false);
+    bodyScrollLock.enableBodyScroll(document.body);
+  });
+})();
+
 
 // отримаємо посилання з навігаціі і додаємо обробника подій
 const navigationLink = document.querySelectorAll('.nav-item');
@@ -24,12 +34,3 @@ function onNavLinkClick() {
   navigationLink.classList.add('active');
 }
 
-
-
-// отримаємо посилання на чекбокс і додаємо обробника подій
-const checkboxLabel = document.querySelector('.checkbox-label')
-checkbox.addEventListener('click', onCheckboxClick)
-
-function onCheckboxClick() {
-    checkboxLabel.classList.toggle('active-check')
-}
