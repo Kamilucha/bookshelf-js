@@ -135,14 +135,18 @@ a {
     stroke: var(--primary-text-color-light-theme);
   }
 
-  .btn-menu-close {
-    position: absolute;
+  .active_btn{
+background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
+  position: absolute;
     display: none;
     stroke: var(--primary-text-color-light-theme);
     background-color: transparent;
-    top: 20px;
+    top: 17px;
     right: 20px;
   }
+
+
+
 
   /* стилі для мобільного меню */
   .menu-container {
