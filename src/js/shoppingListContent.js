@@ -65,13 +65,15 @@ function renderBooks(page) {
           <div class="about-img">
             <img class="shopping-card-img" src="${book_image}" alt="${title}" />
           </div>
-          <div class="about-title">
+          <div class="about-content">
+              <div class="about-title">
             <h3 class="shopping-card-title">${title}</h3>
             <p class="shopping-card-category">${list_name}</p>
           </div>
           <div class="about-description">
             <p class="shopping-card-description">${description}</p>
           </div>
+          <div class="about-autor-url">
           <div class="about-author">
             <p class="shopping-card-author">${author}</p>
           </div>
@@ -93,7 +95,9 @@ function renderBooks(page) {
                 </a>
               </li>
             </ul>
-          </div>
+          </div></div>
+          
+          <div>
           <button class="shopping-card-btn" type="button" data-book-id="${_id}" aria-label="Remove book from shopping list">
             <svg class="icon-trash" data-book-id="${_id}" width="17" height="17">
               <use href="${svgTrashIcon}#icon-trash"></use>
