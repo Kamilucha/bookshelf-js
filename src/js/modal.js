@@ -1,7 +1,11 @@
 import ShoppingList from './ShoppingList';
+import {
+  addBookData,
+  removeBookData,
+} from './authAndDataProcessing/firebaseService';
 
 export default function renderModal(card) {
-  document.body.style.overflow = 'hidden'
+  document.body.style.overflow = 'hidden';
 
   let modalBackground = document.createElement('div');
   modalBackground.className = 'modal_background';
@@ -50,7 +54,7 @@ export default function renderModal(card) {
   function closeHandler() {
     modalBackground.remove();
     cleanEventListeners();
-    document.body.removeAttribute('style')
+    document.body.removeAttribute('style');
   }
 
   function escapeHandler(event) {
@@ -67,10 +71,19 @@ export default function renderModal(card) {
 
   let shoppingListEl = document.createElement('button');
   shoppingListEl.className = 'btn';
+  shoppingListEl.type = 'button';
+  shoppingListEl.setAttribute('data-book-id', card._id);
+  shoppingListEl.setAttribute('data-is-auth', 'false');
   modalBody.append(closeBtn, shoppingListEl);
   let currentBook = new ShoppingList(card, shoppingListEl);
-  shoppingListEl.onclick = function () {
+  shoppingListEl.onclick = () => {
     currentBook.handleBook();
+    console.log(shoppingListEl.getAttribute('data-action'));
+    if (shoppingListEl.getAttribute('data-action') === 'toAdd') {
+      addBookData(card);
+    } else if (shoppingListEl.getAttribute('data-action') === 'toRemove') {
+      removeBookData(card);
+    }
   };
 
   document.addEventListener('keydown', escapeHandler);
