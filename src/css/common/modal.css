@@ -10,12 +10,13 @@
     align-items: center;
     z-index: 2;
     width: 100vw;
+    overflow-y: scroll;
 
 }
 
 .modal_body{
     min-width: 280px;
-    min-height: 465px;
+    min-height: 762px;
 
     width: calc(100% - 40px);
     max-width: 335px;
@@ -24,8 +25,11 @@
     border: 2px solid #111111;
     border-radius: 18px;
 
-    position: relative;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     padding: 40px;
+    overflow-y: scroll;
 
     box-sizing: border-box;
 }
@@ -132,12 +136,18 @@
 .modal_links{
     display: flex;
     gap: 20px;
+    position: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    mix-blend-mode: luminosity;
 }
 
 
 @media screen and (min-width: 768px) {
     .modal_body {
         max-width: 579px;
+        min-height: 465px;
     }
     .modal_image {
         max-width: 192px;
