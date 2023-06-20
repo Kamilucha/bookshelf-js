@@ -10,7 +10,6 @@ let booksContainer = document.querySelector('.books_container');
 export async function renderTopBooks() {
   let topBooks = await bookApi.getTopBooks();
   loader.style.display = 'none';
-  console.log(topBooks);
   renderTitlePage()
   if(topBooks.length === 0) {
     alert(`Sorry, but no books on the all categories were found. 
@@ -79,14 +78,27 @@ function renderTitlePage() {
 booksContainer.insertAdjacentHTML('beforeend', titlePage)
 }
 
-// function seeMoreFunction() {
-//   var seeMore = fetchBooksByCategories(selectedCategory);
 
-//   if (seeMoreBtn.isActive) {
-//     seeMoreBtn.innerHTML = "See more";
-//     seeMore.classList.add(isHidden) ;
-//   } else {
-//     seeMoreBtn.innerHTML = "See less";
-// seeMore.classList.remove(isHidden) ;
-//   }
-// }
+const btnClicked = false;
+
+const seeMoreBtn = document.querySelectorAll('.btn-main').forEach(event => {
+  let id = event.getAttribute('id');
+  event.addEventListener('click', function () {
+    btnClicked = true;
+
+const seeMoreSection = fetchBooksByCategories();
+    seeMoreSection.forEach(group => {
+      let newBooks = group.books.slice(6, 11).map(renderCard);
+      return newBooks;
+    });
+
+    if (btnClicked) {
+    seeMoreBtn.innerHTML = "See less";
+      seeMoreSection.classList.remove(isHidden);
+    }
+    else {
+    seeMoreBtn.innerHTML = "See more";
+    seeMoreSection.classList.add(isHidden);
+    }
+      } );
+});

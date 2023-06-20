@@ -23,6 +23,8 @@
 
 .book-group {
   position: relative;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 94px;
   /* max-height: 625px;
         overflow: hidden; */
@@ -43,8 +45,8 @@
 
 .book-card_list {
   display: flex;
-  gap: 224px;
-  width: 500%;
+  /* gap: 224px;
+  width: 500%; */
 }
 
 .book-card {
@@ -92,6 +94,12 @@
     white-space: nowrap;
 }
 
+@media screen and (max-width: 768px) {
+.book-card:not(:first-child) {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 768px) {
   .books_container {
     margin-left: 32px;
@@ -112,6 +120,7 @@
     height: 366px;
   }
 
+
   .book_image {
     width: 218px;
     height: 316px;
@@ -123,6 +132,10 @@
     gap: 25px;
     width: 500%;
   }
+
+ .book-card:nth-child(n + 4) {
+     display: none;
+ }
 }
 
 @media screen and (min-width: 1440px) {
