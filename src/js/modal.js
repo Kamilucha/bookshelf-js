@@ -61,7 +61,7 @@ export default function renderModal(card) {
         `;
   let closeBtn = document.createElement('button');
   closeBtn.className = 'close_btn';
-  closeBtn.innerHTML = `<svg class="icon-trash" width="17" height="17">
+  closeBtn.innerHTML = `<svg class="icon_close" width="24" height="24">
   <use href="${svgTrashIcon}#icon-close"></use></svg>`;
   closeBtn.addEventListener('click', closeHandler);
 

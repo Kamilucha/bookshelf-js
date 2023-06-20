@@ -59,7 +59,7 @@ function renderCard(card) {
       </div>
     `;
     cardEl.append(quickView)
-    quickView.onclick = function() {
+    cardEl.onclick = function() {
       renderModal(card)
   }
 

@@ -148,6 +148,11 @@
 .quick_view {
     display: none;
 
+    
+}
+
+@media screen and (min-width: 1024px){
+  .quick_view {
     position: absolute;
     width: 180px;
     height: 70px;
@@ -156,9 +161,17 @@
 
     background: #EAC645;
     border-radius: 0px 0px 8px 8px;
-}
-
-.book-card:hover>.quick_view{
+  }
+  .book-card:hover>.quick_view{
     display: block;
     cursor: pointer;
+}
+}
+
+@media screen and (max-width: 1024px){
+  
+  .book-card:hover,
+  .book-card:focus{
+    cursor: pointer;
+}
 }

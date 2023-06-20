@@ -55,7 +55,7 @@
         width: 218px;
     }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
     .empty_img{
         background-image: url('../images/pic-books/s-pic-book.svg');
         height: 256px;
@@ -63,3 +63,7 @@
     }
 }
 
+/* @media screen and (max-width: 1024px) {
+    .quick_view{
+    overflow:hidden
+}} */
