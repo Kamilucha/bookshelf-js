@@ -13,3 +13,5 @@ import './js/shoppingListContent';
 import './js/home/booksByCategories';
 
 import './js/header';
+import './js/theme-switcher';
+import './js/theme-switcher'

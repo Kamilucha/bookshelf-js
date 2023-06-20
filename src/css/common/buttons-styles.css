@@ -1,9 +1,8 @@
 /* see more button */
 
 .btn-main{
-position: absolute;
-bottom: -54px;
-left: 231px;
+align-items: left;
+margin-left: auto;
 
     padding: 14px 28px;
     
@@ -28,19 +27,6 @@ left: 231px;
     color: var(--header-bg-color-light);
 }
 
-@media screen and (min-width: 768px) and (max-width: 1440px) {
-.btn-main {
-        bottom: -66px;
-left: 580px;
-    }
-}
-
-@media screen and (min-width: 1440px)  {
-.btn-main {
-        bottom: -78px;
-left: 872px;
-    }
-}
 /* shopping list button */
 
 

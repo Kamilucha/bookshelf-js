@@ -8,8 +8,8 @@ const {
   appleBooksIconPath,
   bookShopIconPath,
   amazonIconPath,
+  svgTrashIcon
 } = getIconPath();
-const iconPaths = getIconPath();
 
 export default function renderModal(card) {
   document.body.style.overflow = 'hidden';
@@ -61,7 +61,8 @@ export default function renderModal(card) {
         `;
   let closeBtn = document.createElement('button');
   closeBtn.className = 'close_btn';
-  closeBtn.innerHTML = '<svg class="modal_close_icon" width="24" height="24"><use href="../svgsprite/symbol-defs.svg#icon-close"></use></svg>';
+  closeBtn.innerHTML = `<svg class="icon_close" width="24" height="24">
+  <use href="${svgTrashIcon}#icon-close"></use></svg>`;
   closeBtn.addEventListener('click', closeHandler);
 
   modalBackground.addEventListener('click', closeHandler);

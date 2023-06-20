@@ -1,6 +1,7 @@
 import { BooksAPIService } from '../booksAPIService';
-import renderModal from '../modal'
-import fetchBooksByCategories from './booksByCategories'
+import renderModal from '../modal';
+import { fetchBooksByCategories } from './booksByCategories';
+
 
 const loader = document.querySelector('.best-sellers-loader');
 
@@ -10,8 +11,12 @@ let booksContainer = document.querySelector('.books_container');
 export async function renderTopBooks() {
   let topBooks = await bookApi.getTopBooks();
   loader.style.display = 'none';
-  console.log(topBooks);
   renderTitlePage()
+  if(topBooks.length === 0) {
+    alert(`Sorry, but no books on the all categories were found. 
+    Please choose another category.`)
+    return
+  }
   topBooks.forEach(group => {
     let books = group.books.slice(0,5).map(renderCard)
     let groupEl = document.createElement("div")
@@ -38,17 +43,31 @@ renderTopBooks();
 function renderCard(card) {
     let cardEl = document.createElement("div")
     cardEl.className = "book-card";
+
+    let quickView = document.createElement("button")
+    quickView.className = "quick_view"
+    quickView.textContent = "QUICK VIEW"
     
-    cardEl.onclick = function() {
-        renderModal(card)
+    function renderImg(card) {
+      if(card.book_image) {
+        return `<img class="book_image" src="${card.book_image}" alt="${card.title}"></img>`
+      } else {
+        return `<div class="empty_img"></div>`
+      }
     }
+
     cardEl.innerHTML = `
-        <img class="book_image" src="${card.book_image}" alt="${card.title}">
+        ${renderImg(card)}
         <div class="book-info">
         <p class="book_title">${card.title}</p>
         <p class="book_author">${card.author}</p>
       </div>
     `;
+    cardEl.append(quickView)
+    cardEl.onclick = function() {
+      renderModal(card)
+  }
+
     return cardEl
 }
 
@@ -60,14 +79,27 @@ function renderTitlePage() {
 booksContainer.insertAdjacentHTML('beforeend', titlePage)
 }
 
-// function seeMoreFunction() {
-//   var seeMore = fetchBooksByCategories(selectedCategory);
 
-//   if (seeMoreBtn.isActive) {
-//     seeMoreBtn.innerHTML = "See more";
-//     seeMore.classList.add(isHidden) ;
-//   } else {
-//     seeMoreBtn.innerHTML = "See less";
-// seeMore.classList.remove(isHidden) ;
-//   }
-// }
+const btnClicked = false;
+
+const seeMoreBtn = document.querySelectorAll('.btn-main').forEach(event => {
+  let id = event.getAttribute('id');
+  event.addEventListener('click', function () {
+    btnClicked = true;
+
+const seeMoreSection = fetchBooksByCategories();
+    seeMoreSection.forEach(group => {
+      let newBooks = group.books.slice(6, 11).map(renderCard);
+      return newBooks;
+    });
+
+    if (btnClicked) {
+    seeMoreBtn.innerHTML = "See less";
+      seeMoreSection.classList.remove(isHidden);
+    }
+    else {
+    seeMoreBtn.innerHTML = "See more";
+    seeMoreSection.classList.add(isHidden);
+    }
+      } );
+});

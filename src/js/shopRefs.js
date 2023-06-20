@@ -20,5 +20,7 @@ export default function () {
 
     // SVG
     svgTrashIcon: new URL('../svgsprite/symbol-defs.svg#icon-trash', import.meta.url),
+
+    svgClose: new URL('../svgsprite/symbol-defs.svg#icon-close', import.meta.url),
   };
 }
