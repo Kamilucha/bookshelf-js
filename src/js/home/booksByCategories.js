@@ -6,12 +6,15 @@ export const boxBooks = document.querySelector('.category-books-wrapper');
 const divPage = document.querySelector('.books_container');
 const btnAllCategories = document.querySelector('.static-btn');
 
+const loader = document.querySelector('.best-sellers-loader')
+
 const booksByCategories = new BooksAPIService();
 
 // Ф-ція, яка експортується до AllCategoriesList.js та отримує з бекенду книги за обраною категорією
 // Тут же викликаються ф-ції для рендерингу розмітки
 export async function fetchBooksByCategories(selectedCategory) {
   try {
+    loader.style.display = 'block';
     const data = await booksByCategories.getBooksByCategory(selectedCategory);
     btnAllCategories.classList.remove('accent')
     divPage.innerHTML = '';
@@ -21,6 +24,7 @@ export async function fetchBooksByCategories(selectedCategory) {
       return
     }
     renderBaseMarkupCategory();
+    loader.style.display = 'none';
     renderMarkupCard(data);
     onCardClick(data)
   } catch (error) {
