@@ -63,7 +63,7 @@ function renderMarkupCard(bookArr) {
       li.onclick = function() {
         renderModal(card)
       }
-      li.className = "book-card"
+      li.classList.add("book-card")
 
       let quickView = document.createElement("button")
       quickView.className = "quick_view"
