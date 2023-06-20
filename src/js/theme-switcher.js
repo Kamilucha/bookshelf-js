@@ -28,6 +28,7 @@
 //   }
 // }
 
+
 // function updateLocalStorage(checkbox) {
 //   // Save switcher position to Local Storage
 //   localStorage.setItem('dark-color-scheme', checkbox.checked);
