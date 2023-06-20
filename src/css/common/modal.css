@@ -10,12 +10,13 @@
     align-items: center;
     z-index: 2;
     width: 100vw;
+    overflow-y: scroll;
 
 }
 
 .modal_body{
     min-width: 280px;
-    min-height: 465px;
+    min-height: 762px;
 
     width: calc(100% - 40px);
     max-width: 335px;
@@ -24,10 +25,14 @@
     border: 2px solid #111111;
     border-radius: 18px;
 
-    position: relative;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     padding: 40px;
+    overflow-y: scroll;
 
     box-sizing: border-box;
+
 }
 
 .modal_body .close_btn{
@@ -132,12 +137,42 @@
 .modal_links{
     display: flex;
     gap: 20px;
+    position: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    mix-blend-mode: luminosity;
+}
+
+.close_btn > svg:hover,
+.close_btn > svg:focus {
+    stroke: var(--header-bg-color-light);
+    fill: var(--header-bg-color-light);
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-color-light-theme);
+  color: var(--header-bg-color-light);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .modal_body .close_btn {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
 }
 
 
 @media screen and (min-width: 768px) {
     .modal_body {
         max-width: 579px;
+        min-height: 465px;
+        max-height: 501px;
+        position: relative;
     }
     .modal_image {
         max-width: 192px;
@@ -145,6 +180,12 @@
     }
     .modal_container{
         flex-wrap: nowrap;
+    }
+    .modal_body .close_btn {
+        position: fixed;
+        position: absolute;
+        top: 24px;
+        right: 24px;
     }
 
 }
