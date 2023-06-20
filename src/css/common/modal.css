@@ -8,24 +8,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+    width: 100vw;
+    overflow-y: scroll;
 
-    padding: 20px;
 }
 
 .modal_body{
-    max-width: 579px;
-    min-height: 465px;
+    min-width: 280px;
+    min-height: 762px;
 
     width: calc(100% - 40px);
+    max-width: 335px;
 
     background: #FFFFFF;
     border: 2px solid #111111;
     border-radius: 18px;
 
-    position: relative;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     padding: 40px;
+    overflow-y: scroll;
 
     box-sizing: border-box;
+
 }
 
 .modal_body .close_btn{
@@ -34,11 +41,13 @@
     right: 24px;
 }
 
-.modal_body img {
-    width: 192px;
-    height: 281px;
+.modal_image {
+    width: 287px;
+    height: 408px;
     border-radius: 8px;
 }
+
+
 
 .card_title{
     font-weight: 700;
@@ -71,19 +80,6 @@
     color: #111111;
 
     margin-bottom: 20px;
-}
-
-.gap-20 {
-    gap: 20px;
-}
-
-.gap-24 {
-    gap: 24px;
-
-}
-
-.mb-40 {
-    margin-bottom: 40px;
 }
 
 .modal_body .btn {
@@ -129,4 +125,89 @@
     letter-spacing: -0.04em;
 
     color: rgba(17, 17, 17, 0.5);
+}
+
+.modal_container{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.modal_links{
+    display: flex;
+    gap: 20px;
+    position: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    mix-blend-mode: luminosity;
+}
+
+.close_btn{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+
+  transition: background 0.2s ease-out;
+}
+.icon_close{
+    stroke: var(--text-logo-bookshelf-light);
+    fill: var(--text-logo-bookshelf-light);
+}
+
+.icon_close:hover,
+.icon_close:focus {
+    stroke: var(--accent-color-light-theme);
+    fill: var(--accent-color-light-theme);
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-color-light-theme);
+  color: var(--header-bg-color-light);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .modal_body .close_btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .modal_body {
+        max-width: 579px;
+        min-height: 465px;
+        max-height: 501px;
+        position: relative;
+    }
+    .modal_image {
+        max-width: 192px;
+        height: 281px;
+    }
+    .modal_container{
+        flex-wrap: nowrap;
+    }
+    .modal_body .close_btn {
+        position: fixed;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
+
 }

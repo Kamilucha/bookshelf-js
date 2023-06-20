@@ -52,7 +52,7 @@
   font-size: 15px;
   line-height: 1.12;
   letter-spacing: -0.02em;
-
+  text-align: start;
   border: none;
   color: var(--category-color-light);
   background-color: transparent;
@@ -68,6 +68,12 @@
 }
 .genres-btn:hover,
 .genres-btn:focus {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-color-light-theme);
+}
+
+.accent {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--accent-color-light-theme);

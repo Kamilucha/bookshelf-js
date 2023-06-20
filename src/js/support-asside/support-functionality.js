@@ -1,5 +1,5 @@
 import { supportItem } from "./support-array";
-console.log(supportItem);
+// console.log(supportItem);
 
 import Swiper, { Navigation } from 'swiper';
 
@@ -10,7 +10,7 @@ const supportList = document.querySelector('.support-list');
 
 function makeMarkupOfSupport({ title, url, img }, index) { 
 const number = (index + 1).toString().padStart(2, '0');
-return `<li class="swiper-slide">
+return `<li class="swiper-slide support-slide">
         <div class="support-item">
         <span class="support-index">${number}</span>
         <a class="support-link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
@@ -28,7 +28,7 @@ supportList.innerHTML = markupOfSupport;
 
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
-    slidesPerView: 6,
+    slidesPerView: 4,
     slidesOffsetAfter: 0,
     
     // slidesPerGroup: 1,
@@ -36,8 +36,8 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
-    480: {
-          slidesPerView: 4,
+    376: {
+          slidesPerView: 6,
         // slidesPerGroup: 1,
     },
   },
