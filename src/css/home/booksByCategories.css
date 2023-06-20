@@ -4,8 +4,18 @@
 .category-books-wrapper {
   max-width: 100%;
 }
-.category-list {
-  flex-wrap: wrap;
+@media screen and (max-width: 767px) {
+  .category-item:not(:last-child) {
+margin-bottom: 40px;
+}
+}
+@media screen and (min-width: 768px) {
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 24px;
+  }
 }
 .card-wrapper {
   cursor: pointer;

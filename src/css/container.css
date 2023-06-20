@@ -16,6 +16,9 @@
 }
 .container-aside {
   width: 335px;
+  /* Частина коду для лоадеру, не видаляти */
+  position: relative;
+  /* Частина коду для лоадеру, не видаляти */
 }
 
 /* tablet screen 768 */
