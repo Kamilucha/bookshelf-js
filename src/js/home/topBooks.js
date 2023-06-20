@@ -38,17 +38,31 @@ renderTopBooks();
 function renderCard(card) {
     let cardEl = document.createElement("div")
     cardEl.className = "book-card";
+
+    let quickView = document.createElement("button")
+    quickView.className = "quick_view"
+    quickView.textContent = "QUICK VIEW"
     
-    cardEl.onclick = function() {
-        renderModal(card)
+    function renderImg(card) {
+      if(card.book_image) {
+        return `<img class="book_image" src="${card.book_image}" alt="${card.title}"></img>`
+      } else {
+        return `<div class="empty_img"></div>`
+      }
     }
+
     cardEl.innerHTML = `
-        <img class="book_image" src="${card.book_image}" alt="${card.title}">
+        ${renderImg(card)}
         <div class="book-info">
         <p class="book_title">${card.title}</p>
         <p class="book_author">${card.author}</p>
       </div>
     `;
+    cardEl.append(quickView)
+    quickView.onclick = function() {
+      renderModal(card)
+  }
+
     return cardEl
 }
 

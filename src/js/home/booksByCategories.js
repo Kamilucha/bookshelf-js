@@ -45,9 +45,12 @@ function renderMarkupCard(bookArr) {
     .map((card) => {
       const { title, book_image, author } = card
       let li = document.createElement('li')
-      li.onclick = function() {
-        renderModal(card)
-      }
+      li.className = "book-card"
+
+      let quickView = document.createElement("button")
+      quickView.className = "quick_view"
+      quickView.textContent = "QUICK VIEW"
+
       li.innerHTML = `
         <div class='card-wrapper card'>
         <img class='book_image' src=${book_image} alt='${title} width='335' height='485'/>
@@ -57,6 +60,10 @@ function renderMarkupCard(bookArr) {
         </div>
         </div>
         `;
+        li.append(quickView)
+        quickView.onclick = function() {
+          renderModal(card)
+        }
         return li
     })
   categoryList.append(...markup)

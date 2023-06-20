@@ -144,6 +144,24 @@
     mix-blend-mode: luminosity;
 }
 
+.close_btn{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+
+  transition: background 0.2s ease-out;
+}
+
 .close_btn > svg:hover,
 .close_btn > svg:focus {
     stroke: var(--header-bg-color-light);
