@@ -20,7 +20,9 @@
 @import url(/src/css/home/booksByCategories.css);
 @import url(./loaders.css);
 @import url(/src/css/loaders.css);
+@import url(/src/css/home/topBooks.css);
 
 @import url(/src/css/header.css);
 @import url(/src/css/shoppingListContainer.css);
 @import url(/src/css/shoppingList.css);
+@import url(/src/css/pagination.css);
