@@ -10,6 +10,7 @@ const divPage = document.querySelector('.books_container');
 const listGenres = new BooksAPIService();
 
 const loader = document.querySelector('.categories-loader');
+const secondLoader = document.querySelector('.best-sellers-loader');
 
 
 async function fetchBookCategories() {
@@ -81,6 +82,7 @@ function handleAllCategoryClick() {
   ) {
     return;
   }
+  secondLoader.style.display = 'block';
   btnAllCategories.classList.add('accent');
   btnCategories.forEach(el => {
     el.classList.remove('accent');

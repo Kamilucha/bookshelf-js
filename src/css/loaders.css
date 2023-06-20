@@ -5,7 +5,7 @@
     position: relative;
     animation: rotate 1s linear infinite;
     position: absolute;
-    top: 35vh;
+    top: 18vh;
     left: 35%;
     transform: translate(-50%, -50%);
 }
