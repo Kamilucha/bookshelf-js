@@ -34,7 +34,7 @@ export async function fetchBooksByCategories(selectedCategory) {
 
 // Ф-ція, що рендерить основну розмітку, для того, щоб можна було вставити картки книг
 function renderBaseMarkupCategory() {
-  const markup = `<h1>${selectedCategory}</h1>
+  const markup = `<h1 class='section-books-header'>${selectedCategory}</h1>
   <div>
   <ul class='card_list category-list'></ul>
   </div>
@@ -50,15 +50,16 @@ function renderMarkupCard(bookArr) {
     .map((card) => {
       const { title, book_image, author } = card
       let li = document.createElement('li')
+      li.classList.add('category-item')
       li.onclick = function() {
         renderModal(card)
       }
       li.innerHTML = `
-        <div class='card-wrapper card'>
+        <div class='card-wrapper book-card'>
         <img class='book_image' src=${book_image} alt='${title} width='335' height='485'/>
-        <div>         
-        <p>${title}</p>
-        <p>${author}</p>
+        <div class='book-info'>         
+        <p class='book_title'>${title}</p>
+        <p class='book_author'>${author}</p>
         </div>
         </div>
         `;
