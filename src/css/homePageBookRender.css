@@ -1,7 +1,8 @@
-
+/* 
 .card_list {
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -33,4 +34,4 @@
     letter-spacing: -0.04em;
     
     color: var(--secondary-color-light-theme);
-}
+} */
