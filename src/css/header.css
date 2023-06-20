@@ -1,3 +1,4 @@
+/* скидання стилів */
 button {
   padding: 0;
   margin: 0;
@@ -14,21 +15,32 @@ a {
   color: currentColor;
   padding: 0;
 }
+/* стилі для смартфону */
+.active {
+  padding: 8px 16px;
+  gap: 10px;
+
+  background: var(--accent-color-dark-theme);
+  border-radius: 36px;
+
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary-text-color-light-theme);
+}
 
 @media screen and (min-width: 320px) {
   .header {
+    position: relative;
     z-index: 999;
     padding: 18px 20px;
 
-    background: #ffffff;
-    border: 1.5px solid #111111;
+    background: var(--header-bg-color-light);
+    border: 1.5px solid var(--primary-text-color-light-theme);
     border-radius: 0px 0px 8px 8px;
   }
 
   .header-container {
     display: flex;
-    align-items: center;
-
     width: 100%;
   }
 
@@ -44,22 +56,82 @@ a {
     display: none;
   }
 
-  #theme-switcher {
+  .checkbox {
+    position: relative;
     margin-left: auto;
-    margin-right: 14px;
+  }
+
+  .checkbox-input {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .checkbox-label::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 17px;
+
+    width: 40px;
+    height: 20px;
+
+    border-radius: 20px;
+    background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      var(--accent-color-light-theme) 18.03%,
+      var(--header-bg-color-light) 100%
+    );
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .checkbox-label::after {
+    content: '';
+    position: absolute;
+    right: 38px;
+    top: 4px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50px;
+    background-color: var(--header-bg-color-light);
+  }
+
+  .checkbox-label.active-check::before {
+    background: linear-gradient(
+      180deg,
+      var(--accent-color-light-theme) 0%,
+      #686868 100%
+    );
+  }
+
+  .checkbox-label.active-check::after {
+    content: '';
+    position: absolute;
+    right: 18px;
   }
 
   .button-menu {
-    background-color: #ffffff;
+    background-color: var(--header-bg-color-light);
     height: 28px;
-    stroke: #111111;
+    stroke: var(--primary-text-color-light-theme);
   }
 
+  .btn-menu-close {
+    position: absolute;
+    display: none;
+    stroke: var(--primary-text-color-light-theme);
+    background-color: transparent;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* стилі для мобільного меню */
   .menu-container {
     position: fixed;
     display: none;
-    top: 70px;
-    left: 0;
+    top: 0px;
+    left: 0px;
     z-index: 99;
 
     min-height: 100%;
@@ -68,29 +140,40 @@ a {
     padding: 20px;
     background: radial-gradient(
       183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
+      var(--accent-color-light-theme) 18.03%,
+      var(--header-bg-color-light) 100%
     );
     /* background-image: url(/src/images/Group\ 6.png);
-    background-size: ;
-    background-position: ;
-   */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain; */
   }
 
-  /* .menu-container.js-open-menu{
-    display: block; 
-  
+  .menu-container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-image: url(/src/images/Group_6.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
-  } */
+  .menu-container.js-open-menu {
+    display: block;
+  }
 
   .nav-list-mobile {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 17;
 
-    margin-top: 183px;
+    width: 118px;
+    margin-top: 255px;
+    margin-left: auto;
+    margin-right: auto;
 
     font-family: 'DM Sans';
     font-style: normal;
@@ -101,43 +184,34 @@ a {
     letter-spacing: -0.04em;
     text-transform: uppercase;
 
-    color: #ffffff;
+    color: var(--header-bg-color-light);
   }
 
-  .nav-item-mobile.current {
-    width: 72px;
-    height: 34px;
+  /* .active {
     padding: 8px 16px;
     gap: 10px;
 
-    background: #eac645;
+    background: var(--accent-color-dark-theme);
     border-radius: 36px;
 
     font-weight: 700;
     text-align: center;
-    color: #111111;
-  }
-
-  .btn-menu-close {
-    position: absolute;
-    display: none;
-    stroke: #111111;
-    background-color: transparent;
-    top: 20px;
-    right: 20px;
-  }
+    color: var(--primary-text-color-light-theme);
+  } */
 
   .button-log-mobile {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
     width: 118px;
     height: 48px;
     left: 20px;
-    top: 563px;
+    top: 750px;
 
-    padding: 15px, 24px;
-
-    background: #ffffff;
-    border: 1.5px solid #111111;
+    background: var(--header-bg-color-light);
+    border: 1.5px solid var(--primary-text-color-light-theme);
     border-radius: 18px;
   }
 
@@ -147,19 +221,19 @@ a {
     line-height: 18px;
     letter-spacing: -0.04em;
 
-    padding: 15px, 24px;
-
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
   }
 
   .icon-shop-mobile {
     position: absolute;
     bottom: 0px;
-    margin-left: 7px;
-    fill: #ffffff;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    fill: var(--header-bg-color-light);
   }
 }
 
+/* стилі для таблета */
 @media screen and (min-width: 768px) {
   .header {
     padding: 14px 24px 13px 24px;
@@ -170,48 +244,36 @@ a {
     align-items: baseline;
     gap: 40;
 
-    margin-left: 76px;
+    margin-left: 40px;
     margin-right: auto;
     text-transform: uppercase;
+  }
+
+  .test-shopping {
+    display: none;
   }
 
   .nav-item {
     position: relative;
     font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 500;
     font-size: 14px;
-    padding: 8px 16px;
 
     letter-spacing: -0.04em;
     text-transform: uppercase;
 
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
   }
-
-  /* .nav-item:active{
-
-
-
-
-  } */
 
   .navigation {
     display: flex;
     align-items: center;
   }
 
-  .current {
-    font-weight: 700;
-
-    gap: 10px;
-    background: #eac645;
-    border-radius: 36px;
-  }
   .icon-shop {
     position: absolute;
-    top: 5px;
-    margin-left: 8px;
+    bottom: 1px;
+    margin-left: 11px;
   }
 
   .button-menu {
@@ -219,34 +281,41 @@ a {
   }
 
   .button-log {
-    position: relative;
-    display: block;
+    display: flex;
     width: 184px;
-    height: 48px;
-
-    background: #4f2ee8;
-    border: 1.5px solid #111111;
+    height: 45px;
+    background: var(--accent-color-light-theme);
+    border: 1.5px solid var(--primary-text-color-light-theme);
     border-radius: 18px;
+
+    justify-content: flex-start;
+    align-items: center;
+    gap: 93px;
   }
 
   .text-log {
-    position: absolute;
-    left: 14px;
-    top: 15px;
-
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
+    padding-left: 14px;
 
     letter-spacing: -0.04em;
-    color: #ffffff;
+    color: var(--header-bg-color-light);
   }
 
-  .icon-log {
-    position: absolute;
+  .checkbox-label::before {
+    right: 24px;
     top: 15px;
-    right: 17px;
+  }
+
+  .checkbox-label::after {
+    top: 16px;
+    right: 45px;
+  }
+
+  .checkbox-label.active-check::after {
+    right: 25px;
   }
 }
