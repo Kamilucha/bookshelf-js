@@ -69,8 +69,12 @@
   font-size: 16px;
   line-height: 1.12;
 
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .book_author {
@@ -81,7 +85,11 @@
 
   letter-spacing: -0.04em;
 
-  color: var(--secondary-color-light-theme);
+    color: var(--secondary-color-light-theme);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 @media screen and (min-width: 768px) {

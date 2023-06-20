@@ -12,6 +12,11 @@ export async function renderTopBooks() {
   loader.style.display = 'none';
   console.log(topBooks);
   renderTitlePage()
+  if(topBooks.length === 0) {
+    alert(`Sorry, but no books on the all categories were found. 
+    Please choose another category.`)
+    return
+  }
   topBooks.forEach(group => {
     let books = group.books.slice(0,5).map(renderCard)
     let groupEl = document.createElement("div")
