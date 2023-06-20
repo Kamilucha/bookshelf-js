@@ -114,14 +114,16 @@ function renderBooks(page, booksContainer) {
     );
     shoppingList = updatedShoppingList;
     updatePagination();
-    const currentPage = pagination.getCurrentPage();
+    let currentPage = pagination.getCurrentPage();
     const totalPages = Math.ceil(shoppingList.length / itemsPerPage);
 
     if (currentPage > totalPages) {
       pagination.movePageTo(totalPages);
     }
-  }
 
+    const updatedCurrentPage = pagination.getCurrentPage();
+    renderBooks(updatedCurrentPage, booksContainer);
+  }
   function updatePagination(totalPages) {
     const paginationList = document.querySelector('.tui-pagination');
     const paginationNumbers = paginationList.querySelectorAll('.tui-page-btn');
