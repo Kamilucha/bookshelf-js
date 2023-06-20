@@ -15,6 +15,11 @@ export async function fetchBooksByCategories(selectedCategory) {
     const data = await booksByCategories.getBooksByCategory(selectedCategory);
     btnAllCategories.classList.remove('accent')
     divPage.innerHTML = '';
+    if(data.length === 0) {
+      alert(`Sorry, but no books on the selected category '${selectedCategory}' were found. 
+      Please choose another category.`)
+      return
+    }
     renderBaseMarkupCategory();
     renderMarkupCard(data);
     onCardClick(data)
