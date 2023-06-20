@@ -1,5 +1,5 @@
 <header class="header container">
-  <div class="header-container ">
+  <div class="header-container">
     <nav class="navigation">
       <a href="/src/index.html">
         <svg class="logo">
@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a href="/src/index.html">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-is-auth="false">
           <a href="/src/shopping-list.html"
             >Shopping list
             <svg class="icon-shop" width="20" height="20">
@@ -33,12 +33,16 @@
       <label class="checkbox-label" for="theme-switcher"> </label>
     </div>
 
-    <button class="button-log" type="button">
-      <span class="text-log">Sign up</span>
-      <svg class="icon-log" width="20" height="20">
-        <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
-      </svg>
-    </button>
+    <div class="log-in-btns-wrepper">
+      <button class="button-log js-open-modal" type="button">
+        <span class="text-log">Log in</span>
+        <svg class="icon-log" width="20" height="20">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+        </svg>
+      </button>
+      <button class="js-open-modal js-greeting" type="button"></button>
+      <button class="js-logOut" type="button">Log Out</button>
+    </div>
 
     <button
       class="button-menu"

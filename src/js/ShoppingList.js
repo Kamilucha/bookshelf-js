@@ -15,12 +15,15 @@ export default class ShoppingList {
     this.linkToBtn.textContent =
       (this.isBookAlreadyInShoppingList ? 'Remove from the ' : 'Add to ') +
       'Shopping List';
+    this.linkToBtn.setAttribute(
+      'data-action',
+      this.isBookAlreadyInShoppingList ? 'toAdd' : 'toRemove'
+    );
     this.notification = document.createElement('div');
     this.notification.textContent =
       'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
     this.notification.className = 'notification';
     if (this.isBookAlreadyInShoppingList) {
-      debugger;
       linkToBtn.insertAdjacentElement('afterend', this.notification);
     }
   }
@@ -44,5 +47,9 @@ export default class ShoppingList {
     this.linkToBtn.textContent =
       (this.isBookAlreadyInShoppingList ? 'Remove from the ' : 'Add to ') +
       'Shopping List';
+    this.linkToBtn.setAttribute(
+      'data-action',
+      this.isBookAlreadyInShoppingList ? 'toAdd' : 'toRemove'
+    );
   }
 }
