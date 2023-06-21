@@ -135,18 +135,15 @@ a {
     stroke: var(--primary-text-color-light-theme);
   }
 
-  .active_btn{
-background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
-  position: absolute;
+  .active_btn {
+    background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
+    position: absolute;
     display: none;
     stroke: var(--primary-text-color-light-theme);
     background-color: transparent;
     top: 17px;
     right: 20px;
   }
-
-
-
 
   /* стилі для мобільного меню */
   .menu-container {
@@ -295,6 +292,10 @@ background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
     text-transform: uppercase;
 
     color: var(--primary-text-color-light-theme);
+  }
+
+  .nav-item[data-is-auth-link] {
+    display: none;
   }
 
   .navigation {
