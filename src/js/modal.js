@@ -4,6 +4,13 @@ import {
   removeBookData,
   checkState,
 } from './authAndDataProcessing/firebaseService';
+import getIconPath from './shopRefs';
+const {
+  appleBooksIconPath,
+  bookShopIconPath,
+  amazonIconPath,
+  svgTrashIcon
+} = getIconPath();
 
 export default function renderModal(card) {
   document.body.style.overflow = 'hidden';
@@ -16,34 +23,47 @@ export default function renderModal(card) {
 
   modalBackground.append(modalBody);
 
-  let buyLinks = card.buy_links
-    .filter(link => ['Amazon', 'Apple Books', 'Bookshop'].includes(link.name))
-    .map(link => {
-      let url = `<a href="${link.url}" title="${link.name}">SVG</a>`;
-      return url;
-    })
-    .join('');
+
+  let buyLinks = card.buy_links.map(({ url, name }) => {
+    let imageUrl;
+    if (name === 'Amazon') {
+      imageUrl = `${amazonIconPath}`;
+    } else if (name === 'Apple Books') {
+      imageUrl = `${appleBooksIconPath}`;
+    } else if (name === 'Bookshop') {
+      imageUrl = `${bookShopIconPath}`;
+    } else return
+  
+    let urlMarkup = `
+        <li class="shoplist-url-item">
+          <a class="shoplist_url" href="${url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="${name} link">
+            <img class="modal_img" src="${imageUrl}" alt="${name} link" width="48px" height="15px" />
+          </a>
+        </li>
+    `;
+    return urlMarkup;
+  }).join('');
 
   modalBody.innerHTML = `
         <div class="modal_container">
             <img class="modal_image" src="${card.book_image}" alt="">
             <ul>
                 <li>
-                  <div class="card_title">${card.title}</div>
-                </li>
+                  <div class="card_title">${card.title}</div></li>
                 <li>
-                  <div class="card_author">${card.author}</div>
-                </li>
+                  <div class="card_author">${card.author}</div></li>
                 <li>
                   <div class="card_description">${card.description}</div></li>
                 <li>
-                  <div class="modal_links">${buyLinks}</div></li>
+                  <div>
+                  <ul class="modal_links">${buyLinks}</ul></div></li>
             </ul>
         </div>
         `;
   let closeBtn = document.createElement('button');
   closeBtn.className = 'close_btn';
-  closeBtn.textContent = 'x';
+  closeBtn.innerHTML = `<svg class="icon_close" width="24" height="24">
+  <use href="${svgTrashIcon}#icon-close"></use></svg>`;
   closeBtn.addEventListener('click', closeHandler);
 
   modalBackground.addEventListener('click', closeHandler);
@@ -76,6 +96,8 @@ export default function renderModal(card) {
   shoppingListEl.setAttribute('data-book-id', card._id);
   shoppingListEl.setAttribute('data-is-auth-btn', 'false');
   modalBody.append(closeBtn, shoppingListEl);
+  modalBody.insertAdjacentElement("afterbegin", closeBtn);
+  modalBody.append(shoppingListEl);
   let currentBook = new ShoppingList(card, shoppingListEl);
   shoppingListEl.onclick = () => {
     currentBook.handleBook();

@@ -30,6 +30,7 @@ export async function renderTopBooks() {
     booksContainer.append(groupEl);
   });
 }
+
 renderTopBooks();
 
 function renderCard(card) {

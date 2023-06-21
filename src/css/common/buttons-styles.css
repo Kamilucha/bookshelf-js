@@ -1,6 +1,9 @@
 /* see more button */
 
 .btn-main{
+align-items: left;
+margin-left: auto;
+
     padding: 14px 28px;
     
     min-width: 124px;

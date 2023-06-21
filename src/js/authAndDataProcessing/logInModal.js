@@ -2,8 +2,10 @@
 import { closeModal } from './closeModal';
 import { validation } from './loginValidation';
 
-import 'basiclightbox/dist/basiclightbox.min.css';
+
 import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basiclightbox.min.css';
+import 'basiclightbox/src/styles/main.scss';
 
 import { refs } from './refs';
 

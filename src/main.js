@@ -1,3 +1,4 @@
+// import 'basiclightbox/dist/basiclightbox.min.css';
 import * as allCategoriesList from './js/home/allCategoriesList';
 import * as topBooks from './js/home/topBooks';
 
@@ -12,3 +13,5 @@ import './js/shoppingListContent';
 // import {BooksAPIService} from './js/booksAPIService'
 
 import './js/header';
+import './js/theme-switcher';
+import './js/theme-switcher'
