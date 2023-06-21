@@ -21,8 +21,8 @@
     width: calc(100% - 40px);
     max-width: 335px;
 
-    background: #FFFFFF;
-    border: 2px solid #111111;
+    background: var(--header-bg-color-light);
+    border: 2px solid var(--primary-text-color-light-theme);
     border-radius: 18px;
 
     position: fixed;
@@ -58,7 +58,7 @@
     line-height: 28px;
     
     letter-spacing: -0.04em;
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
 
     margin-bottom: 8px;
 }
@@ -80,7 +80,7 @@
     line-height: 18px;
     
     letter-spacing: -0.04em;
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
 
     margin-bottom: 20px;
 }
@@ -107,7 +107,7 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
 
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
 
     background-color: transparent;
 }
@@ -127,7 +127,7 @@
     text-align: center;
     letter-spacing: -0.04em;
 
-    color: rgba(17, 17, 17, 0.5);
+    color: var(--category-color-light);
 }
 
 .modal_container{
