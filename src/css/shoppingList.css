@@ -233,7 +233,7 @@ svg {
     grid-template-columns: 115px 1fr;
     grid-column-gap: 24px;
 
-    width: 100%;
+    width: 93%;
     max-height: 165px;
     padding: 24px;
   }
@@ -339,6 +339,7 @@ svg {
   }
 
   .shopping__card {
+    width: 94%;
     /* width: 996px; */
     height: 213px;
     margin-left: 0;

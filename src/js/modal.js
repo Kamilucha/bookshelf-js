@@ -2,6 +2,7 @@ import ShoppingList from './ShoppingList';
 import {
   addBookData,
   removeBookData,
+  checkState,
 } from './authAndDataProcessing/firebaseService';
 import getIconPath from './shopRefs';
 const {
@@ -93,13 +94,14 @@ export default function renderModal(card) {
   shoppingListEl.className = 'btn';
   shoppingListEl.type = 'button';
   shoppingListEl.setAttribute('data-book-id', card._id);
-  shoppingListEl.setAttribute('data-is-auth', 'false');
+  shoppingListEl.setAttribute('data-is-auth-btn', 'false');
   modalBody.append(closeBtn, shoppingListEl);
   modalBody.insertAdjacentElement("afterbegin", closeBtn);
   modalBody.append(shoppingListEl);
   let currentBook = new ShoppingList(card, shoppingListEl);
   shoppingListEl.onclick = () => {
     currentBook.handleBook();
+
     console.log(shoppingListEl.getAttribute('data-action'));
     if (shoppingListEl.getAttribute('data-action') === 'toAdd') {
       addBookData(card);
@@ -110,4 +112,7 @@ export default function renderModal(card) {
 
   document.addEventListener('keydown', escapeHandler);
   document.body.append(modalBackground);
+
+  const addRemoveBtn = document.querySelector('[data-is-auth-btn]');
+  checkState(addRemoveBtn);
 }

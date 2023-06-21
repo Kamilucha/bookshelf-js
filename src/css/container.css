@@ -8,6 +8,7 @@
   margin-right: auto;
 }
 .header {
+  min-width: 375px;
   box-sizing: border-box;
   height: 64px;
   margin-left: auto;
@@ -31,7 +32,6 @@
 /* tablet screen 768 */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .header {
-    /* width: 768px; */
     height: 72px;
   }
 }
@@ -55,7 +55,6 @@
 @media screen and (min-width: 1023px) {
   .header {
     width: 1440px;
-    height: 72px;
   }
 }
 /* desctop screen  1200*/
