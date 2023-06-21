@@ -20,13 +20,12 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding: 8px 16px;
   gap: 10px;
-  width: 72px;
-  height: 34px;
+  /* width: 72px;
+  height: 34px; */
   background: var(--accent-color-dark-theme);
   border-radius: 36px;
-
   font-weight: 700;
   color: var(--primary-text-color-light-theme);
 }
@@ -119,6 +118,13 @@ a {
   .logo {
     width: 109px;
     height: 28px;
+  }
+  .logo {
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.2);
   }
   .nav-list {
     display: none;

@@ -25,7 +25,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
- 
+
   /* max-height: 625px;
         overflow: hidden; */
 }
@@ -45,6 +45,8 @@
 
 .book-card_list {
   display: flex;
+  flex-wrap: wrap;
+
   /* gap: 224px;
   width: 500%; */
 }
@@ -106,8 +108,12 @@
     margin-right: 32px; */
     width: 704px;
   }
-/* 
+  /* 
   .book-card_list {
+
+    min-height: 366px;
+  }
+
     height: 366px;
   } */
 
@@ -139,7 +145,6 @@
     margin-right: 24px; */
     width: 996px;
   }
-
 
   .book-card_list {
     gap: 24px;
