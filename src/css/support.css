@@ -129,6 +129,7 @@
   flex-direction: column;
   /* gap: 20px; */
 }
+ul.support-list > li{height: auto !important;}
 
 .support-link {
   height: 32px;
