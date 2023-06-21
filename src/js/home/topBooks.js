@@ -1,6 +1,7 @@
 import { BooksAPIService } from '../booksAPIService';
 import renderModal from '../modal';
 import { fetchBooksByCategories } from './booksByCategories';
+import Notiflix from 'notiflix';
 
 const loader = document.querySelector('.best-sellers-loader');
 
@@ -12,7 +13,7 @@ export async function renderTopBooks() {
   loader.style.display = 'none';
   renderTitlePage();
   if (topBooks.length === 0) {
-    alert(`Sorry, but no books on the all categories were found. 
+    Notiflix.Notify.info(`Sorry, but no books on the all categories were found. 
     Please choose another category.`);
     return;
   }

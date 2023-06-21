@@ -1,6 +1,7 @@
 import { BooksAPIService } from '../booksAPIService';
 import { selectedCategory } from './allCategoriesList';
 import renderModal from '../modal';
+import Notiflix from 'notiflix';
 
 export const boxBooks = document.querySelector('.category-books-wrapper');
 const divPage = document.querySelector('.books_container');
@@ -20,8 +21,10 @@ export async function fetchBooksByCategories(selectedCategory) {
     btnAllCategories.classList.remove('accent');
     divPage.innerHTML = '';
     if (data.length === 0) {
-      alert(`Sorry, but no books on the selected category '${selectedCategory}' were found. 
+
+      Notiflix.Notify.info(`Sorry, but no books on the selected category '${selectedCategory}' were found. 
       Please choose another category.`);
+      
       return;
     }
     renderBaseMarkupCategory();
@@ -96,3 +99,50 @@ function onCardClick() {
     });
   });
 }
+
+// Notiflix.Notify.init({
+//   width: '360px',
+//   distance: '10px',
+//   backOverlay: false,
+//   messageMaxLength: 150,
+//   clickToClose: true,
+
+//   ID: 'NotiflixNotify',
+//   className: 'notiflix-notify',
+//   zindex: 4001,
+//   fontFamily: 'DM Sans',
+//   fontSize: '16px',
+//   cssAnimation: true,
+//   cssAnimationDuration: 1000,
+//   cssAnimationStyle: 'from-top', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
+//   closeButton: true,
+//   useIcon: true,
+//   useFontAwesome: false,
+//   fontAwesomeIconStyle: 'basic', // 'basic' - 'shadow'
+//   fontAwesomeIconSize: '34px',
+
+//   info: {
+//     background: '#4f2ee8',
+//     textColor: '#fff',
+//     childClassName: 'notiflix-notify-info',
+//     notiflixIconColor: 'rgba(0,0,0,0.2)',
+//     fontAwesomeClassName: 'fas fa-info-circle',
+//     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
+//     backOverlayColor: 'rgba(17, 17, 17, 0.4)',
+//   },
+// });
+
+Notiflix.Notify.init({
+  width: '340px',
+  distance: '15px',
+  timeout: 5000,
+  messageMaxLength: 150,
+
+  fontFamily: 'DM Sans',
+  fontSize: '16px',
+  cssAnimationStyle: 'from-top',
+ 
+  info: {
+    background: '#4f2ee8',
+  },
+});
