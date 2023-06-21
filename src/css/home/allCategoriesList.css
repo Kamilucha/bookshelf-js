@@ -14,6 +14,7 @@
 
 .genres-wrapper {
   overflow-y: scroll;
+  scrollbar-width: thin;
   max-width: 335px;
   height: 228px;
 }
@@ -30,6 +31,19 @@
   }
 }
 
+.genres-wrapper::-webkit-scrollbar {
+  width: 8px;               
+}
+
+.genres-wrapper::-webkit-scrollbar-track {
+  background: inherit;        
+}
+
+.genres-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-light-theme);    
+  border-radius: 12px;       
+  
+}
 .genres-item:not(:last-child) {
   margin-bottom: 4px;
 }
