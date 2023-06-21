@@ -62,9 +62,18 @@ function renderMarkupCard(bookArr) {
     li.onclick = function () {
       renderModal(card);
     };
+    
+    function renderImg() {
+      if (book_image) {
+        return `<img class="book_image" src="${book_image}" alt="${title}" loading="lazy" width='335' height='485'>`;
+      } else {
+        return `<div class="empty_img"></div>`;
+      }
+    }
+
     li.innerHTML = `
         <div class='card-wrapper card'>
-        <img class='book_image' src=${book_image} alt='${title} width='335' height='485'/>
+        ${renderImg()}
         <div class='book-info'>         
         <p class='book_title'>${title}</p>
         <p class='book_author'>${author}</p>
