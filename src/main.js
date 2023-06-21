@@ -7,10 +7,10 @@ import './js/scrollup';
 import './js/support-asside/support-functionality';
 import './js/homePageBookRender';
 import './js/home/allCategoriesList';
+import './js/home/booksByCategories';
 import './js/ShoppingList';
 import './js/shoppingListContent';
 // import {BooksAPIService} from './js/booksAPIService'
-import './js/home/booksByCategories';
 
 import './js/header';
 import './js/theme-switcher';
