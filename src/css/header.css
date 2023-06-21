@@ -16,7 +16,7 @@ a {
   padding: 0;
 }
 /* стилі для смартфону */
-.active {
+.nav-item[aria-current="page"] {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,11 +30,48 @@ a {
   font-weight: 700;
   color: var(--primary-text-color-light-theme);
 }
+@media screen and (min-width: 320px) and (max-width:767px){
+  .menu-container {
+    position: fixed;
+    display: none;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
 
+    min-height: 100%;
+    width: 100%;
+
+    padding: 20px;
+    background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      var(--accent-color-light-theme) 18.03%,
+      var(--header-bg-color-light) 100%
+    );
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .menu-container::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-image: url(/src/images/Group_6.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .menu-container.is-open {
+    display: block;
+  }
+}
 @media screen and (min-width: 320px) {
   .header {
     position: relative;
-    z-index: 999;
+    z-index: 3;
     padding: 18px 20px;
 
     background: var(--header-bg-color-light);
@@ -130,58 +167,56 @@ a {
   }
 
   .button-menu {
-    background-color: var(--header-bg-color-light);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
     height: 28px;
+
+    cursor: pointer;
+    overflow: hidden;
+    background-color: var(--header-bg-color-light);
     stroke: var(--primary-text-color-light-theme);
   }
 
-  .active_btn {
-    background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
+  .button-menu span {
     position: absolute;
-    display: none;
-    stroke: var(--primary-text-color-light-theme);
-    background-color: transparent;
-    top: 17px;
-    right: 20px;
+    width: 21px;
+    height: 2px;
+    border-radius: 4px;
+    background: var(--primary-text-color-light-theme);
+    transition: 0.5s;
+  }
+
+  .button-menu span:nth-child(1) {
+    transform: translateY(-7px);
+    width: 15px;
+    left: 4px;
+  }
+
+  .button-menu.active span:nth-child(1) {
+    width: 21px;
+    transform: translateY(0px) rotate(45deg);
+  }
+
+  .button-menu span:nth-child(2) {
+    transform: translateY(7px);
+    width: 10px;
+    left: 4px;
+  }
+
+   .button-menu.active span:nth-child(2) {
+    width: 21px;
+    transform: translateY(0px) rotate(315deg);
+  }
+
+    .button-menu.active span:nth-child(3) {
+    transform: translateX(30px) 
   }
 
   /* стилі для мобільного меню */
-  .menu-container {
-    position: fixed;
-    display: none;
-    top: 0px;
-    left: 0px;
-    z-index: 99;
 
-    min-height: 100%;
-    width: 100%;
-
-    padding: 20px;
-    background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      var(--accent-color-light-theme) 18.03%,
-      var(--header-bg-color-light) 100%
-    );
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-      0px 2px 1px rgba(0, 0, 0, 0.2);
-  }
-
-  .menu-container::before {
-    content: '';
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    background-image: url(/src/images/Group_6.png);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .menu-container.is-open {
-    display: block;
-  }
 
   .nav-list-mobile {
     position: relative;
@@ -264,6 +299,12 @@ a {
 
 /* стилі для таблета */
 @media screen and (min-width: 768px) {
+.menu-container
+.menu-container::before{
+  display: none;
+  z-index: -1;
+}
+
   .header {
     padding: 14px 24px 13px 24px;
   }
