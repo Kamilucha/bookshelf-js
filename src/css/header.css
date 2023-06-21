@@ -17,14 +17,17 @@ a {
 }
 /* стилі для смартфону */
 .active {
-  padding: 8px 16px;
-  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  gap: 10px;
+  width: 72px;
+  height: 34px;
   background: var(--accent-color-dark-theme);
   border-radius: 36px;
 
   font-weight: 700;
-  text-align: center;
   color: var(--primary-text-color-light-theme);
 }
 
@@ -52,7 +55,9 @@ a {
     display: none;
   }
 
-  .button-log {
+  .button-log,
+  .button-log-out,
+  .button-user {
     display: none;
   }
 
@@ -111,20 +116,37 @@ a {
     right: 18px;
   }
 
+  .checkbox-input:checked + .checkbox-label::before {
+    background: linear-gradient(
+      180deg,
+      var(--accent-color-light-theme) 0%,
+      #686868 100%
+    );
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .checkbox-input:checked + .checkbox-label::after {
+    transform: translateX(20px);
+  }
+
   .button-menu {
     background-color: var(--header-bg-color-light);
     height: 28px;
     stroke: var(--primary-text-color-light-theme);
   }
 
-  .btn-menu-close {
-    position: absolute;
+  .active_btn{
+background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
+  position: absolute;
     display: none;
     stroke: var(--primary-text-color-light-theme);
     background-color: transparent;
-    top: 20px;
+    top: 17px;
     right: 20px;
   }
+
+
+
 
   /* стилі для мобільного меню */
   .menu-container {
@@ -143,14 +165,14 @@ a {
       var(--accent-color-light-theme) 18.03%,
       var(--header-bg-color-light) 100%
     );
-    /* background-image: url(/src/images/Group\ 6.png);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain; */
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
   }
 
   .menu-container::before {
     content: '';
+    position: absolute;
+    left: 0px;
     width: 100%;
     height: 100%;
     max-width: 100%;
@@ -160,7 +182,7 @@ a {
     background-size: contain;
   }
 
-  .menu-container.js-open-menu {
+  .menu-container.is-open {
     display: block;
   }
 
@@ -187,19 +209,37 @@ a {
     color: var(--header-bg-color-light);
   }
 
-  /* .active {
-    padding: 8px 16px;
-    gap: 10px;
+  .icon-shop-mobile {
+    position: absolute;
+    bottom: 0px;
+    left: 85px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    fill: var(--header-bg-color-light);
+  }
 
-    background: var(--accent-color-dark-theme);
-    border-radius: 36px;
+  .button-mobile {
+    display: none;
+    width: 184px;
+    height: 45px;
+    margin-top: 84px;
+    background: transparent;
 
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .text-log-user {
     font-weight: 700;
-    text-align: center;
-    color: var(--primary-text-color-light-theme);
-  } */
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: -0.02em;
 
-  .button-log-mobile {
+    color: #ffffff;
+  }
+
+  .button-log-out-mobile {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -222,14 +262,6 @@ a {
     letter-spacing: -0.04em;
 
     color: var(--primary-text-color-light-theme);
-  }
-
-  .icon-shop-mobile {
-    position: absolute;
-    bottom: 0px;
-    margin-left: 10px;
-    margin-bottom: 2px;
-    fill: var(--header-bg-color-light);
   }
 }
 
@@ -274,6 +306,7 @@ a {
     position: absolute;
     bottom: 1px;
     margin-left: 11px;
+    left: 86px;
   }
 
   .button-menu {
@@ -294,15 +327,46 @@ a {
   }
 
   .text-log {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     padding-left: 14px;
 
     letter-spacing: -0.04em;
     color: var(--header-bg-color-light);
+  }
+
+  .button-log-out {
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 93px;
+    width: 184px;
+    height: 45px;
+
+    background: var(--header-bg-color-light);
+    border: 1.5px solid var(--primary-text-color-light-theme);
+    border-radius: 18px;
+  }
+
+  .text-log-out {
+    padding-left: 14px;
+    font-size: 14px;
+    letter-spacing: -0.04em;
+
+    color: #111111;
+  }
+
+  .button-user {
+    display: none;
+    width: 184px;
+    height: 45px;
+    background: var(--accent-color-light-theme);
+    border: 1.5px solid var(--primary-text-color-light-theme);
+    border-radius: 18px;
+
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
   }
 
   .checkbox-label::before {

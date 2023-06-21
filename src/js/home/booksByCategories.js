@@ -34,12 +34,21 @@ export async function fetchBooksByCategories(selectedCategory) {
 
 // Ф-ція, що рендерить основну розмітку, для того, щоб можна було вставити картки книг
 function renderBaseMarkupCategory() {
-  const markup = `<h1 class='section-books-header'>${selectedCategory}</h1>
-  <div>
-  <ul class='card_list category-list'></ul>
-  </div>
+  // Стилізація останнього слова заголовка категорії
+  const words = selectedCategory.split(" ");
+  const lastWord = words[words.length - 1];
+
+  const styledLastWord = `<span class='section-books-header-span'>${lastWord}</span>`;
+  const formattedCategory = words.slice(0, -1).join(" ") + " " + styledLastWord;
+// 
+  const markup = `
+    <h1 class="section-books-header">${formattedCategory}</h1>
+    <div>
+      <ul class="card_list category-list"></ul>
+    </div>
   `;
-  divPage.insertAdjacentHTML('beforeend', markup);
+
+  divPage.insertAdjacentHTML("beforeend", markup);
 }
 
 // Ф-ція, що рендерить одну картку/книгу
@@ -54,7 +63,7 @@ function renderMarkupCard(bookArr) {
       li.onclick = function() {
         renderModal(card)
       }
-      li.className = "book-card"
+      li.classList.add("book-card")
 
       let quickView = document.createElement("button")
       quickView.className = "quick_view"
