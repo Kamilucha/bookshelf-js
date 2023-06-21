@@ -60,10 +60,11 @@
   border: 3px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
   padding: 14px;
+  margin-bottom: 20px;
 }
 
-.shopping-card:hover,
-.shopping-card:focus {
+.shopping__card:hover,
+.shopping__card:focus {
   border: 3px solid #eac645;
 }
 
@@ -194,8 +195,8 @@ svg {
 }
 
 /* .icon-trash {} */
-.shopping__card-btn:hover,
-.shopping__card-btn:hover {
+.shopping-card-btn:hover,
+.shopping-card-btn:hover {
   transform: scale(1.1);
   background: #eac645;
 }
