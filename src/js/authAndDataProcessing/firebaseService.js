@@ -143,8 +143,8 @@ function checkIsAuth(modalAddRemBtn) {
         refs.greeting.style.display = 'flex';
         refs.iconDown.classList.add('block');
         refs.user.classList.add('flex');
-      }, 500);
-      // refs.btnLogOut.style.display = 'flex';myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+      }, 600);
+      // refs.btnLogOut.style.display = 'flex';
       refs.btnOpenLogInModal.style.display = 'none';
       console.log('signet in');
 
@@ -160,22 +160,20 @@ function checkIsAuth(modalAddRemBtn) {
          */
       });
 
-      refs.shoppingListLink.style.display = 'list-item';
+      // refs.shoppingListLink.style.display = 'list-item';
 
       // ...
     } else {
       // User is signed out
       // ...
-      // refs.isAuthElements = document.querySelectorAll('[data-is-auth]');
-      // console.log(refs.isAuthElements);
       refs.greeting.style.display = 'none';
       refs.iconDown.classList.remove('block');
       refs.user.classList.remove('flex');
-      // refs.btnLogOut.style.display = 'none';////////////////////////////////////////////////////////////
-      refs.btnLogOut.classList.remove('button-log-out-toggle')
+      // refs.btnLogOut.style.display = 'none';
+      refs.btnLogOut.classList.remove('button-log-out-toggle');
       refs.btnOpenLogInModal.style.display = 'flex';
       console.log('not signet in');
-      refs.shoppingListLink.style.display = 'none';
+      // refs.shoppingListLink.style.display = 'none';
     }
   });
 }
@@ -197,9 +195,10 @@ function checkState(modalAddRemBtn) {
 
       if (modalAddRemBtn) {
         modalAddRemBtn.disabled = true;
-        modalAddRemBtn.addEventListener('click', () => {
-          Notify.info('You have to Log in for addin content to your list!');
-        });
+        modalAddRemBtn.textContent = 'Add to Shopping List';
+        // modalAddRemBtn.addEventListener('click', () => {
+        //   Notify.info('You have to Log in for addin content to your list!');
+        // });
       }
     }
   });
@@ -214,7 +213,6 @@ export {
   loginEmailPassword,
   checkState,
 };
-
 
 // my/////////////////////////////////////////////////////////////////////////////////////////
 refs.greeting.addEventListener('click', greetingHandler);
