@@ -30,7 +30,8 @@ fetchBookCategories();
 
 // Ф-ція, що динамічно рендерить розмітку списку категорій книг
 function renderMarkupList(genres) {
-  const markup = genres
+  const alphbetGenres = genres.sort((a, b) => a.list_name.localeCompare(b.list_name));
+  const markup = alphbetGenres
     .map(genre => {
       return `<li class='genres-item'><button type='button' class='genres-btn genres-btn-js'>${genre.list_name}</button></li>`;
     })
