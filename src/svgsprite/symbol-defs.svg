@@ -106,9 +106,16 @@
             </path>
         </symbol>
 
-<symbol id="icon-login-down" viewBox="0 0 28 32">
-<path fill="#fff" style="fill: var(--color1, #fff)" d="M5.898 12h16.513l-7.423 8.391c-0.221 0.25-0.521 0.39-0.834 0.39s-0.613-0.14-0.834-0.39l-7.423-8.391z"></path>
-</symbol>
+        <symbol id="icon-login-down" viewBox="0 0 28 32">
+            <path fill="#fff" style="fill: var(--color1, #fff)"
+                d="M5.898 12h16.513l-7.423 8.391c-0.221 0.25-0.521 0.39-0.834 0.39s-0.613-0.14-0.834-0.39l-7.423-8.391z">
+            </path>
+        </symbol>
 
-</defs>
+        <symbol id="icon-user">
+            <path fill="#4F2EE8"
+                d="M3.167 17.417a6.333 6.333 0 1 1 12.666 0H3.167ZM9.5 10.292a4.749 4.749 0 0 1-4.75-4.75A4.749 4.749 0 0 1 9.5.792a4.749 4.749 0 0 1 4.75 4.75 4.749 4.749 0 0 1-4.75 4.75Z" />
+        </symbol>
+
+    </defs>
 </svg>
