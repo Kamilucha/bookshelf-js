@@ -8,16 +8,17 @@ const btnAllCategories = document.querySelector('.static-btn');
 
 const booksByCategories = new BooksAPIService();
 
+export let addRemoveBtn;
 // Ф-ція, яка експортується до AllCategoriesList.js та отримує з бекенду книги за обраною категорією
 // Тут же викликаються ф-ції для рендерингу розмітки
 export async function fetchBooksByCategories(selectedCategory) {
   try {
     const data = await booksByCategories.getBooksByCategory(selectedCategory);
-    btnAllCategories.classList.remove('accent')
+    btnAllCategories.classList.remove('accent');
     divPage.innerHTML = '';
     renderBaseMarkupCategory();
     renderMarkupCard(data);
-    onCardClick(data)
+    onCardClick(data);
   } catch (error) {
     console.log(error);
   }
@@ -36,15 +37,14 @@ function renderBaseMarkupCategory() {
 // Ф-ція, що рендерить одну картку/книгу
 function renderMarkupCard(bookArr) {
   const categoryList = document.querySelector('.category-list');
-  categoryList.innerHTML = ''
-  const markup = bookArr
-    .map((card) => {
-      const { title, book_image, author } = card
-      let li = document.createElement('li')
-      li.onclick = function() {
-        renderModal(card)
-      }
-      li.innerHTML = `
+  categoryList.innerHTML = '';
+  const markup = bookArr.map(card => {
+    const { title, book_image, author } = card;
+    let li = document.createElement('li');
+    li.onclick = function () {
+      renderModal(card);
+    };
+    li.innerHTML = `
         <div class='card-wrapper card'>
         <img class='book_image' src=${book_image} alt='${title} width='335' height='485'/>
         <div>         
@@ -53,18 +53,19 @@ function renderMarkupCard(bookArr) {
         </div>
         </div>
         `;
-        return li
-    })
-  categoryList.append(...markup)
+    return li;
+  });
+  categoryList.append(...markup);
 }
 
 function onCardClick() {
-    const cardsBooks = document.querySelectorAll('.card-wrapper')
-        cardsBooks.forEach(card => {
-          card.addEventListener('click', () => {
-            const data = data.map(({book_uri, buy_links}))
-            console.log(card)
-            renderModal(data);
-          });
-        });
+  const cardsBooks = document.querySelectorAll('.card-wrapper');
+  cardsBooks.forEach(card => {
+    card.addEventListener('click', () => {
+      const data = data.map({ book_uri, buy_links });
+      console.log(card);
+      renderModal(data);
+      console.log(document.querySelector('.btn'));
+    });
+  });
 }

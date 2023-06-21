@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
@@ -120,47 +121,91 @@ async function getLib() {
 
   if (docSnap.exists()) {
     console.log('Document data:', docSnap.data().books);
+    return docSnap.data().books;
   } else {
     // docSnap.data() will be undefined in this case
     console.log('No such document!');
     await setDoc(userRef, { books: [] });
   }
 }
-
+checkIsAuth();
 // Listener of logged in user or not
-onAuthStateChanged(auth, user => {
-  if (user) {
-    userRef = doc(db, 'users', auth.currentUser.uid);
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/auth.user
-    const uid = user.uid;
-    console.log(uid);
-    setTimeout(() => {
-      refs.greeting.textContent = `${user.displayName}`;
-      refs.greeting.style.display = 'flex';
-    }, 500);
-    refs.btnLogOut.style.display = 'flex';
-    refs.btnOpenLogInModal.style.display = 'none';
-    console.log('signet in');
+function checkIsAuth(modalAddRemBtn) {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      userRef = doc(db, 'users', auth.currentUser.uid);
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      console.log(uid);
+      setTimeout(() => {
+        refs.greeting.textContent = `${user.displayName}`;
+        refs.greeting.style.display = 'flex';
+      }, 500);
+      refs.btnLogOut.style.display = 'flex';
+      refs.btnOpenLogInModal.style.display = 'none';
+      console.log('signet in');
 
-    getLib();
-    unsub = onSnapshot(userRef, doc => {
-      const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
-      console.log(source, ' data: ', doc.data());
-    });
-    // ...
-  } else {
-    // User is signed out
-    // ...
-    refs.isAuthElements = document.querySelectorAll('[data-is-auth]');
-    console.log(refs.isAuthElements);
-    refs.greeting.style.display = 'none';
-    refs.btnLogOut.style.display = 'none';
-    refs.btnOpenLogInModal.style.display = 'flex';
-    console.log('not signet in');
-  }
-});
+      getLib();
+
+      unsub = onSnapshot(userRef, doc => {
+        const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
+        console.log(source, ' data: ', doc.data());
+        /**
+         * Це слухач подій з даними бібіліотеки в реальному часі
+         * Тут перерендерювати картки в бібіліотеці
+         * після безпосереднього видалення її на сторінці бібілотеки
+         */
+      });
+
+      refs.shoppingListLink.style.display = 'list-item';
+
+      // ...
+    } else {
+      // User is signed out
+      // ...
+      // refs.isAuthElements = document.querySelectorAll('[data-is-auth]');
+      // console.log(refs.isAuthElements);
+      refs.greeting.style.display = 'none';
+      refs.btnLogOut.style.display = 'none';
+      refs.btnOpenLogInModal.style.display = 'flex';
+      console.log('not signet in');
+      refs.shoppingListLink.style.display = 'none';
+    }
+  });
+}
+
+function checkState(modalAddRemBtn) {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      userRef = doc(db, 'users', auth.currentUser.uid);
+      // User is signed in, see docs for a list of available properties
+      console.log('signet in');
+
+      if (modalAddRemBtn) {
+        modalAddRemBtn.disabled = false;
+      }
+    } else {
+      // User is signed out
+
+      console.log('not signet in');
+
+      if (modalAddRemBtn) {
+        modalAddRemBtn.disabled = true;
+        modalAddRemBtn.addEventListener('click', () => {
+          Notify.info('You have to Log in for addin content to your list!');
+        });
+      }
+    }
+  });
+}
 
 refs.btnLogOut.addEventListener('click', logOut);
 
-export { addBookData, removeBookData, signUpEmailPassword, loginEmailPassword };
+export {
+  addBookData,
+  removeBookData,
+  signUpEmailPassword,
+  loginEmailPassword,
+  checkState,
+};

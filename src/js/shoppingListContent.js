@@ -1,3 +1,7 @@
+import {
+  getLib,
+  removeBookData,
+} from './authAndDataProcessing/firebaseService';
 import getIconPath from './shopRefs';
 
 import Pagination from 'tui-pagination';
@@ -50,8 +54,8 @@ function renderBooks(page) {
 
   if (booksOnPage.length > 0) {
     booksContainer.innerHTML = booksOnPage
-      .map(
-        ({
+      .map(book => {
+        const {
           _id,
           title,
           author,
@@ -60,8 +64,8 @@ function renderBooks(page) {
           book_image,
           amazon_product_url,
           buy_links: [apple, bookshop],
-        }) => {
-          return `<article class="shopping__card">
+        } = book;
+        return `<article class="shopping__card">
           <div class="about-img">
             <img class="shopping-card-img" src="${book_image}" alt="${title}" />
           </div>
@@ -94,21 +98,22 @@ function renderBooks(page) {
               </li>
             </ul>
           </div>
-          <button class="shopping-card-btn" type="button" data-book-id="${_id}" aria-label="Remove book from shopping list">
+          <button class="shopping-card-btn" type="button" data-book-id="${_id}" data-action="toRemove" aria-label="Remove book from shopping list">
             <svg class="icon-trash" data-book-id="${_id}" width="17" height="17">
               <use href="${svgTrashIcon}#icon-trash"></use>
             </svg>
           </button>
         </article>
         `;
-        }
-      )
+      })
       .join('');
     const deleteButtons = document.querySelectorAll('.shopping-card-btn');
     deleteButtons.forEach(button => {
       button.addEventListener('click', event => {
         const bookId = event.target.getAttribute('data-book-id');
         deleteBook(bookId);
+        // removeBookData(book);
+        getLib();
       });
     });
   } else {
