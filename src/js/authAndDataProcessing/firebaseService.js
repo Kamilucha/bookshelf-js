@@ -150,7 +150,7 @@ function checkIsAuth(modalAddRemBtn) {
 
       unsub = onSnapshot(userRef, doc => {
         const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
-        console.log(source, ' data: ', doc.data());
+        console.log(source, ' live data: ', doc.data());
         /**
          * Це слухач подій з даними бібіліотеки в реальному часі
          * Тут перерендерювати картки в бібіліотеці
