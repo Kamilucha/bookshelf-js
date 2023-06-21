@@ -62,13 +62,14 @@ function renderMarkupCard(bookArr) {
   const markup = bookArr.map(card => {
     const { title, book_image, author } = card;
     let li = document.createElement('li');
+    li.classList.add('category-item')
     li.onclick = function () {
       renderModal(card);
     };
     
     function renderImg() {
       if (book_image) {
-        return `<img class="book_image category-item" src="${book_image}" alt="${title}" loading="lazy" width='335' height='485'>`;
+        return `<img class="book_image" src="${book_image}" alt="${title}" loading="lazy" width='335' height='485'>`;
       } else {
         return `<div class="empty_img"></div>`;
       }
