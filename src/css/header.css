@@ -133,6 +133,7 @@ a {
   .button-user {
     display: none;
   }
+  }
 
   /* =============================CHECKBOX - THEMESWITCHER======================================================= */
   body {
@@ -217,7 +218,7 @@ a {
 
     background: linear-gradient(180deg, darkgray 0%, dimgray 100%);
   }
-}
+
 
 /* ================================================== */
 
