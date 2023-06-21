@@ -31,16 +31,17 @@
 }
 
 .genres-item:not(:last-child) {
-  margin-bottom: 24px;
+  margin-bottom: 4px;
 }
 @media screen and (min-width: 768px) {
   .genres-item:not(:last-child) {
-    margin-bottom: 32px;
+    margin-bottom: 12px;
   }
 }
 .genres-btn {
   display: block;
-  margin-right: auto;
+padding-top: 10px;
+padding-bottom: 10px;
   font-family: 'DM Sans';
   /* За макетом 16px */
   font-size: 15px;
@@ -52,7 +53,7 @@
   background-color: transparent;
   cursor: pointer;
 
-  transition: color 500ms ease, transform 500ms ease;
+  transition: color 250ms linear;
 }
 @media screen and (min-width: 768px) {
   .genres-btn {
@@ -64,7 +65,6 @@
 .genres-btn:hover,
 .genres-btn:focus {
   font-weight: 700;
-  text-transform: uppercase;
   color: var(--accent-color-light-theme);
 }
 
