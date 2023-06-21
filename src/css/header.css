@@ -269,6 +269,9 @@ body {
     .nav-list-mobile{
       display: none;
     }
+    .button-log-out-mobile{
+      opacity: 0;
+    }
   }
 
 
