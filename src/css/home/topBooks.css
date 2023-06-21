@@ -45,6 +45,8 @@
 
 .book-card_list {
   display: flex;
+  flex-wrap: wrap;
+
   /* gap: 224px;
   width: 500%; */
 }
@@ -112,7 +114,7 @@
   }
 
   .book-card_list {
-    height: 366px;
+    min-height: 366px;
   }
 
   .book-card {
