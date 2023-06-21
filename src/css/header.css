@@ -265,6 +265,13 @@ body {
     color: var(--header-bg-color-light);
   }
 
+  @media screen and (min-width: 768px) {
+    .nav-list-mobile{
+      display: none;
+    }
+  }
+
+
   .icon-shop-mobile {
     position: absolute;
     bottom: 0px;
