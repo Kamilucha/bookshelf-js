@@ -3,16 +3,16 @@ export default function () {
     // Shoppin
       //apple
     appleBooksIconPath: new URL(
-      '../images/shopping-list/apple-books.png',
+      '../images/shopping-list/apple-books-2.png',
         import.meta.url)
         .href,
       
     //bookshop
-    bookShopIconPath: new URL('../images/shopping-list/book-shop.png', import.meta.url)
+    bookShopIconPath: new URL('../images/shopping-list/book-shop-2.png', import.meta.url)
       .href,
 
     //amazon
-    amazonIconPath: new URL('../images/shopping-list/amazon.png', import.meta.url).href,
+    amazonIconPath: new URL('../images/shopping-list/amazon-2.png', import.meta.url).href,
 
     // Empty
     emptyListStubImage: new URL('../images/shopping-list/shoppingbook1.png', import.meta.url)
