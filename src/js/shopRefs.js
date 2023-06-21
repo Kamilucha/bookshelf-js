@@ -22,5 +22,13 @@ export default function () {
     svgTrashIcon: new URL('../svgsprite/symbol-defs.svg#icon-trash', import.meta.url),
 
     svgClose: new URL('../svgsprite/symbol-defs.svg#icon-close', import.meta.url),
+
+
+    // SWITCHER
+   colorSwitcherCnt: document.querySelector('.color-scheme-switcher'),
+    colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
+    colorSwitcherSlider: document.querySelector(
+      '.color-scheme-switcher-slider'
+    ),
   };
 }

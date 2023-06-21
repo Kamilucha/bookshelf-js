@@ -31,8 +31,15 @@
     </nav>
 
     <div class="checkbox">
-      <input class="checkbox-input" type="checkbox" id="theme-switcher" />
-      <label class="checkbox-label" for="theme-switcher"> </label>
+      <label class="color-scheme-switcher">
+        <input type="checkbox" name="color-scheme-switcher-checkbox" id="color-scheme-switcher-checkbox"
+          aria-label="Color scheme switcher" />
+      
+        <span class="color-scheme-switcher-slider"></span>
+        </label>
+
+      <!-- <input class="checkbox-input" type="checkbox" id="theme-switcher" />
+      <label class="checkbox-label" for="theme-switcher"> </label> -->
     </div>
 
     <div class="log-in-btns-wrepper">
@@ -42,12 +49,15 @@
           <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
         </svg>
       </button>
-      <button class="button-user js-open-modal js-greeting" type="button">
-        <span class="text-log-user">Stephen</span>
-        <svg class="icon-log-user" width="20" height="20">
+      <button class="button-user js-open-modal js-greeting" type="button"></button>
+        <svg class="icon-down-user" width="20" height="20">
           <use href="/src/svgsprite/symbol-defs.svg#icon-login-down"></use>
         </svg>
-      </button>
+        <div class="user-login-wrapper">
+        <svg class="icon-user-login" width="19" height="19">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-user"></use>
+        </svg>
+        </div>
       <button class="button-log-out js-logOut" type="button">
         <span class="text-log-out">Log out</span>
         <svg class="icon-log" width="20" height="20">
