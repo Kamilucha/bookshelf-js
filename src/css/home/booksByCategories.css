@@ -18,31 +18,42 @@ margin-bottom: 40px;
   }
 }
 .card-wrapper {
+  max-width: 335px;
   cursor: pointer;
 }
-/* .title-category {
-    font-family: 'DM Sans';
-font-weight: 700;
-font-size: 32px;
-line-height: 1.19;
-
-
-letter-spacing: -0.04em;
-}
-.book-img {
-  width: 335px;
-  height: 485px;
-  border-radius: 8px;
-}
 @media screen and (min-width: 768px) {
-  .book-img {
-    width: 218px;
-    height: 316px;
+  .card-wrapper {
+    max-width: 218px;
   }
+
 }
-@media screen and (min-width: 768px) {
-  .book-img {
-    width: 180px;
-    height: 256px;
+@media screen and (min-width: 1440px) {
+  .card-wrapper {
+    max-width: 180px;
   }
+
+}
+
+/* #NotiflixNotifyWrap {
+  position: fixed !important;
+  top: 85% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+@media screen and (min-width: 768px) {
+  #NotiflixNotifyWrap {
+    position: fixed !important;
+    top: 75% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+} 
+@media screen and (min-width: 1440px) {
+  #NotiflixNotifyWrap {
+    position: fixed !important;
+    top: 15% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  } 
 } */
