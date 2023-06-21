@@ -3,7 +3,7 @@
 .btn-main{
 align-items: left;
 margin-left: auto;
-
+color:var(--primary-text-color-light-theme);
     padding: 14px 28px;
     
     min-width: 124px;
