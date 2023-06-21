@@ -19,11 +19,12 @@
   content: '';
 }
 
-.tui-pagination {
+.pagination-container {
   justify-content: center;
   align-items: center;
   gap: 8px;
   display: flex;
+  margin-top: 20px;
 }
 
 .pagintation-number {

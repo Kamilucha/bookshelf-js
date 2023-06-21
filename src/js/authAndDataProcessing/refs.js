@@ -6,7 +6,7 @@ export const refs = {
   switchModalBtns: {},
   form: {},
   modalForm: {},
-  isAuthElements: [],
+  shoppingListLink: document.querySelector('[data-is-auth-link]'),
 };
 
 /**

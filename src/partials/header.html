@@ -12,11 +12,11 @@
       </a>
 
       <ul class="nav-list">
-        <li class="nav-item active">
-          <a href="/src/index.html">Home</a>
+        <li >
+          <a class="nav-item " aria-current="page" href="/src/index.html">Home</a>
         </li>
-        <li class="nav-item" data-is-auth="false">
-          <a href="/src/shopping-list.html"
+        <li  data-is-auth="false">
+          <a class="nav-item" href="/src/shopping-list.html"
             >Shopping list
             <svg class="icon-shop" width="20" height="20">
               <use
@@ -54,27 +54,16 @@
       </button>
     </div>
 
-    <button
-      class="button-menu js-open-menu"
-      type="button"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-    >
-      <svg class="burger-svg" width="28" height="28">
-        <use href="/src/svgsprite/symbol-defs.svg#icon-burger"></use>
-      </svg>
+    <button type="button" class="button-menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-
-    <!-- <button type="button" class="btn-menu-close js-close-menu" aria-label="close menu button">
-      <svg class="icon-close" width="28" height="28">
-        <use href="/src/svgsprite/symbol-defs.svg#icon-close"></use>
-      </svg>
-    </button> -->
   </div>
 </header>
 
 <!-- мобільне меню -->
-<div class="menu-container js-menu-container" id="mobile-menu">
+<div class="menu-container" id="mobile-menu">
   <button
     class="button-user button-mobile js-open-modal js-greeting"
     type="button"
@@ -83,11 +72,11 @@
   </button>
   <nav class="nav-mobile">
     <ul class="nav-list-mobile">
-      <li class="nav-item-mobile .nav-item active">
-        <a href="/src/index.html">Home</a>
+      <li class="nav-item-mobile ">
+        <a class="nav-item" href="/src/index.html">Home</a>
       </li>
-      <li class="nav-item-mobile .nav-item">
-        <a href="/src/shopping-list.html">Shopping list </a>
+      <li class="nav-item-mobile ">
+        <a class="nav-item" href="/src/shopping-list.html">Shopping list </a>
         <svg class="icon-shop-mobile" width="20" height="20">
           <use href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper "></use>
         </svg>

@@ -16,7 +16,7 @@ a {
   padding: 0;
 }
 /* стилі для смартфону */
-.active {
+.nav-item[aria-current="page"] {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@ a {
 @media screen and (min-width: 320px) {
   .header {
     position: relative;
-    z-index: 999;
+    z-index: 3;
     padding: 18px 20px;
 
     background: var(--header-bg-color-light);
@@ -130,23 +130,53 @@ a {
   }
 
   .button-menu {
-    background-color: var(--header-bg-color-light);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
     height: 28px;
+
+    cursor: pointer;
+    overflow: hidden;
+    background-color: var(--header-bg-color-light);
     stroke: var(--primary-text-color-light-theme);
   }
 
-  .active_btn{
-background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
-  position: absolute;
-    display: none;
-    stroke: var(--primary-text-color-light-theme);
-    background-color: transparent;
-    top: 17px;
-    right: 20px;
+  .button-menu span {
+    position: absolute;
+    width: 21px;
+    height: 2px;
+    border-radius: 4px;
+    background: var(--primary-text-color-light-theme);
+    transition: 0.5s;
   }
 
+  .button-menu span:nth-child(1) {
+    transform: translateY(-7px);
+    width: 15px;
+    left: 4px;
+  }
 
+  .button-menu.active span:nth-child(1) {
+    width: 21px;
+    transform: translateY(0px) rotate(45deg);
+  }
 
+  .button-menu span:nth-child(2) {
+    transform: translateY(7px);
+    width: 10px;
+    left: 4px;
+  }
+
+   .button-menu.active span:nth-child(2) {
+    width: 21px;
+    transform: translateY(0px) rotate(315deg);
+  }
+
+    .button-menu.active span:nth-child(3) {
+    transform: translateX(30px) 
+  }
 
   /* стилі для мобільного меню */
   .menu-container {
@@ -154,7 +184,7 @@ background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
     display: none;
     top: 0px;
     left: 0px;
-    z-index: 99;
+    z-index: 2;
 
     min-height: 100%;
     width: 100%;
@@ -295,6 +325,10 @@ background-image: url(//src/svgsprite/symbol-defs.svg#icon-close);
     text-transform: uppercase;
 
     color: var(--primary-text-color-light-theme);
+  }
+
+  .nav-item[data-is-auth-link] {
+    display: none;
   }
 
   .navigation {

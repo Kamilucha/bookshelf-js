@@ -1,7 +1,6 @@
 // import { addTipListeners, removeTipListeners } from './imputTipMessage';
 import { closeModal } from './closeModal';
 import { validation } from './loginValidation';
-// import getIconPath from '../shopRefs';
 const svg = {
   password: new URL('../../svgsprite/symbol-defs.svg#icon-lock', import.meta.url),
   email: new URL('../../svgsprite/symbol-defs.svg#icon-mail', import.meta.url),
@@ -9,7 +8,6 @@ const svg = {
 }
 
 import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basiclightbox.min.css';
 import 'basiclightbox/src/styles/main.scss';
 
 import { refs } from './refs';

@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 5;
     width: 100vw;
     overflow-y: scroll;
 
@@ -45,6 +45,10 @@
     width: 287px;
     height: 408px;
     border-radius: 8px;
+}
+
+.modal_img:hover,.modal_img:focus{
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 
 
@@ -173,11 +177,17 @@
     cursor: pointer;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
   background-color: var(--accent-color-light-theme);
   color: var(--header-bg-color-light);
   cursor: pointer;
+}
+
+.btn:focus {
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+    background-color: var(--accent-color-light-theme);
+    color: var(--header-bg-color-light);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
