@@ -18,7 +18,20 @@ margin-bottom: 40px;
   }
 }
 .card-wrapper {
+  max-width: 335px;
   cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .card-wrapper {
+    max-width: 218px;
+  }
+
+}
+@media screen and (min-width: 1440px) {
+  .card-wrapper {
+    max-width: 180px;
+  }
+
 }
 
 /* #NotiflixNotifyWrap {
