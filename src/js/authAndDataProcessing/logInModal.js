@@ -1,7 +1,12 @@
 // import { addTipListeners, removeTipListeners } from './imputTipMessage';
 import { closeModal } from './closeModal';
 import { validation } from './loginValidation';
-
+// import getIconPath from '../shopRefs';
+const svg = {
+  password: new URL('../../svgsprite/symbol-defs.svg#icon-lock', import.meta.url),
+  email: new URL('../../svgsprite/symbol-defs.svg#icon-mail', import.meta.url),
+  svgClose: new URL('../../svgsprite/symbol-defs.svg#icon-close', import.meta.url),
+}
 
 import * as basicLightbox from 'basiclightbox';
 // import 'basiclightbox/dist/basiclightbox.min.css';
@@ -9,7 +14,6 @@ import 'basiclightbox/src/styles/main.scss';
 
 import { refs } from './refs';
 
-// my 
 const body = document.querySelector('body');
 
 let instance = {};
@@ -37,7 +41,7 @@ function onOpenModal(e) {
     `<div class="login-modal">
       <button class="close_btn" aria-label="Close modal">
         <svg class="login-icon-close">
-          <use href="../../svgsprite/symbol-defs.svg#icon-mail"></use>
+          <use href="${svg.svgClose}#icon-close"></use>
         </svg>
       </button>
 
@@ -51,7 +55,11 @@ function onOpenModal(e) {
               placeholder="Email"
               name="email"
               data-rules="bail|required|email"
-          /></label>
+            />
+            <svg class="login-icon-mail">
+              <use href="${svg.email}#icon-mail"></use>
+            </svg>
+          </label>
 
           <label class="label">
             <input
@@ -62,7 +70,11 @@ function onOpenModal(e) {
               name="psw"
               title="Password length from 6 to 10 characters, consists of the following - lowercase (a-z) and uppercase (A-Z)."
               data-rules="bail|required"
-          /></label>
+            />
+            <svg class="login-icon-password">
+              <use href="${svg.password}#icon-lock"></use>
+            </svg>
+          </label>
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignin" type="submit">
@@ -126,7 +138,11 @@ function handleSwitch(e) {
               placeholder="Email"
               name="email"
               data-rules="bail|required|email"
-          /></label>
+            />
+            <svg class="login-icon-mail">
+              <use href="${svg.email}#icon-mail"></use>
+            </svg>
+          </label>
 
           <label class="label">
             <input
@@ -137,7 +153,11 @@ function handleSwitch(e) {
               name="psw"
               title="Password length from 6 to 10 characters, consists of the following - lowercase (a-z) and uppercase (A-Z)."
               data-rules="bail|required|x-regex:password"
-          /></label>
+            />
+            <svg class="login-icon-password">
+              <use href="${svg.password}#icon-lock"></use>
+            </svg>
+          </label>
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignup" type="submit">
@@ -161,7 +181,11 @@ function handleSwitch(e) {
               placeholder="Email"
               name="email"
               data-rules="bail|required"
-          /></label>
+            />
+            <svg class="login-icon-mail">
+              <use href="${svg.email}#icon-mail"></use>
+            </svg>
+          </label>
 
           <label class="label">
             <input
@@ -172,7 +196,11 @@ function handleSwitch(e) {
               name="psw"
               title="Password length from 6 to 10 characters, consists of the following - lowercase (a-z) and uppercase (A-Z)."
               data-rules="bail|required"
-          /></label>
+            />
+            <svg class="login-icon-password">
+              <use href="${svg.password}#icon-lock"></use>
+            </svg>
+          </label>
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignin" type="submit">
