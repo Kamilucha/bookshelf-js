@@ -11,23 +11,17 @@
     margin-bottom: 0px;
   }
 }
-@media screen and (min-width: 768px) {
-  .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 
 .genres-wrapper {
   overflow-y: scroll;
   max-width: 335px;
-  max-height: 228px;
+  height: 228px;
 }
 @media screen and (min-width: 768px) {
   .genres-wrapper {
     /* За макетом 340px, але довелося розширити, бо довгі назви не поміщаються в один рядок */
-    max-width: 375px;
-    max-height: 472px;
+    max-width: 337px;
+    height: 472px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -64,6 +58,7 @@
   .genres-btn {
     /* За макетом 18px */
     font-size: 17px;
+    line-height: 1.33;
   }
 }
 .genres-btn:hover,
