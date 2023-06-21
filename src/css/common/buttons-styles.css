@@ -3,7 +3,7 @@
 .btn-main{
 align-items: left;
 margin-left: auto;
-
+color:var(--primary-text-color-light-theme);
     padding: 14px 28px;
     
     min-width: 124px;
@@ -19,6 +19,21 @@ margin-left: auto;
 
     letter-spacing: -0.01em;
     text-transform: uppercase;
+
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px){
+    .btn-main {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .btn-main {
+        margin-top: 32px;
+    }
 }
 
 .btn-main:hover,

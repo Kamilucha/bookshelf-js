@@ -141,8 +141,10 @@ function checkIsAuth(modalAddRemBtn) {
       setTimeout(() => {
         refs.greeting.textContent = `${user.displayName}`;
         refs.greeting.style.display = 'flex';
+        refs.iconDown.classList.add('block');
+        refs.user.classList.add('flex');
       }, 500);
-      refs.btnLogOut.style.display = 'flex';
+      // refs.btnLogOut.style.display = 'flex';myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
       refs.btnOpenLogInModal.style.display = 'none';
       console.log('signet in');
 
@@ -167,7 +169,10 @@ function checkIsAuth(modalAddRemBtn) {
       // refs.isAuthElements = document.querySelectorAll('[data-is-auth]');
       // console.log(refs.isAuthElements);
       refs.greeting.style.display = 'none';
-      refs.btnLogOut.style.display = 'none';
+      refs.iconDown.classList.remove('block');
+      refs.user.classList.remove('flex');
+      // refs.btnLogOut.style.display = 'none';////////////////////////////////////////////////////////////
+      refs.btnLogOut.classList.remove('button-log-out-toggle')
       refs.btnOpenLogInModal.style.display = 'flex';
       console.log('not signet in');
       refs.shoppingListLink.style.display = 'none';
@@ -209,3 +214,11 @@ export {
   loginEmailPassword,
   checkState,
 };
+
+
+// my/////////////////////////////////////////////////////////////////////////////////////////
+refs.greeting.addEventListener('click', greetingHandler);
+
+function greetingHandler() {
+  refs.btnLogOut.classList.toggle('button-log-out-toggle');
+}

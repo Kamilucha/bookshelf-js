@@ -97,6 +97,42 @@ a {
   .menu-container.is-open {
     display: block;
   }
+}
+@media screen and (min-width: 320px) {
+  .header {
+    position: relative;
+    z-index: 3;
+    padding: 18px 20px;
+
+    background: var(--header-bg-color-light);
+    border: 1.5px solid var(--primary-text-color-light-theme);
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .logo {
+    width: 109px;
+    height: 28px;
+  }
+  .nav-list {
+    display: none;
+  }
+
+  .log-in-btns-wrepper {
+    position: relative;
+  }
+
+  .button-log,
+  .button-log-out,
+  .button-user {
+    display: none;
+  }
 
   /* =============================CHECKBOX - THEMESWITCHER======================================================= */
   body {
@@ -256,8 +292,18 @@ a {
   letter-spacing: -0.04em;
   text-transform: uppercase;
 
-  color: var(--header-bg-color-light);
-}
+    color: var(--header-bg-color-light);
+  }
+
+  @media screen and (min-width: 768px) {
+    .nav-list-mobile{
+      display: none;
+    }
+    .button-log-out-mobile{
+      opacity: 0;
+    }
+  }
+
 
 .icon-shop-mobile {
   position: absolute;
@@ -386,6 +432,7 @@ a {
     justify-content: flex-start;
     align-items: center;
     gap: 93px;
+    cursor: pointer;
   }
 
   .text-log {
@@ -410,6 +457,12 @@ a {
     border-radius: 18px;
   }
 
+  .button-log-out-toggle {
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+  }
+
   .text-log-out {
     padding-left: 14px;
     font-size: 14px;
@@ -429,6 +482,43 @@ a {
     justify-content: center;
     align-items: center;
     gap: 7px;
+    cursor: pointer;
+
+    color: #FFF;
+    font-size: 22px;
+    font-family: DM Sans;
+    font-weight: 700;
+    letter-spacing: -0.44px;
+  }
+
+  .icon-down-user {
+    display: none;
+    position: absolute;
+    width: 23px;
+    height: 26px;
+    top: 10;
+    right: 12;
+  }
+
+  .user-login-wrapper {
+    position: absolute;
+    background-color: #FFF;
+    width: 37px;
+    height: 37px;
+    top: 4px;
+    left: 12px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .flex {
+    display: flex;
   }
 
   .checkbox {

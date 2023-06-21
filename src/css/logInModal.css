@@ -59,3 +59,267 @@
 .micromodal-slide.is-open {
   display: block;
 }
+
+
+
+
+
+.login-modal {
+    width: 579px;
+    height: 516px;
+    background-color: var(--bg-color-light);
+    border: 2px solid #111111;
+    border-radius: 18px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 80 40 40 40;
+}
+/* 
+
+*/
+/*  */
+/* 
+ */
+ /*  
+ */
+
+
+.login-modal .close_btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.login-icon-close {
+  width: 28px;
+  height: 28px;
+  stroke: #111111;
+  position: absolute;
+}
+
+.login-icon-close:hover,
+.login-icon-close:focus
+ {
+  stroke: var(--accent-color-light-theme);
+  cursor: pointer;
+ }
+
+ .login-icon-mail {
+  width: 28px;
+  height: 28px;
+  stroke: #111111;
+  fill: transparent;
+  position: absolute;
+  top: 22px;
+  right: 23px;
+ }
+
+.login-modal .input-field:focus + .login-icon-mail,
+.login-modal .input-field:focus + .login-icon-password
+ {
+  stroke: var(--accent-color-light-theme);
+}
+
+.login-icon-password {
+  width: 28px;
+  height: 28px;
+  stroke: #111111;
+  fill: transparent;
+  position: absolute;
+  top: 22px;
+  right: 23px;
+}
+
+.login-modal .labels-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.login-modal .input-field {
+  box-sizing: border-box;
+  padding: 20px 50px 20px 40px;
+  width: 100%;
+  border: 2.4px solid #111111;
+  border-radius: 40px;
+
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  color: #111111;
+}
+
+.login-modal .input-field::placeholder {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.login-modal .input-field:focus {
+  outline: none;
+  border: 2.4px solid var(--accent-color-light-theme);
+}
+
+.login-modal .label {
+  position: relative;
+}
+
+.login-modal .validator-err {
+  position: absolute;
+  top: 70px;
+  left: 5%;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.login-modal .modal__btn-primary {
+  width: 100%;
+  height: 64px;
+  background-color: var(--primary-text-color-light-theme);
+  border-radius: 40px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #F3F3F3;
+  transform: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.login-modal .modal__btn-primary:hover,
+.login-modal .modal__btn-primary:focus 
+{
+  background-color: var(--accent-color-light-theme);
+}
+
+.login-modal .switch-modal-btns {
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+
+.login-modal .js-sign-up-btn,
+.login-modal .js-sign-in-btn
+ {
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.login-modal .login-accent {
+  color: var(--accent-color-light-theme);
+  text-decoration-line: underline;
+}
+
+.login-modal .form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+  .login-modal {
+    max-width: 335px;
+    max-height: 384px;
+    padding: 40px 20px;
+  }
+
+  .login-icon-close {
+    width: 20px;
+    height: 20px;
+  }
+
+  .login-icon-password,
+  .login-icon-mail 
+  {
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    right: 16px;
+  }
+
+  .login-modal .close_btn {
+    top: 14px;
+    right: 14px;
+  }
+
+  .login-modal .input-field {
+    padding: 14px 40px 14px 24px;
+    font-size: 16px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  .login-modal .input-field::placeholder {
+    font-size: 16px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  .login-modal .labels-wrapper {
+    gap: 20px;
+  }
+
+  .login-modal .modal__btn-primary {
+    height: 50px;
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .login-modal .js-sign-up-btn,
+  .login-modal .js-sign-in-btn 
+  {
+    font-size: 14px;
+  }
+
+  .login-modal .validator-err {
+    top: 50px;
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+/* .login-modal .input-field {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 499px;
+  height: 64px;
+  border: 2.4px solid #111111;
+  border-radius: 40px;
+  padding: 0;
+}
+
+.login-modal .input-field::placeholder {
+  text-indent: 40px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #111111;
+} */
