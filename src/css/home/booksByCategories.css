@@ -6,8 +6,8 @@
 }
 @media screen and (max-width: 767px) {
   .category-item:not(:last-child) {
-margin-bottom: 40px;
-}
+    margin-bottom: 40px;
+  }
 }
 @media screen and (min-width: 768px) {
   .category-list {
@@ -25,13 +25,11 @@ margin-bottom: 40px;
   .card-wrapper {
     max-width: 218px;
   }
-
 }
 @media screen and (min-width: 1440px) {
   .card-wrapper {
     max-width: 180px;
   }
-
 }
 
 /* #NotiflixNotifyWrap {
