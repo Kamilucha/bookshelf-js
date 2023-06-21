@@ -54,7 +54,7 @@
   position: relative;
   background-color: white;
   height: 170px;
-  width: 307px;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   border: 3px solid rgba(79, 46, 232, 0.4);
@@ -233,7 +233,7 @@ svg {
     grid-template-columns: 115px 1fr;
     grid-column-gap: 24px;
 
-    width: 93%;
+    width: auto;
     max-height: 165px;
     padding: 24px;
   }
@@ -339,7 +339,7 @@ svg {
   }
 
   .shopping__card {
-    width: 94%;
+    width: auto;
     /* width: 996px; */
     height: 213px;
     margin-left: 0;
