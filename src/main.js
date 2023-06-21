@@ -13,5 +13,4 @@ import './js/shoppingListContent';
 // import {BooksAPIService} from './js/booksAPIService'
 
 import './js/header';
-import './js/theme-switcher';
-import './js/theme-switcher'
+import './js/themeSwitcher';
