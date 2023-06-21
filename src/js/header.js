@@ -11,13 +11,12 @@ function onBtnMenuClick() {
 
 
 // отримаємо посилання на навігацію і додаємо слухача
-const activePage = window.location.pathname;
-const navLink = document.querySelectorAll('.nav-item')
-  .forEach(link => {
+// const activePage = window.location.pathname;
+// const navLink = document.querySelectorAll('.nav-item')
+//   .forEach(link => {
 
-    if (link.href === activePage) {
-      link.setAttribute('aria-current','page')
-    }
-}
-)
-// 
+//     if (link.href === activePage) {
+//       link.setAttribute('aria-current','page')
+//     }
+// })
+
