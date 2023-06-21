@@ -1,6 +1,6 @@
 .books_container {
-  margin-left: 20px;
-  margin-right: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
   width: 355px;
   overflow: hidden;
 }
@@ -71,12 +71,12 @@
   font-size: 16px;
   line-height: 1.12;
 
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .book_author {
@@ -87,23 +87,23 @@
 
   letter-spacing: -0.04em;
 
-    color: var(--secondary-color-light-theme);
+  color: var(--secondary-color-light-theme);
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 768px) {
-.book-card:not(:first-child) {
-        display: none;
-    }
+  .book-card:not(:first-child) {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .books_container {
-    margin-left: 32px;
-    margin-right: 32px;
+    /* margin-left: 32px;
+    margin-right: 32px; */
     width: 704px;
   }
 
@@ -120,7 +120,6 @@
     height: 366px;
   }
 
-
   .book_image {
     width: 218px;
     height: 316px;
@@ -133,15 +132,15 @@
     width: 500%;
   }
 
- .book-card:nth-child(n + 4) {
-     display: none;
- }
+  .book-card:nth-child(n + 4) {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .books_container {
-    margin-left: 40px;
-    margin-right: 24px;
+    /* margin-left: 40px;
+    margin-right: 24px; */
     width: 996px;
   }
 
@@ -167,12 +166,10 @@
 }
 
 .quick_view {
-    display: none;
-
-    
+  display: none;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
   .quick_view {
     position: absolute;
     width: 180px;
@@ -180,19 +177,18 @@
     left: 0px;
     top: 186px;
 
-    background: #EAC645;
+    background: #eac645;
     border-radius: 0px 0px 8px 8px;
   }
-  .book-card:hover>.quick_view{
+  .book-card:hover > .quick_view {
     display: block;
     cursor: pointer;
-}
+  }
 }
 
-@media screen and (max-width: 1024px){
-  
+@media screen and (max-width: 1024px) {
   .book-card:hover,
-  .book-card:focus{
+  .book-card:focus {
     cursor: pointer;
-}
+  }
 }
