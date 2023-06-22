@@ -664,7 +664,7 @@ a {
 
   .text-log-out {
     letter-spacing: -.04em;
-    color: #111;
+    color: var(--primary-text-color-light-theme);
     padding-left: 14px;
     font-size: 14px;
 }
@@ -755,3 +755,6 @@ a {
      }
    } 
   
+   .nav-to-hide {
+    display: none;
+   }

@@ -12,7 +12,7 @@ export const refs = {
   switchModalBtns: {},
   form: {},
   modalForm: {},
-  // shoppingListLink: document.querySelector('[data-is-auth-link]'),
+  shoppingListLink: document.querySelector('[data-is-auth]'),
 };
 
 /**
