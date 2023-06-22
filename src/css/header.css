@@ -107,7 +107,7 @@ a {
     display: block;
   }
 }
-/* mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm */
+
 .icon-down-user {
   display: none;
     position: absolute;
@@ -729,3 +729,16 @@ a {
    .nav-to-hide {
     display: none;
    }
+
+   .auth-hide {
+    display: none;
+   }
+  
+  auth-block {
+    display: flex;
+  }
+
+  .scroll {
+    position: fixed;
+    width: 100%;
+  }
