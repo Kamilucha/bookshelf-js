@@ -41,6 +41,9 @@ export default function renderModal(card) {
     })
     .join('');
 
+  const textFish = "The description of the book can be viewed on the seller's website.";
+  const descr = card.description || textFish;
+
   modalBody.innerHTML = `
         <div class="modal_container">
             <img class="modal_image" src="${card.book_image}" alt="">
@@ -50,7 +53,7 @@ export default function renderModal(card) {
                 <li>
                   <div class="card_author">${card.author}</div></li>
                 <li>
-                  <div class="card_description">${card.description}</div></li>
+                  <div class="card_description">${descr}</div></li>
                 <li>
                   <div>
                   <ul class="modal_links">${buyLinks}</ul></div></li>
