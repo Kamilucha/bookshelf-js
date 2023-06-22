@@ -171,8 +171,8 @@
   transition: background-color 0.2s ease-out;
 }
 .icon_close {
-  stroke: var(--text-logo-bookshelf-light);
-  fill: var(--text-logo-bookshelf-light);
+  stroke: var(--primary-text-color-light-theme);
+  fill: var(--primary-text-color-light-theme);
 }
 
 .icon_close:hover,
