@@ -5,6 +5,7 @@ const btnUser = document.querySelector('.button-user');
 const iconUser = document.querySelector('.icon-user-login');
 const userWrapper = document.querySelector('.user-login-wrapper');
 const greet = document.querySelector('.greeting');
+const header = document.querySelector('.header');
 
 const btnWrapper = document.querySelector('.log-in-btns-wrepper');
 
@@ -16,6 +17,7 @@ function onBtnMenuClick() {
 
   if (mobileMenu.classList.contains('is-open')) {
     // disableScroll();
+    header.classList.add('scroll')
 
     btnUser.classList.remove('flex');
     btnWrapper.classList.add('flex');
@@ -34,7 +36,7 @@ function onBtnMenuClick() {
     return
   }
   // enableScroll();
-
+  header.classList.remove('scroll')
 
   btnWrapper.classList.remove('flex')
   btnUser.classList.add('flex-2')

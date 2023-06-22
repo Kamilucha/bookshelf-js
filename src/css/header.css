@@ -737,3 +737,8 @@ a {
   auth-block {
     display: flex;
   }
+
+  .scroll {
+    position: fixed;
+    width: 100%;
+  }
