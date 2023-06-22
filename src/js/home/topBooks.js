@@ -31,11 +31,10 @@ export async function renderTopBooks() {
       const groupEl = document.createElement('div');
       groupEl.className = 'book-group';
       groupEl.innerHTML = `
-        <div class="book-group_title">${group.list_name}</div>
-        <div class="book-card_list"></div>
-        <div class="position-see-more">
-        <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button></div>
-      `;
+      <div class="book-group_title">${group.list_name}</div>
+      <div class="book-card_list"></div>
+      <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button>
+    `;
 
       const seeMoreBtn = groupEl.querySelector('.see-more-btn');
       seeMoreBtn.addEventListener('click', seeMoreBtnHandler);
@@ -45,16 +44,38 @@ export async function renderTopBooks() {
       const booksGroupContainer = groupEl.querySelector('.book-card_list');
       const existingBooks = booksGroupContainer.querySelectorAll('.book-card');
 
-      group.books.forEach((book, index) => {
-        const cardEl = createBookElement(book);
-        if (index < existingBooks.length) {
-          booksGroupContainer.insertBefore(cardEl, existingBooks[index]);
-        } else {
-          booksGroupContainer.appendChild(cardEl);
-        }
-      });
+      const maxBooksToShow = 5;
 
-      categoryBooksCount[group.list_name] = group.books.length;
+      if (window.innerWidth <= 767.98) {
+        const firstBook = group.books[0];
+        const cardEl = createBookElement(firstBook);
+        booksGroupContainer.appendChild(cardEl);
+      } else if (window.innerWidth <= 1023.98) {
+        group.books.slice(0, 3).forEach((book, index) => {
+          const cardEl = createBookElement(book);
+          if (index < existingBooks.length) {
+            booksGroupContainer.insertBefore(cardEl, existingBooks[index]);
+          } else {
+            booksGroupContainer.appendChild(cardEl);
+          }
+        });
+      } else {
+        group.books.forEach((book, index) => {
+          const cardEl = createBookElement(book);
+          if (index < maxBooksToShow) {
+            if (index < existingBooks.length) {
+              booksGroupContainer.insertBefore(cardEl, existingBooks[index]);
+            } else {
+              booksGroupContainer.appendChild(cardEl);
+            }
+          } else {
+            cardEl.style.display = 'none';
+            booksGroupContainer.appendChild(cardEl);
+          }
+        });
+      }
+
+      categoryBooksCount[group.list_name] = maxBooksToShow;
     });
   } catch (error) {
     console.log(error);
@@ -68,6 +89,13 @@ export async function renderTopBooks() {
 }
 
 if (booksContainer) {
+  window.onresize = () => {
+    while (booksContainer.firstChild) {
+      booksContainer.removeChild(booksContainer.firstChild);
+    }
+    renderTopBooks();
+  };
+
   renderTopBooks();
 }
 
@@ -84,12 +112,20 @@ async function seeMoreBtnHandler(e) {
       const books = await bookApi.getBooksByCategory(category);
       const booksToShow = books.slice(start);
 
-      booksToShow.forEach(book => {
-        const cardEl = createBookElement(book);
-        booksContainer.appendChild(cardEl);
-      });
-
-      categoryBooksCount[category] = start + booksToShow.length;
+      if (window.innerWidth <= 1023.98) {
+        const maxBooksToShow = 3;
+        booksToShow.slice(0, maxBooksToShow).forEach(book => {
+          const cardEl = createBookElement(book);
+          booksContainer.appendChild(cardEl);
+        });
+        categoryBooksCount[category] = start + maxBooksToShow;
+      } else {
+        booksToShow.forEach(book => {
+          const cardEl = createBookElement(book);
+          booksContainer.appendChild(cardEl);
+        });
+        categoryBooksCount[category] = start + booksToShow.length;
+      }
     } catch (error) {
       console.log(error);
       Notiflix.Notify.failure(
