@@ -84,9 +84,8 @@ a {
 
     padding: 20px;
     background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      var(#4f2ee8) 18.03%,
-      var(#ffffff) 100%
+      183.6% 183.01% at 59.76% -23.42%,#4f2ee8 18.03%,
+      #ffffff 100%
     );
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -538,6 +537,7 @@ a {
     padding-left: 14px;
     font-size: 14px;
     letter-spacing: -0.04em;
+
     color: var(--primary-text-color-light-theme);
   }
 
