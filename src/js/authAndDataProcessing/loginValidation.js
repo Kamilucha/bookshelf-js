@@ -4,6 +4,7 @@ import { isSignUp, handleClose } from './logInModal';
 import { Validator, enLang as en } from '@upjs/facile-validator';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { checkAuthError } from './checkAuthError';
+import { removeTipListeners } from './inputTipMessage';
 
 // Notiflix.Notify.init({});
 
@@ -36,7 +37,6 @@ function validation() {
         return;
       },
       'field:error': (modalForm, field, errors) => {
-        console.log(modalForm.name);
         errors.forEach(error => {
           if (modalForm.name === 'signUpForm') {
             if (error.element && error.element.name === 'userName') {
@@ -49,12 +49,12 @@ function validation() {
               error.message =
                 'Please enter a valid password! Password length from 6 to 10 characters, consists of the following - lowercase (a-z) and uppercase (A-Z).';
             }
+            removeTipListeners();
           } else if (modalForm.name === 'logInForm') {
             if (error.element.name === 'email') {
               error.message = 'Required';
             }
             if (error.element.name === 'psw') {
-              console.log(error);
               error.message = 'Required';
             }
           }

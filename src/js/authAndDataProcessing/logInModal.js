@@ -1,13 +1,21 @@
 // import { addTipListeners, removeTipListeners } from './imputTipMessage';
 import { closeModal } from './closeModal';
 import { validation } from './loginValidation';
+import { addTipListeners, removeTipListeners } from './inputTipMessage';
 const svg = {
-  password: new URL('../../svgsprite/symbol-defs.svg#icon-lock', import.meta.url),
+  password: new URL(
+    '../../svgsprite/symbol-defs.svg#icon-lock',
+    import.meta.url
+  ),
   email: new URL('../../svgsprite/symbol-defs.svg#icon-mail', import.meta.url),
-  svgClose: new URL('../../svgsprite/symbol-defs.svg#icon-close', import.meta.url),
-}
+  svgClose: new URL(
+    '../../svgsprite/symbol-defs.svg#icon-close',
+    import.meta.url
+  ),
+};
 
 import * as basicLightbox from 'basiclightbox';
+
 import 'basiclightbox/src/styles/main.scss';
 
 import { refs } from './refs';
@@ -20,14 +28,14 @@ let isSignUp = false;
 const options = {
   handler: null,
   onShow(instance) {
-    body.style.overflow = "hidden";
+    body.style.overflow = 'hidden';
     this.handler = closeModal.bind(instance);
     document.addEventListener('keydown', this.handler);
     document.addEventListener('keydown', this.handler);
   },
 
   onClose() {
-    body.style.overflow = "visible";
+    body.style.overflow = 'visible';
     document.removeEventListener('keydown', this.handler);
     refs.closeBtn.removeEventListener('click', handleClose);
   },
@@ -76,7 +84,7 @@ function onOpenModal(e) {
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignin" type="submit">
-          Sign up
+          Log in
         </button>
       </form>
         <div class="switch-modal-btns">
@@ -84,7 +92,7 @@ function onOpenModal(e) {
             sign up
           </button>
           <button class="modal__btn login-accent js-sign-in-btn" aria-label="Switch to sign in">
-            sign in
+            log in
           </button>
         </div>
     </div>`,
@@ -92,6 +100,11 @@ function onOpenModal(e) {
   );
   instance.show(() => {
     validation();
+
+    const bgColorModal = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue('--login-modal-bg');
+    document.querySelector('.basicLightbox').style.background = bgColorModal;
 
     refs.closeBtn = document.querySelector('.close_btn');
     refs.switchModalBtns = document.querySelector('.switch-modal-btns');
@@ -114,7 +127,7 @@ function handleSwitch(e) {
      * Не впевнений що вони нам потрібні, але логіка готова
      * Потрібна стилізація
      */
-    // addTipListeners();
+    addTipListeners();
     refs.form.setAttribute('name', 'signUpForm');
     refs.form.innerHTML = `
         <div class="labels-wrapper">
@@ -159,7 +172,7 @@ function handleSwitch(e) {
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignup" type="submit">
-          Sign-up
+          Sign up
         </button>
       `;
     e.target.classList.add('login-accent');
@@ -167,7 +180,7 @@ function handleSwitch(e) {
     isSignUp = true;
   } else if (button.includes('js-sign-in-btn')) {
     // Знімає слухачі для підказок при введенні в поля реєстрації.
-    // removeTipListeners();
+    removeTipListeners();
     refs.form.setAttribute('name', 'logInForm');
     refs.form.innerHTML = `
         <div class="labels-wrapper">
@@ -202,7 +215,7 @@ function handleSwitch(e) {
         </div>
 
         <button class="modal__btn modal__btn-primary" id="btnSignin" type="submit">
-          Sign-in
+          Log in
         </button>
       `;
     e.target.classList.add('login-accent');

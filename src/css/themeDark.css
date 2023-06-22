@@ -1,11 +1,12 @@
 body.dark {
-    --bg-color-light: #202024;
-    --header-bg-color-light: #111111;
-    --text-logo-bookshelf-light: #000000;
-    --accent-color-light-theme: #eac645;
-    --primary-text-color-light-theme: #ffffff;
-    --secondary-color-light-theme: #b4afaf;
-    --category-color-light: rgba(255, 255, 255, 0.6);
-    --scroll-light-theme: rgba(17, 17, 17, 0.6);
-
+  --login-modal-borders: #f6f6f6;
+  --login-modal-switch-btns: rgba(246, 246, 246, 0.5);
+  --bg-color-light: #202024;
+  --header-bg-color-light: #111111;
+  --text-logo-bookshelf-light: #000000;
+  --accent-color-light-theme: #eac645;
+  --primary-text-color-light-theme: #ffffff;
+  --secondary-color-light-theme: #b4afaf;
+  --category-color-light: rgba(255, 255, 255, 0.6);
+  --scroll-light-theme: rgba(17, 17, 17, 0.6);
 }
