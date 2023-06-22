@@ -77,7 +77,9 @@ function renderMarkupCard(bookArr) {
 
     li.innerHTML = `
         <div class='card-wrapper card'>
-        ${renderImg()}
+        <div class='img_wrapper'>
+                ${renderImg()}
+        </div>
         <div class='book-info'>         
         <p class='book_title'>${title}</p>
         <p class='book_author'>${author}</p>
