@@ -150,7 +150,7 @@ a {
   }
 
   @media screen and (max-width: 767.99px) {
-.nav-item[arria-current=page] {
+.nav-item[aria-current=page] {
   display: flex;
   justify-content: center;
   align-items: center;
