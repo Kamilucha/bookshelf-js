@@ -4,6 +4,7 @@ export const refs = {
   greeting: document.querySelector('.js-greeting'),
   iconDown: document.querySelector('.icon-down-user'),
   user: document.querySelector('.user-login-wrapper'),
+  userIcon: document.querySelector('.icon-user-login'),
   closeBtn: {},
   switchModalBtns: {},
   form: {},

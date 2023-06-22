@@ -143,9 +143,11 @@ function checkIsAuth(modalAddRemBtn) {
         refs.greeting.style.display = 'flex';
         refs.iconDown.classList.add('block');
         refs.user.classList.add('flex');
+        refs.userIcon.classList.add('block');
       }, 600);
       // refs.btnLogOut.style.display = 'flex';
-      refs.btnOpenLogInModal.style.display = 'none';
+      refs.btnOpenLogInModal.classList.add('none');
+      //  refs.btnOpenLogInModal.style.display = 'none';
       console.log('signet in');
 
       getLib();
@@ -171,7 +173,9 @@ function checkIsAuth(modalAddRemBtn) {
       refs.user.classList.remove('flex');
       // refs.btnLogOut.style.display = 'none';
       refs.btnLogOut.classList.remove('button-log-out-toggle');
-      refs.btnOpenLogInModal.style.display = 'flex';
+      refs.userIcon.classList.remove('block');
+      refs.btnOpenLogInModal.classList.remove('none');
+      // refs.btnOpenLogInModal.style.display = 'flex';
       console.log('not signet in');
       // refs.shoppingListLink.style.display = 'none';
     }
