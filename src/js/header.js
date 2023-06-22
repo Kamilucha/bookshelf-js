@@ -41,6 +41,8 @@ function onBtnMenuClick() {
   mobileMenu.classList.toggle('is-open')
   if (mobileMenu.classList.contains('is-open')) {
 
+// disableScroll();
+
     btnWrapper.classList.add('flex')
   
 
@@ -58,6 +60,9 @@ function onBtnMenuClick() {
 
     return
   }
+  // enableScroll();
+
+
   btnWrapper.classList.remove('flex')
   btnUser.classList.add('flex-2')
 
@@ -107,3 +112,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+
+
+
+
+// function disableScroll() {
+//   // Сохраняем текущую позицию прокрутки страницы
+//   var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+//   // Запрещаем прокрутку
+//   document.body.style.overflow = 'hidden';
+//   document.documentElement.style.overflow = 'hidden';
+//   document.body.style.position = 'fixed';
+//   document.body.style.top = `-${scrollPosition}px`;
+// }
+
+
+// function enableScroll() {
+//   // Получаем сохраненную позицию прокрутки
+//   var scrollPosition = parseFloat(document.body.style.top);
+  
+//   // Восстанавливаем прокрутку
+//   document.body.style.overflow = '';
+//   document.documentElement.style.overflow = '';
+//   document.body.style.position = '';
+//   document.body.style.top = '';
+
+//   // Прокручиваем страницу к сохраненной позиции
+//   window.scrollTo(0, -scrollPosition);
+// }

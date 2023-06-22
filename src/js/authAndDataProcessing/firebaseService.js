@@ -177,7 +177,7 @@ function checkIsAuth(modalAddRemBtn) {
       // User is signed out
       // ...
       refs.btnUser.classList.remove('flex-2');
-
+      refs.btnUser.classList.remove('flex')
 
 
       refs.greeting.classList.remove('flex');
