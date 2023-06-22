@@ -146,12 +146,16 @@ function checkIsAuth(modalAddRemBtn) {
       // https://firebase.google.com/docs/reference/js/auth.user
       setTimeout(() => {
         refs.greeting.textContent = `${user.displayName}`;
-        refs.greeting.style.display = 'flex';
+        refs.greeting.classList.add('flex');
         refs.iconDown.classList.add('block');
         refs.user.classList.add('flex');
+        refs.btnLog.style.display = 'none';
       }, 600);
       // refs.btnLogOut.style.display = 'flex';
-      refs.btnOpenLogInModal.style.display = 'none';
+      refs.btnOpenLogInModal.classList.add('none');
+      // refs.btnOpenLogInModal.style.display = 'none';
+      console.log('signet in');
+
       // console.log('signet in');
 
       // getLib();
@@ -172,13 +176,21 @@ function checkIsAuth(modalAddRemBtn) {
     } else {
       // User is signed out
       // ...
-      refs.greeting.style.display = 'none';
+      refs.btnUser.classList.remove('flex-2');
+      refs.btnUser.classList.remove('flex')
+
+
+      refs.greeting.classList.remove('flex');
       refs.iconDown.classList.remove('block');
       refs.user.classList.remove('flex');
       // refs.btnLogOut.style.display = 'none';
+
+
       refs.btnLogOut.classList.remove('button-log-out-toggle');
+
+
       refs.btnOpenLogInModal.style.display = 'flex';
-      // console.log('not signet in');
+      console.log('not signet in');
       // refs.shoppingListLink.style.display = 'none';
     }
   });
