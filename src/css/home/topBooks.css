@@ -1,6 +1,4 @@
 .books_container {
-  /* margin-left: 20px;
-  margin-right: 20px; */
   width: 355px;
   overflow: hidden;
 }
@@ -25,9 +23,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
-  /* max-height: 625px;
-        overflow: hidden; */
 }
 
 .book-group_title {
@@ -46,9 +41,6 @@
 .book-card_list {
   display: flex;
   flex-wrap: wrap;
-
-  /* gap: 224px;
-  width: 500%; */
 }
 
 .book_image{
@@ -113,18 +105,8 @@
 
 @media screen and (min-width: 768px) {
   .books_container {
-    /* margin-left: 32px;
-    margin-right: 32px; */
     width: 704px;
   }
-  /* 
-  .book-card_list {
-
-    min-height: 366px;
-  }
-
-    height: 366px;
-  } */
 
   .book-card {
     width: 218px;
@@ -140,24 +122,22 @@
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .book-card_list {
     gap: 25px;
-    width: auto; /* Измените значение на "auto" */
+    width: auto; 
   }
 
   .book-card {
-    display: flex; /* Добавьте это свойство */
+    display: flex; 
     width: 218px;
     height: 366px;
   }
 
   .book-card:nth-child(n + 4) {
-    display: flex; /* Измените значение на "flex" */
+    display: flex; 
   }
 }
 
 @media screen and (min-width: 1440px) {
   .books_container {
-    /* margin-left: 40px;
-    margin-right: 24px; */
     width: 996px;
   }
 

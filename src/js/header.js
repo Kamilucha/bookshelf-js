@@ -80,11 +80,11 @@ function onBtnMenuClick() {
 
 document.addEventListener("DOMContentLoaded", function() {
   let path = window.location.pathname;
-  console.log(path);
-  if (path === '/') {
-    path = '/index.html';
+  // console.log(path);
+  if (path === '/project_team_6_js/') {
+    path = '/project_team_6_js/index.html';
   }
-  console.log(path);
+  // console.log(path);
   const navItems = document.querySelectorAll('.nav-item-li');
 
   navItems.forEach(function(item) {

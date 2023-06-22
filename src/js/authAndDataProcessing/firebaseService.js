@@ -154,7 +154,7 @@ function checkIsAuth(modalAddRemBtn) {
       // refs.btnLogOut.style.display = 'flex';
       refs.btnOpenLogInModal.classList.add('none');
       // refs.btnOpenLogInModal.style.display = 'none';
-      console.log('signet in');
+      // console.log('signet in');
       // getLib();
 
       unsub = onSnapshot(userRef, doc => {
@@ -187,7 +187,7 @@ function checkIsAuth(modalAddRemBtn) {
 
 
       refs.btnOpenLogInModal.style.display = 'flex';
-      console.log('not signet in');
+      // console.log('not signet in');
       refs.shoppingListLink.style.display = 'none';
     }
   });
