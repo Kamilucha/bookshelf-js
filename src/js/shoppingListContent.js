@@ -53,6 +53,9 @@ function renderBooks(page, booksContainer) {
         amazon_product_url,
         buy_links: [apple, bookshop],
       }) => {
+        const textFish = "The description of the book can be viewed on the seller's website.";
+        const descr = description || textFish;
+
         return `<article class="shopping__card">
           <div class="about-img">
             <img class="shopping-card-img" src="${book_image}" alt="${title}" />
@@ -63,7 +66,7 @@ function renderBooks(page, booksContainer) {
             <p class="shopping-card-category">${list_name}</p>
           </div>
           <div class="about-description">
-            <p class="shopping-card-description">${description}</p>
+            <p class="shopping-card-description">${descr}</p>
           </div>
           <div class="about-autor-url">
           <div class="about-author">
