@@ -162,34 +162,6 @@ a {
 }
 
 @media screen and (min-width: 320px) {
-  .icon-down-user {
-    display: none;
-  }
-
-  .icon-user-login {
-    display: none;
-  }
-
-  .button-user {
-    display: none;
-    width: 184px;
-    height: 45px;
-    background: var(--accent-color-light-theme);
-    border: 1.5px solid var(--primary-text-color-light-theme);
-    border-radius: 18px;
-
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    cursor: pointer;
-
-    color: #FFF;
-    font-size: 17px;
-    font-family: DM Sans;
-    font-weight: 700;
-    letter-spacing: -0.44px;
-  }
-/* ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff */
   .header {
     position: relative;
     z-index: 3;
@@ -222,33 +194,14 @@ a {
     display: none;
   }
 
+  .log-in-btns-wrepper {
+    position: relative;
+  }
+
   .button-log,
   .button-log-out,
   .button-user {
     display: none;
-  }
-
-  .button-log {
-    display: flex;
-    width: 184px;
-    height: 45px;
-    background: var(--accent-color-light-theme);
-    border: 1.5px solid var(--primary-text-color-light-theme);
-    border-radius: 18px;
-
-    justify-content: flex-start;
-    align-items: center;
-    gap: 93px;
-    cursor: pointer;
-  }
-
-  .text-log {
-    font-size: 14px;
-    line-height: 18px;
-    padding-left: 14px;
-
-    letter-spacing: -0.04em;
-    color: var(--header-bg-color-light);
   }
   }
 
@@ -455,7 +408,7 @@ a {
 
 .button-log-out-mobile {
   position: absolute;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 7px;
@@ -575,6 +528,12 @@ a {
     border-radius: 18px;
   }
 
+  .button-log-out-toggle {
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+  }
+
   .text-log-out {
     padding-left: 14px;
     font-size: 14px;
@@ -597,7 +556,7 @@ a {
     cursor: pointer;
 
     color: #FFF;
-    font-size: 17px;
+    font-size: 22px;
     font-family: DM Sans;
     font-weight: 700;
     letter-spacing: -0.44px;
@@ -625,37 +584,15 @@ a {
     justify-content: center;
   }
 
+  .block {
+    display: block;
+  }
+
+  .flex {
+    display: flex;
+  }
+
   .checkbox {
     right: 24px;
   }
 }
-
-.block {
-    display: block;
-  }
-
-  .button-log-out-toggle {
-    display: flex;
-    position: absolute;
-    cursor: pointer;
-  }
-
-.none {
-  display: none;
-}
-
-  @media screen and (max-width: 767px) {
-  .button-log-2 {
-    display: none;
-  }
-}
-
-/* @media screen and (min-width: 768px) { */
-  .flex {
-    display: flex;
-  }
-/* } */
-
-/* .flex-2 {
-  display: flex;
-} */

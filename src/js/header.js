@@ -1,13 +1,35 @@
 import { doc } from "firebase/firestore";
-
 // отримаємо посилання на кнопку меню і додаємо слухача
+// const mobileMenu = document.querySelector('.menu-container');
+// const btmMenu = document.querySelector('.button-menu')
+
+// btmMenu.addEventListener('click', onBtnMenuClick)
+
+// function onBtnMenuClick() {
+//   btmMenu.classList.toggle('active')
+//   mobileMenu.classList.toggle('is-open')
+// }
+
+
+// отримаємо посилання на навігацію і додаємо слухача
+// const activePage = window.location.pathname;
+// const navLink = document.querySelectorAll('.nav-item')
+//   .forEach(link => {
+
+//     if (link.href === activePage) {
+//       link.setAttribute('aria-current','page')
+//     }
+// })
+
+
+
+
 const mobileMenu = document.querySelector('.menu-container');
 const btmMenu = document.querySelector('.button-menu');
 const btnLogin = document.querySelector('.button-log');
 const btnUser = document.querySelector('.button-user');
 const iconUser = document.querySelector('.icon-user-login');
 const userWrapper = document.querySelector('.user-login-wrapper')
-
 
 btmMenu.addEventListener('click', onBtnMenuClick)
 
@@ -32,6 +54,7 @@ function onBtnMenuClick() {
 }
 
 
+
 // отримаємо посилання на навігацію і додаємо слухача
 // const activePage = window.location.pathname;
 // const navLink = document.querySelectorAll('.nav-item')
@@ -41,4 +64,3 @@ function onBtnMenuClick() {
 //       link.setAttribute('aria-current','page')
 //     }
 // })
-

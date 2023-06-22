@@ -149,10 +149,11 @@ function checkIsAuth(modalAddRemBtn) {
         refs.greeting.style.display = 'flex';
         refs.iconDown.classList.add('block');
         refs.user.classList.add('flex');
-        refs.userIcon.classList.add('block');
       }, 600);
       // refs.btnLogOut.style.display = 'flex';
       refs.btnOpenLogInModal.classList.add('none');
+      // refs.btnOpenLogInModal.style.display = 'none';
+      console.log('signet in');
 
       // console.log('signet in');
 
