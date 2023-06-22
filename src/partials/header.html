@@ -12,12 +12,15 @@
       </a>
 
       <ul class="nav-list">
-        <li>
-          <a class="nav-item" aria-current="page" href="/src/index.html"
-            >Home</a
-          >
+        <li class="nav-item-li">
+          <div>
+            <a class="nav-item" aria-current="page" href="/src/index.html"
+              >Home</a
+            >
+          </div>
         </li>
-        <li data-is-auth="false">
+
+        <li class="nav-item-li" data-is-auth="false">
           <a class="nav-item" href="/src/shopping-list.html"
             >Shopping list
             <svg class="icon-shop" width="20" height="20">
@@ -44,21 +47,24 @@
     </div>
 
     <div class="log-in-btns-wrepper">
-      <button class="button-log js-open-modal" type="button">
+      <button class="button-log js-open-modal button-log-2" type="button">
         <span class="text-log">Log in</span>
         <svg class="icon-log" width="20" height="20">
           <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
         </svg>
       </button>
-      <button class="button-user js-open-modal js-greeting" type="button"></button>
-        <svg class="icon-down-user" width="20" height="20">
-          <use href="/src/svgsprite/symbol-defs.svg#icon-login-down"></use>
-        </svg>
-        <div class="user-login-wrapper">
+      <button
+        class="button-user js-open-modal js-greeting"
+        type="button"
+      ></button>
+      <svg class="icon-down-user" width="20" height="20">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-login-down"></use>
+      </svg>
+      <div class="user-login-wrapper">
         <svg class="icon-user-login" width="19" height="19">
           <use href="/src/svgsprite/symbol-defs.svg#icon-user"></use>
         </svg>
-        </div>
+      </div>
       <button class="button-log-out js-logOut" type="button">
         <span class="text-log-out">Log out</span>
         <svg class="icon-log" width="20" height="20">
