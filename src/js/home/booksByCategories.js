@@ -30,7 +30,7 @@ export async function fetchBooksByCategories(selectedCategory) {
     renderBaseMarkupCategory();
     loader.style.display = 'none';
     renderMarkupCard(data);
-    onCardClick(data);
+    // onCardClick(data);
   } catch (error) {
     console.log(error);
   }
@@ -91,17 +91,17 @@ function renderMarkupCard(bookArr) {
   categoryList.append(...markup);
 }
 
-function onCardClick() {
-  const cardsBooks = document.querySelectorAll('.card-wrapper');
-  cardsBooks.forEach(card => {
-    card.addEventListener('click', () => {
-      const data = data.map({ book_uri, buy_links });
-      console.log(card);
-      renderModal(data);
-      console.log(document.querySelector('.btn'));
-    });
-  });
-}
+// function onCardClick() {
+//   const cardsBooks = document.querySelectorAll('.card-wrapper');
+//   cardsBooks.forEach(card => {
+//     card.addEventListener('click', () => {
+//       const data = data.map({ book_uri, buy_links });
+//       console.log(card);
+//       renderModal(data);
+//       console.log(document.querySelector('.btn'));
+//     });
+//   });
+// }
 
 Notiflix.Notify.init({
   width: '340px',
