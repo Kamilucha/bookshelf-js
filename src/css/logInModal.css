@@ -192,7 +192,7 @@ background-color: var(----header-bg-color-light);
   font-size: 18px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(----text-logo-bookshelf-dark);
+  color: var(--text-logo-bookshelf-dark);
   transform: none;
   margin-bottom: 20px;
   cursor: pointer;
