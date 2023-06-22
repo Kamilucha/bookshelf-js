@@ -1,0 +1,32 @@
+.genres-wrapper {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 46, 232, 0.7) #f6f6f6;
+}
+.card_description {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79, 46, 232, 0.7) #f6f6f6; 
+}
+.dark .genres-wrapper,
+.dark .card_description {
+  scrollbar-color: #eac645 #202024;
+}
+.genres-wrapper::-webkit-scrollbar,
+.card_description::-webkit-scrollbar {
+  width: 8px;
+}
+
+.genres-wrapper::-webkit-scrollbar-track,
+.card_description::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+.genres-wrapper::-webkit-scrollbar-thumb,
+.card_description::-webkit-scrollbar-thumb {
+  background-color: rgba(79, 46, 232, 0.7);
+  border-radius: 12px;
+}
+
+.dark .genres-wrapper::-webkit-scrollbar-thumb, .card_description::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color-light-theme);   
+  }
