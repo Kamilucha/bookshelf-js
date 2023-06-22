@@ -50,8 +50,7 @@ function renderBooks(page, booksContainer) {
         description,
         list_name,
         book_image,
-        amazon_product_url,
-        buy_links: [apple, bookshop],
+        buy_links: [amazon, apple, bookmil, barnes, bookshop],
       }) => {
         const textFish = "The description of the book can be viewed on the seller's website.";
         const descr = description || textFish;
@@ -75,7 +74,7 @@ function renderBooks(page, booksContainer) {
           <div class="shoplist-url">
             <ul class="shoplist-url-list">
               <li class="shoplist-url-item">
-                <a class="shoplist-url-link" href="${amazon_product_url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
+                <a class="shoplist-url-link" href="${amazon.url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Amazon link">
                   <img class="modal-shop-img shopping-shopimg amazon" src="${amazonIconPath}" alt="Amazon link" />
                 </a>
               </li>
