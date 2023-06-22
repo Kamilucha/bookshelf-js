@@ -738,3 +738,6 @@ a {
      }
    } 
   
+   .nav-to-hide {
+    display: none;
+   }
