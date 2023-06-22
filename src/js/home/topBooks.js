@@ -1,102 +1,139 @@
 import { BooksAPIService } from '../booksAPIService';
 import renderModal from '../modal';
-import { fetchBooksByCategories } from './booksByCategories';
 import Notiflix from 'notiflix';
 
 const loader = document.querySelector('.best-sellers-loader');
 
 const bookApi = new BooksAPIService();
-let booksContainer = document.querySelector('.books_container');
+const booksContainer = document.querySelector('.books_container');
+const categoryBooksCount = {};
 
 export async function renderTopBooks() {
-  let topBooks = await bookApi.getTopBooks();
-  loader.style.display = 'none';
-  renderTitlePage();
-  if (topBooks.length === 0) {
-    Notiflix.Notify.info(`Sorry, but no books on the all categories were found. 
-    Please choose another category.`);
-    return;
+  if (loader) {
+    loader.style.display = 'block';
   }
-  topBooks.forEach(group => {
-    let books = group.books.slice(0, 5).map(renderCard);
-    let groupEl = document.createElement('div');
-    groupEl.className = 'book-group';
-    groupEl.innerHTML = `
+
+  try {
+    const topBooks = await bookApi.getTopBooks();
+    if (loader) {
+      loader.style.display = 'none';
+    }
+    renderTitlePage();
+
+    if (topBooks.length === 0) {
+      Notiflix.Notify.info(
+        'Sorry, but no books on all categories were found. Please choose another category.'
+      );
+      return;
+    }
+
+    topBooks.forEach(group => {
+      const groupEl = document.createElement('div');
+      groupEl.className = 'book-group';
+      groupEl.innerHTML = `
         <div class="book-group_title">${group.list_name}</div>
-    `;
+        <div class="book-card_list"></div>
+        <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button>
+      `;
 
-    let card_list = document.createElement('div');
-    card_list.className = 'book-card_list';
-    card_list.append(...books);
+      const seeMoreBtn = groupEl.querySelector('.see-more-btn');
+      seeMoreBtn.addEventListener('click', seeMoreBtnHandler);
 
-    let seeMoreBtn = document.createElement('button');
-    seeMoreBtn.className = 'btn-main';
-    seeMoreBtn.textContent = 'See More';
-    groupEl.append(card_list, seeMoreBtn);
+      booksContainer.appendChild(groupEl);
 
-    booksContainer.append(groupEl);
-  });
+      const booksGroupContainer = groupEl.querySelector('.book-card_list');
+      const existingBooks = booksGroupContainer.querySelectorAll('.book-card');
+
+      group.books.forEach((book, index) => {
+        const cardEl = createBookElement(book);
+        if (index < existingBooks.length) {
+          booksGroupContainer.insertBefore(cardEl, existingBooks[index]);
+        } else {
+          booksGroupContainer.appendChild(cardEl);
+        }
+      });
+
+      categoryBooksCount[group.list_name] = group.books.length;
+    });
+  } catch (error) {
+    console.log(error);
+    if (loader) {
+      loader.style.display = 'none';
+    }
+    Notiflix.Notify.failure(
+      'Failed to fetch top books. Please try again later.'
+    );
+  }
 }
 
-renderTopBooks();
+if (booksContainer) {
+  renderTopBooks();
+}
 
-function renderCard(card) {
-  let cardEl = document.createElement('div');
+async function seeMoreBtnHandler(e) {
+  if (e.target.classList.contains('see-more-btn')) {
+    const target = e.target;
+    const category = target.dataset.category;
+    const booksContainer = target
+      .closest('.book-group')
+      .querySelector('.book-card_list');
+
+    try {
+      const start = categoryBooksCount[category] || 0;
+      const books = await bookApi.getBooksByCategory(category);
+      const booksToShow = books.slice(start);
+
+      booksToShow.forEach(book => {
+        const cardEl = createBookElement(book);
+        booksContainer.appendChild(cardEl);
+      });
+
+      categoryBooksCount[category] = start + booksToShow.length;
+    } catch (error) {
+      console.log(error);
+      Notiflix.Notify.failure(
+        'Failed to fetch books for this category. Please try again later.'
+      );
+    }
+  }
+}
+
+function createBookElement(book) {
+  const cardEl = document.createElement('div');
   cardEl.className = 'book-card';
 
-  let quickView = document.createElement('button');
+  const quickView = document.createElement('button');
   quickView.className = 'quick_view';
   quickView.textContent = 'QUICK VIEW';
+  quickView.addEventListener('click', () => renderModal(book));
 
-  function renderImg(card) {
-    if (card.book_image) {
-      return `<img class="book_image" src="${card.book_image}" alt="${card.title}"></img>`;
-    } else {
-      return `<div class="empty_img"></div>`;
-    }
+  let bookImg = '';
+  if (book.book_image) {
+    bookImg = `<div class="img_wrapper">
+  <img class="book_image" src="${book.book_image}" alt="${book.title}" />
+</div>`;
+  } else {
+    bookImg = `<div class="empty_img"></div>`;
   }
 
   cardEl.innerHTML = `
-        ${renderImg(card)}
-        <div class="book-info">
-        <p class="book_title">${card.title}</p>
-        <p class="book_author">${card.author}</p>
-      </div>
-    `;
+    ${bookImg}
+    <div class="book-group">
+      <p class="book_title">${book.title}</p>
+      <p class="book_author">${book.author}</p>
+    </div>
+  `;
   cardEl.append(quickView);
-  cardEl.onclick = function () {
-    renderModal(card);
-  };
+  cardEl.addEventListener('click', () => renderModal(book));
 
   return cardEl;
 }
 
 function renderTitlePage() {
-  const titlePage = `<h1 class="section-books-header">
-  Best Sellers <span class="section-books-header section-books-header-span">Books</span>
-</h1>`;
+  const titlePage = `
+    <h1 class="section-books-header">
+      Best Sellers <span class="section-books-header-span">Books</span>
+    </h1>
+  `;
   booksContainer.insertAdjacentHTML('beforeend', titlePage);
 }
-
-const btnClicked = false;
-
-const seeMoreBtn = document.querySelectorAll('.btn-main').forEach(event => {
-  let id = event.getAttribute('id');
-  event.addEventListener('click', function () {
-    btnClicked = true;
-
-    const seeMoreSection = fetchBooksByCategories();
-    seeMoreSection.forEach(group => {
-      let newBooks = group.books.slice(6, 11).map(renderCard);
-      return newBooks;
-    });
-
-    if (btnClicked) {
-      seeMoreBtn.innerHTML = 'See less';
-      seeMoreSection.classList.remove(isHidden);
-    } else {
-      seeMoreBtn.innerHTML = 'See more';
-      seeMoreSection.classList.add(isHidden);
-    }
-  });
-});

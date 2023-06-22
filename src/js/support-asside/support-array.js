@@ -4,8 +4,8 @@ export const supportItem = [
     url:
       'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
             img: {
-    x1: new URL('../../images/support-asside/1_save children@1x-min.png', import.meta.url).href,
-    x2: new URL('../../images/support-asside/1_save children@2x-min.png', import.meta.url).href,            },
+    x1: new URL('../../images/support-asside/1_savechildren@1x-min.png', import.meta.url).href,
+    x2: new URL('../../images/support-asside/1_savechildren@2x-min.png', import.meta.url).href,            },
   },
   {
     title: 'Project HOPE',
