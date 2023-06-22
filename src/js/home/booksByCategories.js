@@ -77,7 +77,9 @@ function renderMarkupCard(bookArr) {
 
     li.innerHTML = `
         <div class='card-wrapper card'>
-        ${renderImg()}
+        <div class='img_wrapper'>
+                ${renderImg()}
+        </div>
         <div class='book-info'>         
         <p class='book_title'>${title}</p>
         <p class='book_author'>${author}</p>
@@ -101,38 +103,6 @@ function onCardClick() {
   });
 }
 
-// Notiflix.Notify.init({
-//   width: '360px',
-//   distance: '10px',
-//   backOverlay: false,
-//   messageMaxLength: 150,
-//   clickToClose: true,
-
-//   ID: 'NotiflixNotify',
-//   className: 'notiflix-notify',
-//   zindex: 4001,
-//   fontFamily: 'DM Sans',
-//   fontSize: '16px',
-//   cssAnimation: true,
-//   cssAnimationDuration: 1000,
-//   cssAnimationStyle: 'from-top', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
-//   closeButton: true,
-//   useIcon: true,
-//   useFontAwesome: false,
-//   fontAwesomeIconStyle: 'basic', // 'basic' - 'shadow'
-//   fontAwesomeIconSize: '34px',
-
-//   info: {
-//     background: '#4f2ee8',
-//     textColor: '#fff',
-//     childClassName: 'notiflix-notify-info',
-//     notiflixIconColor: 'rgba(0,0,0,0.2)',
-//     fontAwesomeClassName: 'fas fa-info-circle',
-//     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
-//     backOverlayColor: 'rgba(17, 17, 17, 0.4)',
-//   },
-// });
-
 Notiflix.Notify.init({
   width: '340px',
   distance: '15px',
@@ -144,6 +114,6 @@ Notiflix.Notify.init({
   cssAnimationStyle: 'from-top',
  
   info: {
-    background: '#4f2ee8',
+    background: 'rgba(79, 46, 232, 0.9)',
   },
 });

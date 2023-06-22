@@ -9,11 +9,15 @@ const booksContainer = document.querySelector('.books_container');
 const categoryBooksCount = {};
 
 export async function renderTopBooks() {
-  loader.style.display = 'block';
+  if (loader) {
+    loader.style.display = 'block';
+  }
 
   try {
     const topBooks = await bookApi.getTopBooks();
-    loader.style.display = 'none';
+    if (loader) {
+      loader.style.display = 'none';
+    }
     renderTitlePage();
 
     if (topBooks.length === 0) {
@@ -29,7 +33,8 @@ export async function renderTopBooks() {
       groupEl.innerHTML = `
         <div class="book-group_title">${group.list_name}</div>
         <div class="book-card_list"></div>
-        <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button>
+        <div class="position-see-more">
+        <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button></div>
       `;
 
       const seeMoreBtn = groupEl.querySelector('.see-more-btn');
@@ -53,14 +58,18 @@ export async function renderTopBooks() {
     });
   } catch (error) {
     console.log(error);
-    loader.style.display = 'none';
+    if (loader) {
+      loader.style.display = 'none';
+    }
     Notiflix.Notify.failure(
       'Failed to fetch top books. Please try again later.'
     );
   }
 }
 
-renderTopBooks();
+if (booksContainer) {
+  renderTopBooks();
+}
 
 async function seeMoreBtnHandler(e) {
   if (e.target.classList.contains('see-more-btn')) {
@@ -101,7 +110,9 @@ function createBookElement(book) {
 
   let bookImg = '';
   if (book.book_image) {
-    bookImg = `<img class="book_image" src="${book.book_image}" alt="${book.title}">`;
+    bookImg = `<div class="img_wrapper">
+  <img class="book_image" src="${book.book_image}" alt="${book.title}" />
+</div>`;
   } else {
     bookImg = `<div class="empty_img"></div>`;
   }

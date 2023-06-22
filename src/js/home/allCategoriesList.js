@@ -12,12 +12,15 @@ const listGenres = new BooksAPIService();
 const loader = document.querySelector('.categories-loader');
 const secondLoader = document.querySelector('.best-sellers-loader');
 
-
 async function fetchBookCategories() {
   try {
     const data = await listGenres.getBookCategories();
-    btnAllCategories.classList.add('accent');
-    loader.style.display = 'none';
+    if (btnAllCategories) {
+      btnAllCategories.classList.add('accent');
+    }
+    if (loader) {
+      loader.style.display = 'none';
+    }
     renderMarkupList(data);
     btnAllCategories.addEventListener('click', handleAllCategoryClick);
     onBtnCategoriesClick();
@@ -26,11 +29,15 @@ async function fetchBookCategories() {
   }
 }
 
-fetchBookCategories();
+if (list) {
+  fetchBookCategories();
+}
 
 // Ф-ція, що динамічно рендерить розмітку списку категорій книг
 function renderMarkupList(genres) {
-  const alphbetGenres = genres.sort((a, b) => a.list_name.localeCompare(b.list_name));
+  const alphbetGenres = genres.sort((a, b) =>
+    a.list_name.localeCompare(b.list_name)
+  );
   const markup = alphbetGenres
     .map(genre => {
       return `<li class='genres-item'><button type='button' class='genres-btn genres-btn-js'>${genre.list_name}</button></li>`;

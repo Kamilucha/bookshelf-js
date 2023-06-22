@@ -19,6 +19,10 @@
   max-width: 335px;
   height: 228px;
 }
+.dark .genres-wrapper {
+  scrollbar-color: #eac645 #202024;
+}
+
 @media screen and (min-width: 768px) {
   .genres-wrapper {
     /* За макетом 340px, але довелося розширити, бо довгі назви не поміщаються в один рядок */
@@ -44,6 +48,9 @@
   background-color: rgba(79, 46, 232, 0.7);    
   border-radius: 12px;       
   
+}
+.dark .genres-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color-light-theme);   
 }
 .genres-item:not(:last-child) {
   margin-bottom: 4px;
