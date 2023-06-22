@@ -29,7 +29,10 @@ const btmMenu = document.querySelector('.button-menu');
 const btnLogin = document.querySelector('.button-log');
 const btnUser = document.querySelector('.button-user');
 const iconUser = document.querySelector('.icon-user-login');
-const userWrapper = document.querySelector('.user-login-wrapper')
+const userWrapper = document.querySelector('.user-login-wrapper');
+const greet = document.querySelector('.greeting');
+
+const btnWrapper = document.querySelector('.log-in-btns-wrepper');
 
 btmMenu.addEventListener('click', onBtnMenuClick)
 
@@ -37,20 +40,34 @@ function onBtnMenuClick() {
   btmMenu.classList.toggle('active')
   mobileMenu.classList.toggle('is-open')
   if (mobileMenu.classList.contains('is-open')) {
-    btnLogin.classList.remove('button-log-2')
+
+    btnWrapper.classList.add('flex')
+  
+
+    // btnLogin.classList.remove('button-log-2')
 
     if (btnLogin.classList.contains('none')) {
-      btnUser.style.display = 'flex'
-  iconUser.classList.add('block')
+
+
+
+      btnUser.classList.add('flex')
+      // greet.classList.add('flex')
+  // iconUser.classList.add('block')
   userWrapper.classList.add('flex')
     }
 
     return
   }
+  btnWrapper.classList.remove('flex')
+  btnUser.classList.add('flex-2')
+
+  iconUser.classList.add('flex-2')
+
+
   btnLogin.classList.add('button-log-2')
-  btnUser.style.display = 'none'
-  iconUser.classList.remove('block')
-  userWrapper.classList.remove('flex')
+  btnUser.classList.remove('flex')
+  // iconUser.classList.remove('block')
+  // userWrapper.classList.remove('flex')
 }
 
 

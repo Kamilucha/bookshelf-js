@@ -5,6 +5,8 @@ export const refs = {
   iconDown: document.querySelector('.icon-down-user'),
   user: document.querySelector('.user-login-wrapper'),
   userIcon: document.querySelector('.icon-user-login'),
+  btnLog: document.querySelector('.button-log'),
+  btnUser: document.querySelector('.button-user'),
   
   closeBtn: {},
   switchModalBtns: {},
