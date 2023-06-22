@@ -31,27 +31,3 @@
     max-width: 180px;
   }
 }
-
-/* #NotiflixNotifyWrap {
-  position: fixed !important;
-  top: 85% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-@media screen and (min-width: 768px) {
-  #NotiflixNotifyWrap {
-    position: fixed !important;
-    top: 75% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-}
-} 
-@media screen and (min-width: 1440px) {
-  #NotiflixNotifyWrap {
-    position: fixed !important;
-    top: 15% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-  } 
-} */

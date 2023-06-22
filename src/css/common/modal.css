@@ -12,22 +12,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(17, 17, 17, 0.8);
+  background-color: rgba(17, 17, 17, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 5;
-  width: 100vw;
+  width: 100%;
   overflow-y: scroll;
-  opacity: 1;
-
-  animation-name: example;
-  animation-duration: 0.4s;
 }
-
-/* .visible {
-  opacity: 1;
-} */
 
 .modal_body {
   min-width: 280px;
@@ -176,7 +168,7 @@
   border-color: transparent;
   background-color: transparent;
 
-  transition: background 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 .icon_close {
   stroke: var(--text-logo-bookshelf-light);
