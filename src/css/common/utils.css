@@ -6,6 +6,7 @@
 
 :root {
   /* light theme  */
+  --body-dark:#ffffff;
   --bg-color-light: #f6f6f6;
   --header-bg-color-light: #ffffff;
   --text-logo-bookshelf-light: #000000;
@@ -14,6 +15,9 @@
   --secondary-color-light-theme: #b4afaf;
   --category-color-light: rgba(17, 17, 17, 0.6);
   --scroll-light-theme: #e0e0e0;
+  --shop-card-empty-text :rgba(0, 0, 0, 0.6);
+  --bg-shopping-card:#ffffff;
+  --sing-up:rgba(17, 17, 17, 0.5)
 
   /* dark theme */
 
@@ -25,9 +29,10 @@
   --secondary-color-dark-theme: #b4afaf;
   --category-color-dark: rgba(255, 255, 255, 0.6);
   --scroll-datk-theme: rgba(17, 17, 17, 0.6);
+  --shop-card-empty-text-dark :rgba(255, 255, 255, 0.6);;
 }
 
-/**
+/*
   |============================
   | Container
   |============================
@@ -69,5 +74,5 @@
 }
 
 body{
-  background-color: var(--header-bg-color-light);
+  background-color: var(--body-dark);
 }

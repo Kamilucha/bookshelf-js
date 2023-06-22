@@ -1,4 +1,5 @@
 body.dark {
+    --body-dark:#202024;
     --bg-color-light: #202024;
     --header-bg-color-light: #111111;
     --text-logo-bookshelf-light: #000000;
@@ -7,5 +8,9 @@ body.dark {
     --secondary-color-light-theme: #b4afaf;
     --category-color-light: rgba(255, 255, 255, 0.6);
     --scroll-light-theme: rgba(17, 17, 17, 0.6);
+    --shop-card-empty-text:rgba(255, 255, 255, 0.6);
+    --bg-shopping-card:#111111;
+    --text-logo-bookshelf-dark:var(--text-logo-bookshelf-light);
+    --sign-up:rgba(246, 246, 246, 0.5);
 
 }

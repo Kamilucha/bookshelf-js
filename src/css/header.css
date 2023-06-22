@@ -4,7 +4,9 @@ button {
   margin: 0;
   border: none;
 }
-
+.logo{
+  fill: currentColor;
+}
 img {
   display: block;
   max-width: 100%;
@@ -383,6 +385,7 @@ body {
     bottom: 1px;
     margin-left: 11px;
     left: 86px;
+    fill:var(--primary-text-color-light-theme);
   }
 
   .button-menu {
@@ -436,7 +439,7 @@ body {
     font-size: 14px;
     letter-spacing: -0.04em;
 
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
   }
 
   .button-user {
