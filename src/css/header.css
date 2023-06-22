@@ -4,15 +4,16 @@ button {
   margin: 0;
   border: none;
 }
-.logo{
-  fill: currentColor;
-}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
+.modal_img:first-child{
+  filter: var(--amazon);
+}
 a {
   color: currentColor;
   padding: 0;

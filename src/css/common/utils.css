@@ -17,7 +17,8 @@
   --scroll-light-theme: #e0e0e0;
   --shop-card-empty-text :rgba(0, 0, 0, 0.6);
   --bg-shopping-card:#ffffff;
-  --sing-up:rgba(17, 17, 17, 0.5)
+  --sing-up:rgba(17, 17, 17, 0.5);
+  --amazon:invert(0%) sepia(100%) saturate(0%) hue-rotate(21deg) brightness(97%) contrast(103%);
 
   /* dark theme */
 

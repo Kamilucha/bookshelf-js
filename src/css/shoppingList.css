@@ -312,6 +312,7 @@ svg {
   .amazon {
     width: 48px;
     height: 15px;
+    filter: var(--amazon);
   }
 
   .apple {
