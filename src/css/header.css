@@ -21,7 +21,7 @@ a {
   padding: 0;
 }
 /* стилі для смартфону */
-.nav-item[aria-current='page'] {
+.nav-item-li.active {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,6 +34,9 @@ a {
   font-weight: 700;
   color: var(--primary-text-color-light-theme);
 }
+
+.nav-item-li{padding: 8px 16px;}
+.nav-item {display: flex;}
 
 @media screen and (min-width: 320px) {
   .header {
@@ -144,6 +147,23 @@ a {
   .button-user {
     display: none;
   }
+  }
+
+  @media screen and (max-width: 767.99px) {
+.nav-item[aria-current=page] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 10px;
+  /* width: 72px;
+  height: 34px; */
+  background: var(--accent-color-dark-theme);
+  border-radius: 36px;
+  font-weight: 700;
+  color: var(--primary-text-color-light-theme);
+}
+
   }
 
   /* =============================CHECKBOX - THEMESWITCHER======================================================= */
@@ -390,7 +410,7 @@ a {
   .nav-list {
     display: flex;
     align-items: baseline;
-    gap: 40;
+    /* gap: 40; */
 
     margin-left: 40px;
     margin-right: auto;
@@ -423,7 +443,7 @@ a {
   }
 
   .icon-shop {
-    position: absolute;
+    /* position: absolute; */
     bottom: 1px;
     margin-left: 11px;
     left: 86px;
