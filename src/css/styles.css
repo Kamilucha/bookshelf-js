@@ -5,6 +5,7 @@
   |============================
 */
 
+/* @import '../basiclightbox/src/styles/main'; */
 @import url(/src/css/common/utils.css);
 @import url(/src/css/reset.css);
 @import url(/src/css/container.css);

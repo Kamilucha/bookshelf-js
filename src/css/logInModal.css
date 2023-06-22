@@ -20,7 +20,7 @@
 }
 
 .modal__container {
-  background-color: #fff;
+  background-color: var(--body-dark);
   padding: 30px;
   max-width: 500px;
   max-height: 100vh;
@@ -49,7 +49,7 @@
 
 .modal__btn-primary {
   background-color: #00449e;
-  color: #fff;
+  color: var(--body-dark);
 }
 
 .micromodal-slide {
@@ -60,15 +60,11 @@
   display: block;
 }
 
-
-
-
-
 .login-modal {
     width: 579px;
     height: 516px;
     background-color: var(--bg-color-light);
-    border: 2px solid #111111;
+    border: 2px solid var(--primary-text-color-light-theme);
     border-radius: 18px;
     position: relative;
     box-sizing: border-box;
@@ -80,8 +76,12 @@
 /*  */
 /* 
  */
- /*  
+/*  
  */
+
+ .input-field{
+  background-color: var(--body-dark);
+ }
 
 
 .login-modal .close_btn {
@@ -93,37 +93,35 @@
 .login-icon-close {
   width: 28px;
   height: 28px;
-  stroke: #111111;
+  stroke: var(--primary-text-color-light-theme);
   position: absolute;
 }
 
 .login-icon-close:hover,
-.login-icon-close:focus
- {
-  stroke: var(--accent-color-light-theme);
+.login-icon-close:focus {
+  stroke: var(--login-modal-accent);
   cursor: pointer;
- }
+}
 
- .login-icon-mail {
+.login-icon-mail {
   width: 28px;
   height: 28px;
-  stroke: #111111;
+  stroke: var(--primary-text-color-light-theme);
   fill: transparent;
   position: absolute;
   top: 22px;
   right: 23px;
- }
-
-.login-modal .input-field:focus + .login-icon-mail,
-.login-modal .input-field:focus + .login-icon-password
- {
-  stroke: var(--accent-color-light-theme);
 }
+
+/* .login-modal .input-field:focus + .login-icon-mail,
+.login-modal .input-field:focus + .login-icon-password {
+  stroke: var(--login-modal-accent);
+} */
 
 .login-icon-password {
   width: 28px;
   height: 28px;
-  stroke: #111111;
+  stroke: var(--primary-text-color-light-theme);
   fill: transparent;
   position: absolute;
   top: 22px;
@@ -140,15 +138,16 @@
   box-sizing: border-box;
   padding: 20px 50px 20px 40px;
   width: 100%;
-  border: 2.4px solid #111111;
+  border: 2.4px solid var(--primary-text-color-light-theme);
+  background-color: transparent;
   border-radius: 40px;
-
+background-color: var(----header-bg-color-light);
   font-family: 'DM Sans';
   font-weight: 700;
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: -0.01em;
-  color: #111111;
+  color: var(--primary-text-color-light-theme);
 }
 
 .login-modal .input-field::placeholder {
@@ -161,12 +160,12 @@
   line-height: 1.33;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #111111;
+  color: var(--primary-text-color-light-theme);
 }
 
 .login-modal .input-field:focus {
   outline: none;
-  border: 2.4px solid var(--accent-color-light-theme);
+  border: 2.4px solid var(--login-modal-accent);
 }
 
 .login-modal .label {
@@ -179,6 +178,8 @@
   left: 5%;
   font-size: 14px;
   line-height: 1.29;
+
+  color: var(--login-modal-switch-btns);
 }
 
 .login-modal .modal__btn-primary {
@@ -191,16 +192,15 @@
   font-size: 18px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #F3F3F3;
+  color: var(----text-logo-bookshelf-dark);
   transform: none;
   margin-bottom: 20px;
   cursor: pointer;
 }
 
 .login-modal .modal__btn-primary:hover,
-.login-modal .modal__btn-primary:focus 
-{
-  background-color: var(--accent-color-light-theme);
+.login-modal .modal__btn-primary:focus {
+  background-color: var(--login-modal-accent);
 }
 
 .login-modal .switch-modal-btns {
@@ -210,21 +210,20 @@
 }
 
 .login-modal .js-sign-up-btn,
-.login-modal .js-sign-in-btn
- {
+.login-modal .js-sign-in-btn {
   font-family: 'DM Sans';
   font-weight: 700;
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: rgba(17, 17, 17, 0.5);
+  color:var(--sign-up);
   background-color: transparent;
   cursor: pointer;
 }
 
 .login-modal .login-accent {
-  color: var(--accent-color-light-theme);
+  color: var(--login-modal-accent);
   text-decoration-line: underline;
 }
 
@@ -248,8 +247,7 @@
   }
 
   .login-icon-password,
-  .login-icon-mail 
-  {
+  .login-icon-mail {
     width: 20px;
     height: 20px;
     top: 16px;
@@ -285,8 +283,7 @@
   }
 
   .login-modal .js-sign-up-btn,
-  .login-modal .js-sign-in-btn 
-  {
+  .login-modal .js-sign-in-btn {
     font-size: 14px;
   }
 
@@ -295,11 +292,6 @@
     font-size: 12px;
   }
 }
-
-
-
-
-
 
 /* .login-modal .input-field {
   display: flex;

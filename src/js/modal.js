@@ -5,12 +5,8 @@ import {
   checkState,
 } from './authAndDataProcessing/firebaseService';
 import getIconPath from './shopRefs';
-const {
-  appleBooksIconPath,
-  bookShopIconPath,
-  amazonIconPath,
-  svgTrashIcon
-} = getIconPath();
+const { appleBooksIconPath, bookShopIconPath, amazonIconPath, svgTrashIcon } =
+  getIconPath();
 
 export default function renderModal(card) {
   document.body.style.overflow = 'hidden';
@@ -23,26 +19,27 @@ export default function renderModal(card) {
 
   modalBackground.append(modalBody);
 
+  let buyLinks = card.buy_links
+    .map(({ url, name }) => {
+      let imageUrl;
+      if (name === 'Amazon') {
+        imageUrl = `${amazonIconPath}`;
+      } else if (name === 'Apple Books') {
+        imageUrl = `${appleBooksIconPath}`;
+      } else if (name === 'Bookshop') {
+        imageUrl = `${bookShopIconPath}`;
+      } else return;
 
-  let buyLinks = card.buy_links.map(({ url, name }) => {
-    let imageUrl;
-    if (name === 'Amazon') {
-      imageUrl = `${amazonIconPath}`;
-    } else if (name === 'Apple Books') {
-      imageUrl = `${appleBooksIconPath}`;
-    } else if (name === 'Bookshop') {
-      imageUrl = `${bookShopIconPath}`;
-    } else return
-  
-    let urlMarkup = `
+      let urlMarkup = `
         <li class="shoplist-url-item">
           <a class="shoplist_url" href="${url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="${name} link">
             <img class="modal_img" src="${imageUrl}" alt="${name} link" width="48px" height="15px" />
           </a>
         </li>
     `;
-    return urlMarkup;
-  }).join('');
+      return urlMarkup;
+    })
+    .join('');
 
   modalBody.innerHTML = `
         <div class="modal_container">
@@ -96,13 +93,12 @@ export default function renderModal(card) {
   shoppingListEl.setAttribute('data-book-id', card._id);
   shoppingListEl.setAttribute('data-is-auth-btn', 'false');
   modalBody.append(closeBtn, shoppingListEl);
-  modalBody.insertAdjacentElement("afterbegin", closeBtn);
+  modalBody.insertAdjacentElement('afterbegin', closeBtn);
   modalBody.append(shoppingListEl);
   let currentBook = new ShoppingList(card, shoppingListEl);
   shoppingListEl.onclick = () => {
     currentBook.handleBook();
 
-    console.log(shoppingListEl.getAttribute('data-action'));
     if (shoppingListEl.getAttribute('data-action') === 'toAdd') {
       addBookData(card);
     } else if (shoppingListEl.getAttribute('data-action') === 'toRemove') {

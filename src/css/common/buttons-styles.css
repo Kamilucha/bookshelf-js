@@ -1,79 +1,86 @@
 /* see more button */
 
-.btn-main{
-align-items: left;
-margin-left: auto;
-color:var(--primary-text-color-light-theme);
-    padding: 14px 28px;
-    
-    min-width: 124px;
-    height: 46px;
-    
-    border: 2px solid var(--accent-color-light-theme);
-    background-color: transparent;
-    border-radius: 40px;
+.btn-main {
+  margin-left: auto;
+  color: var(--primary-text-color-light-theme);
+  padding: 14px 28px;
 
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.29;
+  min-width: 124px;
+  height: 46px;
 
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
+  border: 2px solid var(--accent-color-light-theme);
+  background-color: transparent;
+  border-radius: 40px;
 
-    margin-top: 8px;
-    margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  margin-top: 8px;
+  margin-bottom: 40px;
 }
 
-@media screen and (min-width: 768px){
-    .btn-main {
-        margin-top: 20px;
-    }
+@media screen and (min-width: 768px) {
+  .btn-main {
+    margin-top: 20px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .btn-main {
-        margin-top: 32px;
-    }
+  .btn-main {
+    margin-top: 32px;
+  }
 }
 
 .btn-main:hover,
-.btn-main:focus{
-    background-color: var(--accent-color-light-theme);
-    color: var(--header-bg-color-light);
+.btn-main:focus {
+  background-color: var(--accent-color-light-theme);
+  color: var(--header-bg-color-light);
 }
 
 /* shopping list button */
 
+.btn-shop-list {
+  width: 499px;
+  height: 64px;
 
-.btn-shop-list{
-    width: 499px;
-    height: 64px;
-    
-    border: 2px solid var(--accent-color-light-theme);
-    border-radius: 40px;
+  border: 2px solid var(--accent-color-light-theme);
+  border-radius: 40px;
 
-    background-color: transparent;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.33;
-    
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 374.98px) {
-    .btn-shop-list {
-        font-size: 14px;
-        line-height: 1.29;
+  .btn-shop-list {
+    font-size: 14px;
+    line-height: 1.29;
 
-        width: 279px;
-        height: 46px;
-    }
+    width: 279px;
+    height: 46px;
+  }
 }
 
 .btn-shop-list:hover,
 .btn-shop-list:focus {
-    background-color: var(--accent-color-light-theme);
-    color: var(--header-bg-color-light);
+  background-color: var(--accent-color-light-theme);
+  color: var(--header-bg-color-light);
+}
+
+.position-see-more {
+  display: flex;
+  width: 335px;
+}
+@media screen and (min-width: 768px) {
+  .position-see-more {
+    width: auto;
+  }
 }
