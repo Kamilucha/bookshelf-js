@@ -6,6 +6,10 @@
 
 :root {
   /* light theme  */
+  --login-modal-bg: rgba(17, 17, 17, 0.8);
+  --login-modal-borders: #111;
+  --login-modal-switch-btns: rgba(17, 17, 17, 0.5);
+  --login-modal-accent: #4f2ee8;
   --bg-color-light: #f6f6f6;
   --header-bg-color-light: #ffffff;
   --text-logo-bookshelf-light: #000000;
@@ -68,6 +72,6 @@
   display: flex;
 }
 
-body{
+body {
   background-color: var(--header-bg-color-light);
 }

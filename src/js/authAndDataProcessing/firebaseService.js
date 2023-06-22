@@ -108,9 +108,17 @@ async function logOut(e) {
   unsub();
   signOut(auth)
     .then(() => {
+      const list = document.querySelector('.js-shopping-list-page');
       // Sign-out successful.
-      console.log('Sign-out successful.');
+      // console.log('Sign-out successful.');
+      Notify.success('Log out successful');
+      if (list) {
+        setTimeout(() => {
+          document.location.href = 'index.html';
+        }, 1000);
+      }
     })
+
     .catch(error => {
       console.log(error);
     });
@@ -120,11 +128,11 @@ async function getLib() {
   const docSnap = await getDoc(userRef);
 
   if (docSnap.exists()) {
-    console.log('Document data:', docSnap.data().books);
+    // console.log('Document data:', docSnap.data().books);
     return docSnap.data().books;
   } else {
     // docSnap.data() will be undefined in this case
-    console.log('No such document!');
+    // console.log('No such document!');
     await setDoc(userRef, { books: [] });
   }
 }
@@ -136,8 +144,6 @@ function checkIsAuth(modalAddRemBtn) {
       userRef = doc(db, 'users', auth.currentUser.uid);
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
-      const uid = user.uid;
-      console.log(uid);
       setTimeout(() => {
         refs.greeting.textContent = `${user.displayName}`;
         refs.greeting.style.display = 'flex';
@@ -146,13 +152,13 @@ function checkIsAuth(modalAddRemBtn) {
       }, 600);
       // refs.btnLogOut.style.display = 'flex';
       refs.btnOpenLogInModal.style.display = 'none';
-      console.log('signet in');
+      // console.log('signet in');
 
-      getLib();
+      // getLib();
 
       unsub = onSnapshot(userRef, doc => {
         const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
-        console.log(source, ' live data: ', doc.data());
+        // console.log(source, ' live data: ', doc.data());
         /**
          * Це слухач подій з даними бібіліотеки в реальному часі
          * Тут перерендерювати картки в бібіліотеці
@@ -172,7 +178,7 @@ function checkIsAuth(modalAddRemBtn) {
       // refs.btnLogOut.style.display = 'none';
       refs.btnLogOut.classList.remove('button-log-out-toggle');
       refs.btnOpenLogInModal.style.display = 'flex';
-      console.log('not signet in');
+      // console.log('not signet in');
       // refs.shoppingListLink.style.display = 'none';
     }
   });
@@ -183,7 +189,6 @@ function checkState(modalAddRemBtn) {
     if (user) {
       userRef = doc(db, 'users', auth.currentUser.uid);
       // User is signed in, see docs for a list of available properties
-      console.log('signet in');
 
       if (modalAddRemBtn) {
         modalAddRemBtn.disabled = false;
@@ -191,11 +196,9 @@ function checkState(modalAddRemBtn) {
     } else {
       // User is signed out
 
-      console.log('not signet in');
-
       if (modalAddRemBtn) {
         modalAddRemBtn.disabled = true;
-        modalAddRemBtn.textContent = 'Add to Shopping List';
+        modalAddRemBtn.textContent = 'Unlock button after Log in';
         // modalAddRemBtn.addEventListener('click', () => {
         //   Notify.info('You have to Log in for addin content to your list!');
         // });
