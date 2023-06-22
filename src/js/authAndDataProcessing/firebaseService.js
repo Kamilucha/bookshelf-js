@@ -155,9 +155,6 @@ function checkIsAuth(modalAddRemBtn) {
       refs.btnOpenLogInModal.classList.add('none');
       // refs.btnOpenLogInModal.style.display = 'none';
       console.log('signet in');
-
-      // console.log('signet in');
-
       // getLib();
 
       unsub = onSnapshot(userRef, doc => {
@@ -170,14 +167,14 @@ function checkIsAuth(modalAddRemBtn) {
          */
       });
 
-      // refs.shoppingListLink.style.display = 'list-item';
+      refs.shoppingListLink.style.display = 'list-item';
 
       // ...
     } else {
       // User is signed out
       // ...
       refs.btnUser.classList.remove('flex-2');
-      refs.btnUser.classList.remove('flex')
+      refs.btnUser.classList.remove('flex');
 
 
       refs.greeting.classList.remove('flex');
@@ -191,7 +188,7 @@ function checkIsAuth(modalAddRemBtn) {
 
       refs.btnOpenLogInModal.style.display = 'flex';
       console.log('not signet in');
-      // refs.shoppingListLink.style.display = 'none';
+      refs.shoppingListLink.style.display = 'none';
     }
   });
 }
