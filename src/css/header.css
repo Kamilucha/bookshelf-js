@@ -35,8 +35,12 @@ a {
   color: var(--primary-text-color-light-theme);
 }
 
-.nav-item-li{padding: 8px 16px;}
-.nav-item {display: flex;}
+.nav-item-li {padding: 8px 16px;}
+.nav-item {display: flex;
+  }
+
+  .nav-item-mobile{display: flex; justify-content: center; position: relative;}
+
 
 @media screen and (min-width: 320px) {
   .header {
@@ -80,9 +84,8 @@ a {
 
     padding: 20px;
     background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      var(--accent-color-light-theme) 18.03%,
-      var(--header-bg-color-light) 100%
+      183.6% 183.01% at 59.76% -23.42%,#4f2ee8 18.03%,
+      #ffffff 100%
     );
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -167,8 +170,21 @@ a {
   }
   }
 
-  @media screen and (max-width: 767.99px) {
-.nav-item[aria-current=page] {
+  @media screen and (max-width: 767.98px) {
+/* .nav-item-li.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 10px;
+  
+  background: var(--accent-color-dark-theme);
+  border-radius: 36px;
+  font-weight: 700;
+  color: var(--primary-text-color-light-theme);
+} */
+
+.nav-item-mobile.active {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -328,7 +344,7 @@ a {
   flex-direction: column;
   gap: 17;
 
-  width: 118px;
+  width: 154px;
   margin-top: 255px;
   margin-left: auto;
   margin-right: auto;
@@ -357,8 +373,9 @@ a {
 
 .icon-shop-mobile {
   position: absolute;
-  bottom: 0px;
-  left: 85px;
+  /* bottom: 0px;
+  left: 85px; */
+  right: 10px;
   margin-left: 10px;
   margin-bottom: 2px;
   fill: var(--header-bg-color-light);

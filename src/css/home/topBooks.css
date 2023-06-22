@@ -101,8 +101,9 @@
 }
 
 @media screen and (max-width: 767.98px) {
-  .book-card:not(:first-child) {
-    display: none;
+  .book-card {
+    display: block;
+    margin-bottom: 20px;
   }
 }
 
@@ -135,11 +136,17 @@
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .book-card_list {
     gap: 25px;
-    width: 500%;
+    width: auto; /* Измените значение на "auto" */
+  }
+
+  .book-card {
+    display: flex; /* Добавьте это свойство */
+    width: 218px;
+    height: 366px;
   }
 
   .book-card:nth-child(n + 4) {
-    display: none;
+    display: flex; /* Измените значение на "flex" */
   }
 }
 

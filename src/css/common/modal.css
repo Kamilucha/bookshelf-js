@@ -36,7 +36,7 @@
   top: 0;
   bottom: 0;
   padding: 40px;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   box-sizing: border-box;
 }
@@ -81,6 +81,8 @@
   margin-bottom: 20px;
 }
 .card_description {
+  max-height: 70px;
+  overflow-y: auto;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -171,8 +173,8 @@
   transition: background-color 0.2s ease-out;
 }
 .icon_close {
-  stroke: var(--text-logo-bookshelf-light);
-  fill: var(--text-logo-bookshelf-light);
+  stroke: var(--primary-text-color-light-theme);
+  fill: var(--primary-text-color-light-theme);
 }
 
 .icon_close:hover,
