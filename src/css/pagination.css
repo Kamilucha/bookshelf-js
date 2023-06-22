@@ -9,6 +9,7 @@
   text-decoration: none;
   border-radius: 50%;
   position: relative;
+  color:var(--primary-text-color-light-theme)
 }
 
 .tui-page-btn span {
@@ -27,6 +28,9 @@
   margin-top: 20px;
 }
 
+.move-button{
+  background-color:var(--accent-color-dark-theme);
+}
 .pagintation-number {
   margin-top: 40px;
 }
@@ -42,16 +46,17 @@
 @media screen and (min-width: 768px) {
   .tui-page-btn.tui-prev {
     margin-right: 24px;
+    background-color: #111;
   }
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: #fff;
+  color: var(--header-bg-color-light);
   cursor: pointer;
   filter: drop-shadow(0 4px 4px #00000040);
-  background: #111;
-  border-color: #111;
+  background:var(--primary-text-color-light-theme);
+  border-color: var(--primary-text-color-light-theme);
 }
 
 .tui-page-btn.tui-is-disabled.tui-next,
@@ -148,4 +153,10 @@
   display: inline-block;
   transform: translate(10px) rotate(0.37turn);
   color: B4AFAF;
+}
+
+
+.tui-page-btn.tui-first{
+  background-color: #111;
+
 }

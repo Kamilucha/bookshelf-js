@@ -1,3 +1,11 @@
+@keyframes example {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .modal_background {
   position: fixed;
   top: 0;
@@ -160,7 +168,7 @@
   border-color: transparent;
   background-color: transparent;
 
-  transition: background 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 .icon_close {
   stroke: var(--text-logo-bookshelf-light);
@@ -178,6 +186,10 @@
   background-color: var(--accent-color-light-theme);
   color: var(--header-bg-color-light);
   cursor: pointer;
+}
+.btn:disabled:hover {
+  background-color: var(--secondary-color-light-theme);
+  border-color: var(--secondary-color-light-theme);
 }
 
 .btn:focus {
