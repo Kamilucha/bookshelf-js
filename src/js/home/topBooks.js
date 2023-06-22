@@ -33,7 +33,8 @@ export async function renderTopBooks() {
       groupEl.innerHTML = `
         <div class="book-group_title">${group.list_name}</div>
         <div class="book-card_list"></div>
-        <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button>
+        <div class="position-see-more">
+        <button class="btn-main see-more-btn" data-category="${group.list_name}">See More</button></div>
       `;
 
       const seeMoreBtn = groupEl.querySelector('.see-more-btn');
