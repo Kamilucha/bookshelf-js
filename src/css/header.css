@@ -9,7 +9,9 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  
 }
+.logo{fill:var(--primary-text-color-light-theme);}
 
 .modal_img:first-child{
   filter: var(--amazon);
