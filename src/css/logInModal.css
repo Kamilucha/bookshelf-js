@@ -113,10 +113,6 @@
   right: 23px;
 }
 
-/* .login-modal .input-field:focus + .login-icon-mail,
-.login-modal .input-field:focus + .login-icon-password {
-  stroke: var(--login-modal-accent);
-} */
 
 .login-icon-password {
   width: 28px;
@@ -293,25 +289,5 @@ background-color: var(----header-bg-color-light);
   }
 }
 
-/* .login-modal .input-field {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  width: 499px;
-  height: 64px;
-  border: 2.4px solid #111111;
-  border-radius: 40px;
-  padding: 0;
-}
 
-.login-modal .input-field::placeholder {
-  text-indent: 40px;
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.33;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: #111111;
-} */
+

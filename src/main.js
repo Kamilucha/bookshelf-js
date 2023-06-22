@@ -6,7 +6,7 @@ import './js/themeSwitcher';
 import './js/authAndDataProcessing/logInModal';
 import './js/scrollup';
 import './js/support-asside/support-functionality';
-import './js/homePageBookRender';
+
 import './js/home/allCategoriesList';
 import './js/home/booksByCategories';
 import './js/ShoppingList';
