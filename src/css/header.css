@@ -98,6 +98,14 @@ a {
   }
 }
 /* mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm */
+.icon-down-user {
+  display: none;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 23px;
+    height: 26px;
+  }
 @media screen and (max-width: 767px) {
   .log-in-btns-wrepper {
     position: absolute;
