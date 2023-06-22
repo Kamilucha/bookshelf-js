@@ -23,6 +23,7 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
+const authHide = document.querySelector('.auth-hide')
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -151,11 +152,14 @@ function checkIsAuth(modalAddRemBtn) {
         refs.user.classList.add('flex');
         refs.btnLog.style.display = 'none';
       }, 600);
-      // refs.btnLogOut.style.display = 'flex';
+
       refs.btnOpenLogInModal.classList.add('none');
-      // refs.btnOpenLogInModal.style.display = 'none';
       // console.log('signet in');
       // getLib();
+     
+      console.log(authHide)
+      authHide.classList.add('auth-block');
+      authHide.classList.remove('auth-hide');
 
       unsub = onSnapshot(userRef, doc => {
         const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
@@ -173,22 +177,21 @@ function checkIsAuth(modalAddRemBtn) {
     } else {
       // User is signed out
       // ...
+      authHide.classList.remove('auth-block');
+      authHide.classList.add('auth-hide');
+
       refs.btnUser.classList.remove('flex-2');
       refs.btnUser.classList.remove('flex');
 
-
       refs.greeting.classList.remove('flex');
       refs.iconDown.classList.remove('block');
+
       refs.user.classList.remove('flex');
-      // refs.btnLogOut.style.display = 'none';
-
-
       refs.btnLogOut.classList.remove('button-log-out-toggle');
 
-
       refs.btnOpenLogInModal.style.display = 'flex';
-      // console.log('not signet in');
       refs.shoppingListLink.style.display = 'none';
+      // console.log('not signet in');
     }
   });
 }
@@ -226,7 +229,6 @@ export {
   checkState,
 };
 
-// my/////////////////////////////////////////////////////////////////////////////////////////
 refs.greeting.addEventListener('click', greetingHandler);
 
 function greetingHandler() {
