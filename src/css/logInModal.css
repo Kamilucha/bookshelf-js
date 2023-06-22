@@ -20,7 +20,7 @@
 }
 
 .modal__container {
-  background-color: #fff;
+  background-color: var(--body-dark);
   padding: 30px;
   max-width: 500px;
   max-height: 100vh;
@@ -49,7 +49,7 @@
 
 .modal__btn-primary {
   background-color: #00449e;
-  color: #fff;
+  color: var(--body-dark);
 }
 
 .micromodal-slide {
@@ -61,14 +61,14 @@
 }
 
 .login-modal {
-  width: 579px;
-  height: 516px;
-  background-color: var(--bg-color-light);
-  border: 2px solid var(--login-modal-borders);
-  border-radius: 18px;
-  position: relative;
-  box-sizing: border-box;
-  padding: 80 40 40 40;
+    width: 579px;
+    height: 516px;
+    background-color: var(--bg-color-light);
+    border: 2px solid var(--primary-text-color-light-theme);
+    border-radius: 18px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 80 40 40 40;
 }
 /* 
 
@@ -79,9 +79,10 @@
 /*  
  */
 
-.basicLightbox {
-  background-color: black;
-}
+ .input-field{
+  background-color: var(--body-dark);
+ }
+
 
 .login-modal .close_btn {
   position: absolute;
@@ -92,7 +93,7 @@
 .login-icon-close {
   width: 28px;
   height: 28px;
-  stroke: var(--login-modal-borders);
+  stroke: var(--primary-text-color-light-theme);
   position: absolute;
 }
 
@@ -105,7 +106,7 @@
 .login-icon-mail {
   width: 28px;
   height: 28px;
-  stroke: var(--login-modal-borders);
+  stroke: var(--primary-text-color-light-theme);
   fill: transparent;
   position: absolute;
   top: 22px;
@@ -120,7 +121,7 @@
 .login-icon-password {
   width: 28px;
   height: 28px;
-  stroke: var(--login-modal-borders);
+  stroke: var(--primary-text-color-light-theme);
   fill: transparent;
   position: absolute;
   top: 22px;
@@ -137,16 +138,16 @@
   box-sizing: border-box;
   padding: 20px 50px 20px 40px;
   width: 100%;
+  border: 2.4px solid var(--primary-text-color-light-theme);
   background-color: transparent;
-  border: 2.4px solid var(--login-modal-borders);
   border-radius: 40px;
-
+background-color: var(----header-bg-color-light);
   font-family: 'DM Sans';
   font-weight: 700;
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: -0.01em;
-  color: var(--login-modal-borders);
+  color: var(--primary-text-color-light-theme);
 }
 
 .login-modal .input-field::placeholder {
@@ -159,7 +160,7 @@
   line-height: 1.33;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--login-modal-borders);
+  color: var(--primary-text-color-light-theme);
 }
 
 .login-modal .input-field:focus {
@@ -191,7 +192,7 @@
   font-size: 18px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--bg-color-light);
+  color: var(----text-logo-bookshelf-dark);
   transform: none;
   margin-bottom: 20px;
   cursor: pointer;
@@ -216,7 +217,7 @@
   line-height: 1.33;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--login-modal-switch-btns);
+  color:var(--sign-up);
   background-color: transparent;
   cursor: pointer;
 }
