@@ -1,14 +1,14 @@
 const tipMess = document.createElement('p');
-
+tipMess.className = 'validator-err';
 function addTipListeners() {
-  const form = document.querySelector('.modal_body');
+  const form = document.querySelector('.form');
 
   form.addEventListener('focusin', focusInHendler);
   form.addEventListener('focusout', focusOutHendler);
 }
 
 function removeTipListeners() {
-  const form = document.querySelector('.modal_body');
+  const form = document.querySelector('.form');
 
   form.removeEventListener('focusin', focusInHendler);
   form.removeEventListener('focusout', focusOutHendler);

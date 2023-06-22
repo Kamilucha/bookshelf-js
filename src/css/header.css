@@ -9,8 +9,13 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  
 }
+.logo{fill:var(--primary-text-color-light-theme);}
 
+.modal_img:first-child{
+  filter: var(--amazon);
+}
 a {
   color: currentColor;
   padding: 0;
@@ -422,6 +427,7 @@ a {
     bottom: 1px;
     margin-left: 11px;
     left: 86px;
+    fill:var(--primary-text-color-light-theme);
   }
 
   .button-menu {
@@ -475,7 +481,7 @@ a {
     font-size: 14px;
     letter-spacing: -0.04em;
 
-    color: #111111;
+    color: var(--primary-text-color-light-theme);
   }
 
   .button-user {
