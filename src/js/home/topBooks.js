@@ -110,12 +110,12 @@ export async function renderTopBooks() {
 }
 
 if (booksContainer) {
-  // window.onresize = () => {
-  //   while (booksContainer.firstChild) {
-  //     booksContainer.removeChild(booksContainer.firstChild);
-  //   }
-  //   renderTopBooks();
-  // };
+  window.onresize = () => {
+    while (booksContainer.firstChild) {
+      booksContainer.removeChild(booksContainer.firstChild);
+    }
+    renderTopBooks();
+  };
   renderTopBooks();
 }
 
