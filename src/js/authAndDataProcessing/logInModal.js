@@ -51,7 +51,7 @@ function onOpenModal(e) {
         </svg>
       </button>
 
-      <form class="form" name="logInForm">
+      <form class="form" name="logInForm" autocomplete="off">
         <div class="labels-wrapper">
           <label class="label">
             <input

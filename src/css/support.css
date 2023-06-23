@@ -29,8 +29,6 @@
   }
 }
 
-
-
 .support-title {
   color: #ffffff;
   font-style: normal;
@@ -56,6 +54,11 @@
   margin: 0 auto;
 }
 
+.swiper-next:hover,
+.swiper-next:focus {
+  background-color: #eac645;
+}
+
 .swiper {
   height: 188px;
   margin: 40px 0;
@@ -70,7 +73,7 @@
 .swiper-slide.support-slide {
   display: flex;
   height: auto;
-  }
+}
 
 .icon-container {
   display: flex;
@@ -112,7 +115,9 @@
   flex-direction: column;
   /* gap: 20px; */
 }
-ul.support-list > li{height: auto !important;}
+ul.support-list > li {
+  height: auto !important;
+}
 
 .support-link {
   height: 32px;

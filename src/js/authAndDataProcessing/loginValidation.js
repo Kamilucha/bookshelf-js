@@ -6,8 +6,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { checkAuthError } from './checkAuthError';
 import { removeTipListeners } from './inputTipMessage';
 
-// Notiflix.Notify.init({});
-
 let v = {};
 
 function validation() {
@@ -75,7 +73,14 @@ function validation() {
               handleClose();
             })
             .catch(e => {
-              Notify.failure(checkAuthError(e));
+              Notify.failure(checkAuthError(e), {
+                fontFamily: 'DM Sans',
+                fontSize: '16px',
+                clickToClose: true,
+                cssAnimationStyle: 'from-top',
+                timeout: 2000,
+                position: 'center-top',
+              });
             });
         } else {
           loginEmailPassword()
@@ -84,7 +89,14 @@ function validation() {
               handleClose();
             })
             .catch(e => {
-              Notify.failure(checkAuthError(e));
+              Notify.failure(checkAuthError(e), {
+                fontFamily: 'DM Sans',
+                fontSize: '16px',
+                clickToClose: true,
+                cssAnimationStyle: 'from-top',
+                timeout: 2000,
+                position: 'center-top',
+              });
             });
         }
       },

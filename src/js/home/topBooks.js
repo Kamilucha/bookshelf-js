@@ -22,7 +22,19 @@ export async function renderTopBooks() {
 
     if (topBooks.length === 0) {
       Notiflix.Notify.info(
-        'Sorry, but no books on all categories were found. Please choose another category.'
+        'Sorry, but no books on all categories were found. Please choose another category.',
+        {
+          fontFamily: 'DM Sans',
+          fontSize: '16px',
+          clickToClose: true,
+          cssAnimationStyle: 'from-top',
+          timeout: 2000,
+          position: 'center-top',
+          messageMaxLength: 150,
+          info: {
+            background: 'rgba(79, 46, 232, 0.9)',
+          },
+        }
       );
       return;
     }
@@ -83,19 +95,27 @@ export async function renderTopBooks() {
       loader.style.display = 'none';
     }
     Notiflix.Notify.failure(
-      'Failed to fetch top books. Please try again later.'
+      'Failed to fetch top books. Please try again later.',
+      {
+        fontFamily: 'DM Sans',
+        fontSize: '16px',
+        clickToClose: true,
+        cssAnimationStyle: 'from-top',
+        timeout: 2000,
+        position: 'center-top',
+        success: { background: '#eac645' },
+      }
     );
   }
 }
 
 if (booksContainer) {
-  window.onresize = () => {
-    while (booksContainer.firstChild) {
-      booksContainer.removeChild(booksContainer.firstChild);
-    }
-    renderTopBooks();
-  };
-
+  // window.onresize = () => {
+  //   while (booksContainer.firstChild) {
+  //     booksContainer.removeChild(booksContainer.firstChild);
+  //   }
+  //   renderTopBooks();
+  // };
   renderTopBooks();
 }
 
@@ -129,9 +149,20 @@ async function seeMoreBtnHandler(e) {
     } catch (error) {
       console.log(error);
       Notiflix.Notify.failure(
-        'Failed to fetch books for this category. Please try again later.'
+        'Failed to fetch books for this category. Please try again later.',
+        {
+          fontFamily: 'DM Sans',
+          fontSize: '16px',
+          clickToClose: true,
+          cssAnimationStyle: 'from-top',
+          timeout: 2000,
+          position: 'center-top',
+          success: { background: '#eac645' },
+        }
       );
     }
+
+    e.target.style.display = 'none';
   }
 }
 

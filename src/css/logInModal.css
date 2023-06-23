@@ -61,14 +61,14 @@
 }
 
 .login-modal {
-    width: 579px;
-    height: 516px;
-    background-color: var(--bg-color-light);
-    border: 2px solid var(--primary-text-color-light-theme);
-    border-radius: 18px;
-    position: relative;
-    box-sizing: border-box;
-    padding: 80 40 40 40;
+  width: 579px;
+  height: 516px;
+  background-color: var(--bg-color-light);
+  border: 2px solid var(--primary-text-color-light-theme);
+  border-radius: 18px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 80 40 40 40;
 }
 /* 
 
@@ -79,10 +79,9 @@
 /*  
  */
 
- .input-field{
+.input-field {
   background-color: var(--body-dark);
- }
-
+}
 
 .login-modal .close_btn {
   position: absolute;
@@ -113,7 +112,6 @@
   right: 23px;
 }
 
-
 .login-icon-password {
   width: 28px;
   height: 28px;
@@ -137,7 +135,7 @@
   border: 2.4px solid var(--primary-text-color-light-theme);
   background-color: transparent;
   border-radius: 40px;
-background-color: var(----header-bg-color-light);
+  background-color: var(----header-bg-color-light);
   font-family: 'DM Sans';
   font-weight: 700;
   font-size: 18px;
@@ -188,7 +186,7 @@ background-color: var(----header-bg-color-light);
   font-size: 18px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--text-logo-bookshelf-dark);
+  color: var(--login-modal-btn-cl);
   transform: none;
   margin-bottom: 20px;
   cursor: pointer;
@@ -213,7 +211,7 @@ background-color: var(----header-bg-color-light);
   line-height: 1.33;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color:var(--sign-up);
+  color: var(--sign-up);
   background-color: transparent;
   cursor: pointer;
 }
@@ -288,6 +286,3 @@ background-color: var(----header-bg-color-light);
     font-size: 12px;
   }
 }
-
-
-
