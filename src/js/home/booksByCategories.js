@@ -21,10 +21,23 @@ export async function fetchBooksByCategories(selectedCategory) {
     btnAllCategories.classList.remove('accent');
     divPage.innerHTML = '';
     if (data.length === 0) {
+      Notiflix.Notify.info(
+        `Sorry, but no books on the selected category '${selectedCategory}' were found. 
+      Please choose another category.`,
+        {
+          fontFamily: 'DM Sans',
+          fontSize: '16px',
+          clickToClose: true,
+          cssAnimationStyle: 'from-top',
+          timeout: 2000,
+          position: 'center-top',
+          messageMaxLength: 150,
+          info: {
+            background: 'rgba(79, 46, 232, 0.9)',
+          },
+        }
+      );
 
-      Notiflix.Notify.info(`Sorry, but no books on the selected category '${selectedCategory}' were found. 
-      Please choose another category.`);
-      
       return;
     }
     renderBaseMarkupCategory();
@@ -62,11 +75,11 @@ function renderMarkupCard(bookArr) {
   const markup = bookArr.map(card => {
     const { title, book_image, author } = card;
     let li = document.createElement('li');
-    li.classList.add('category-item')
+    li.classList.add('category-item');
     li.onclick = function () {
       renderModal(card);
     };
-    
+
     function renderImg() {
       if (book_image) {
         return `<img class="book_image" src="${book_image}" alt="${title}" loading="lazy" width='335' height='485'>`;
@@ -112,7 +125,7 @@ Notiflix.Notify.init({
   fontFamily: 'DM Sans',
   fontSize: '16px',
   cssAnimationStyle: 'from-top',
- 
+
   info: {
     background: 'rgba(79, 46, 232, 0.9)',
   },

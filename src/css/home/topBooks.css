@@ -23,6 +23,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .book-group_title {
@@ -43,7 +44,7 @@
   flex-wrap: wrap;
 }
 
-.book_image{
+.book_image {
   scale: 1.3;
 }
 
@@ -122,17 +123,17 @@
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .book-card_list {
     gap: 25px;
-    width: auto; 
+    width: auto;
   }
 
   .book-card {
-    display: flex; 
+    display: flex;
     width: 218px;
     height: 366px;
   }
 
   .book-card:nth-child(n + 4) {
-    display: flex; 
+    display: flex;
   }
 }
 

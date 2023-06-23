@@ -120,6 +120,13 @@
   background-color: transparent;
 }
 
+@media screen and (max-width: 767.99px) {
+  .modal_body .btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 .modal_body .close_btn {
   border: none;
   padding: 0;

@@ -27,9 +27,6 @@ const markupOfSupport = supportItem.map(makeMarkupOfSupport).join('');
 supportList.innerHTML = markupOfSupport;
 
 const swiper = new Swiper('.swiper', {
-  autoplay: {
-    delay: 5000,
-  },
   direction: 'vertical',
   slidesPerView: 4,
   slidesOffsetAfter: 0,

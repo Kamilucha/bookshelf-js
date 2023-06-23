@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Import the functions you need from the SDKs you need
@@ -23,7 +24,7 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
-const authHide = document.querySelector('.auth-hide')
+const authHide = document.querySelector('.auth-hide');
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -112,7 +113,15 @@ async function logOut(e) {
       const list = document.querySelector('.js-shopping-list-page');
       // Sign-out successful.
       // console.log('Sign-out successful.');
-      Notify.success('Log out successful');
+      Notify.success('Log out successful', {
+        fontFamily: 'DM Sans',
+        fontSize: '16px',
+        clickToClose: true,
+        cssAnimationStyle: 'from-top',
+        timeout: 2000,
+        position: 'center-top',
+        success: { background: '#eac645' },
+      });
       if (list) {
         setTimeout(() => {
           document.location.href = 'index.html';
@@ -156,8 +165,7 @@ function checkIsAuth(modalAddRemBtn) {
       refs.btnOpenLogInModal.classList.add('none');
       // console.log('signet in');
       // getLib();
-     
-      console.log(authHide)
+
       authHide.classList.add('auth-block');
       authHide.classList.remove('auth-hide');
 
