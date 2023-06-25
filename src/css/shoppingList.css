@@ -239,10 +239,10 @@ svg {
 }
 
 
-.shoplist-url-item:hover,
+/* .shoplist-url-item:hover,
 .shoplist-url-item:focus {
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
-}
+  filter: drop-shadow(0px 3px 3px var(--text-logo-bookshelf-light));
+} */
 @media screen and (max-width: 767.99px) {
   .main-content {
     display: flex;
@@ -320,7 +320,7 @@ svg {
   .amazon {
     width: 48px;
     height: 15px;
-    filter: var(--amazon);
+    /* filter: var(--amazon); */
   }
 
   .apple {
