@@ -1,5 +1,4 @@
 import { refs } from './refs';
-import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Import the functions you need from the SDKs you need
@@ -122,11 +121,11 @@ async function logOut(e) {
         position: 'center-top',
         success: { background: '#eac645' },
       });
-      if (list) {
-        setTimeout(() => {
-          document.location.href = 'index.html';
-        }, 1000);
-      }
+      // if (list) {
+      setTimeout(() => {
+        document.location.href = 'index.html';
+      }, 1000);
+      // }
     })
 
     .catch(error => {
@@ -155,16 +154,30 @@ function checkIsAuth(modalAddRemBtn) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
       setTimeout(() => {
-        refs.greeting.textContent = `${user.displayName}`;
+        [...refs.userName].map(el => {
+          el.textContent = user.displayName;
+        });
+
         refs.greeting.classList.add('flex');
-        refs.iconDown.classList.add('block');
-        refs.user.classList.add('flex');
-        refs.btnLog.style.display = 'none';
+        refs.greetingMob.classList.add('flex');
       }, 600);
 
-      refs.btnOpenLogInModal.classList.add('none');
+      refs.iconDown.classList.add('block');
+
+      [...refs.user].map(btn => {
+        btn.classList.add('flex');
+      });
+      [...refs.btnLog].map(btn => {
+        btn.style.display = 'none';
+      });
+
+      [...refs.btnOpenLogInModal].map(btn => {
+        btn.classList.add('none');
+      });
+
+      refs.btnLogOutMob.classList.add('button-log-out-mob');
       // console.log('signet in');
-      // getLib();
+      getLib();
 
       authHide.classList.add('auth-block');
       authHide.classList.remove('auth-hide');
@@ -180,11 +193,13 @@ function checkIsAuth(modalAddRemBtn) {
       });
 
       refs.shoppingListLink.style.display = 'list-item';
+      refs.btnLogOutTablDesk.style.display = 'flex';
 
       // ...
     } else {
       // User is signed out
       // ...
+      // userName.remove();
       authHide.classList.remove('auth-block');
       authHide.classList.add('auth-hide');
 
@@ -192,12 +207,22 @@ function checkIsAuth(modalAddRemBtn) {
       refs.btnUser.classList.remove('flex');
 
       refs.greeting.classList.remove('flex');
+      refs.greetingMob.classList.remove('flex');
       refs.iconDown.classList.remove('block');
 
-      refs.user.classList.remove('flex');
-      refs.btnLogOut.classList.remove('button-log-out-toggle');
+      [...refs.user].map(btn => {
+        btn.classList.remove('flex');
+      });
+      [...refs.btnLog].map(btn => {
+        btn.style.display = 'flex';
+      });
+      refs.btnLogOutTablDesk.style.display = 'none';
+      refs.btnLogOutTablDesk.classList.remove('button-log-out-toggle');
+      refs.btnLogOutMob.classList.remove('button-log-out-mob');
 
-      refs.btnOpenLogInModal.style.display = 'flex';
+      [...refs.btnOpenLogInModal].map(btn => {
+        btn.classList.remove('none');
+      });
       refs.shoppingListLink.style.display = 'none';
       // console.log('not signet in');
     }
@@ -227,7 +252,15 @@ function checkState(modalAddRemBtn) {
   });
 }
 
-refs.btnLogOut.addEventListener('click', logOut);
+[...refs.btnLogOut].map(btn => {
+  btn.addEventListener('click', logOut);
+});
+
+refs.greeting.addEventListener('click', greetingHandler);
+
+function greetingHandler() {
+  refs.btnLogOutTablDesk.classList.toggle('button-log-out-toggle');
+}
 
 export {
   addBookData,
@@ -236,9 +269,3 @@ export {
   loginEmailPassword,
   checkState,
 };
-
-refs.greeting.addEventListener('click', greetingHandler);
-
-function greetingHandler() {
-  refs.btnLogOut.classList.toggle('button-log-out-toggle');
-}

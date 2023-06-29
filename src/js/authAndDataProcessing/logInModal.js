@@ -1,4 +1,6 @@
-// import { addTipListeners, removeTipListeners } from './imputTipMessage';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/src/styles/main.scss';
+
 import { closeModal } from './closeModal';
 import { validation } from './loginValidation';
 import { addTipListeners, removeTipListeners } from './inputTipMessage';
@@ -13,10 +15,6 @@ const svg = {
     import.meta.url
   ),
 };
-
-import * as basicLightbox from 'basiclightbox';
-
-import 'basiclightbox/src/styles/main.scss';
 
 import { refs } from './refs';
 
@@ -60,6 +58,7 @@ function onOpenModal(e) {
               type="text"
               placeholder="Email"
               name="email"
+              autocomplete="email"
               data-rules="bail|required|email"
             />
             <svg class="login-icon-mail">
@@ -139,6 +138,7 @@ function handleSwitch(e) {
               placeholder="Name"
               name="userName"
               title="Example &quot;John&quot;"
+              autocomplete="given-name"
               data-rules="bail|required|alpha|between:2,32|x-regex:firstCapital"
           /></label>
           <label class="label">
@@ -148,6 +148,7 @@ function handleSwitch(e) {
               type="text"
               placeholder="Email"
               name="email"
+              autocomplete="email"
               data-rules="bail|required|email"
             />
             <svg class="login-icon-mail">
@@ -191,6 +192,7 @@ function handleSwitch(e) {
               type="text"
               placeholder="Email"
               name="email"
+              autocomplete="email"
               data-rules="bail|required"
             />
             <svg class="login-icon-mail">
@@ -224,6 +226,8 @@ function handleSwitch(e) {
   }
 }
 
-refs.btnOpenLogInModal.addEventListener('click', onOpenModal);
+[...refs.btnOpenLogInModal].map(btn => {
+  btn.addEventListener('click', onOpenModal);
+});
 
 export { isSignUp, handleClose };

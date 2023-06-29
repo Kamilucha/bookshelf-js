@@ -21,9 +21,20 @@
   overflow-y: scroll;
 }
 
+@keyframes append-animate {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .modal_body {
   min-width: 280px;
-  min-height: 762px;
+  min-height: 500px;
 
   width: calc(100% - 40px);
   max-width: 335px;
@@ -33,12 +44,14 @@
   border-radius: 18px;
 
   position: fixed;
-  top: 0;
+  top: 64px;
   bottom: 0;
   padding: 40px;
   overflow-y: auto;
 
   box-sizing: border-box;
+
+  animation: append-animate 0.3s linear;
 }
 
 .modal_body .close_btn {
