@@ -1,3 +1,7 @@
+const bodyScrollLock = require('body-scroll-lock');
+const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+
 const mobileMenu = document.querySelector('.menu-container');
 const btmMenu = document.querySelector('.button-menu');
 const btnLogin = document.querySelector('.button-log');
@@ -9,53 +13,57 @@ const header = document.querySelector('.header');
 
 const btnWrapper = document.querySelector('.log-in-btns-wrepper');
 
-btmMenu.addEventListener('click', onBtnMenuClick)
+btmMenu.addEventListener('click', onBtnMenuClick);
 
 function onBtnMenuClick() {
-  btmMenu.classList.toggle('active')
-  mobileMenu.classList.toggle('is-open')
+  btmMenu.classList.toggle('active');
+  mobileMenu.classList.toggle('is-open');
 
   if (mobileMenu.classList.contains('is-open')) {
     // disableScroll();
-    header.classList.add('scroll')
+    disableBodyScroll(document.body);
 
     btnUser.classList.remove('flex');
-    btnWrapper.classList.add('flex');
-    
-    if (btnLogin.classList.contains('none')) {
-      btnUser.classList.add('flex')
-      userWrapper.classList.add('flex')
+
+    if (document.documentElement.clientWidth >= 768) {
+      btnWrapper.classList.add('flex');
     }
 
-    if (btnLogin.style.display === "flex") {
+    if (btnLogin.classList.contains('none')) {
+      btnUser.classList.add('flex');
+      userWrapper.classList.add('flex');
+    }
+
+    if (btnLogin.style.display === 'flex') {
       btnUser.classList.remove('flex');
       btnUser.classList.remove('flex-2');
       userWrapper.classList.remove('flex');
     }
-  
-    return
+
+    return;
   }
   // enableScroll();
-  header.classList.remove('scroll')
+  enableBodyScroll(document.body);
 
-  btnWrapper.classList.remove('flex')
-  btnUser.classList.add('flex-2')
+  if (document.documentElement.clientWidth >= 768) {
+    btnWrapper.classList.remove('flex');
+  }
+  btnUser.classList.add('flex-2');
 
-  iconUser.classList.add('flex-2')
-  btnLogin.classList.add('button-log-2')
-  btnUser.classList.remove('flex')
- 
-  if (btnLogin.style.display === "flex") {
+  iconUser.classList.add('flex-2');
+  btnLogin.classList.add('button-log-2');
+  btnUser.classList.remove('flex');
+
+  if (btnLogin.style.display === 'flex') {
     btnUser.classList.remove('flex');
     btnUser.classList.remove('flex-2');
     userWrapper.classList.remove('flex');
-    }
+  }
 }
-
 
 // -------Change button current page
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
   let path = window.location.pathname;
   // console.log(path);
   if (path === '/project_team_6_js/') {
@@ -64,10 +72,9 @@ document.addEventListener("DOMContentLoaded", function() {
   // console.log(path);
   const navItems = document.querySelectorAll('.nav-item-li');
 
-  navItems.forEach(function(item) {
+  navItems.forEach(function (item) {
     const link = item.querySelector('a');
     const href = link.getAttribute('href');
-    
 
     if (path === href) {
       item.classList.add('active');
@@ -77,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
   let path = window.location.pathname;
   // console.log(path);
   if (path === '/project_team_6_js/') {
@@ -86,10 +93,9 @@ document.addEventListener("DOMContentLoaded", function() {
   // console.log(path);
   const navItems = document.querySelectorAll('.nav-item-mobile');
 
-  navItems.forEach(function(item) {
+  navItems.forEach(function (item) {
     const link = item.querySelector('a');
     const href = link.getAttribute('href');
-    
 
     if (path === href) {
       item.classList.add('active');

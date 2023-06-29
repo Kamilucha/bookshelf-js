@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="header-container">
+  <div class="header-container container">
     <nav class="navigation">
       <a href="/src/index.html">
         <svg class="logo">
@@ -20,7 +20,7 @@
           </div>
         </li>
 
-        <li class="nav-item-li" data-is-auth="false" style="display: none;">
+        <li class="nav-item-li" data-is-auth="false" style="display: none">
           <a class="nav-item" href="/src/shopping-list.html"
             >Shopping list
             <svg class="icon-shop" width="20" height="20">
@@ -53,19 +53,22 @@
           <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
         </svg>
       </button>
-      <button
-        class="button-user js-open-modal js-greeting"
-        type="button"
-      ></button>
-      <svg class="icon-down-user" width="20" height="20">
-        <use href="/src/svgsprite/symbol-defs.svg#icon-login-down"></use>
-      </svg>
-      <div class="user-login-wrapper">
-        <svg class="icon-user-login" width="19" height="19">
-          <use href="/src/svgsprite/symbol-defs.svg#icon-user"></use>
+      <button class="button-user js-open-modal js-greeting" type="button">
+        <div class="user-login-wrapper">
+          <svg class="icon-user-login" width="19" height="19">
+            <use href="/src/svgsprite/symbol-defs.svg#icon-user"></use>
+          </svg>
+        </div>
+        <span class="userName"></span>
+        <svg class="icon-down-user" width="20" height="20">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-login-down"></use>
         </svg>
-      </div>
-      <button class="button-log-out js-logOut" type="button">
+      </button>
+
+      <button
+        class="button-log-out js-logOut js-logOut-tabl-desk"
+        type="button"
+      >
         <span class="text-log-out">Log out</span>
         <svg class="icon-log" width="20" height="20">
           <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
@@ -79,33 +82,47 @@
       <span></span>
     </button>
   </div>
-</header>
 
-<!-- мобільне меню -->
-<div class="menu-container" id="mobile-menu">
-  <button
-    class="button-user button-mobile js-open-modal js-greeting"
-    type="button"
-  >
-    <span class="text-log-user">Stephen</span>
-  </button>
-  <nav class="nav-mobile">
-    <ul class="nav-list-mobile">
-      <li class="nav-item-mobile">
-        <a class="nav-item" aria-current="page" href="/src/index.html">Home</a>
-      </li>
-      <li class="nav-item-mobile auth-hide">
-        <a class="nav-item" href="/src/shopping-list.html">Shopping list </a>
-        <svg class="icon-shop-mobile" width="20" height="20">
-          <use href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper "></use>
+  <!-- мобільне меню -->
+  <div class="menu-container" id="mobile-menu">
+    <button class="button-log js-open-modal button-log-2" type="button">
+      <span class="text-log">Log in</span>
+      <svg class="icon-log" width="20" height="20">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+      </svg>
+    </button>
+    <button class="button-user js-open-modal js-greeting-mob" type="button">
+      <div class="user-login-wrapper">
+        <svg class="icon-user-login" width="19" height="19">
+          <use href="/src/svgsprite/symbol-defs.svg#icon-user"></use>
         </svg>
-      </li>
-    </ul>
-  </nav>
-  <button class="button-log-out-mobile" type="button">
-    <span class="text-log-mobile">Log out</span>
-    <svg class="icon-log-mobile" width="20" height="20">
-      <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
-    </svg>
-  </button>
-</div>
+      </div>
+      <span class="userName"></span>
+    </button>
+    <nav class="nav-mobile">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a class="nav-item" aria-current="page" href="/src/index.html"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item-mobile auth-hide">
+          <a class="nav-item" href="/src/shopping-list.html"
+            >Shopping list
+            <svg class="icon-shop-mobile" width="20" height="20">
+              <use
+                href="/src/svgsprite/symbol-defs.svg#icon-icon-shopper "
+              ></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button class="button-log-out js-logOut js-logOut-mob" type="button">
+      <span class="text-log-out">Log out</span>
+      <svg class="icon-log" width="20" height="20">
+        <use href="/src/svgsprite/symbol-defs.svg#icon-login"></use>
+      </svg>
+    </button>
+  </div>
+</header>

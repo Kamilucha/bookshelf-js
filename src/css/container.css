@@ -1,19 +1,12 @@
 .main-container {
-  width: 335px;
   display: grid;
   grid-template-columns: 335px;
   row-gap: 40px;
-  padding-top: 40px;
+  padding-top: 104px;
   margin-left: auto;
   margin-right: auto;
 }
-.header {
-  min-width: 375px;
-  box-sizing: border-box;
-  height: 64px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .container-aside {
   width: 335px;
   /* Частина коду для лоадеру, не видаляти */
@@ -22,21 +15,17 @@
 }
 
 /* tablet screen 768 */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .main-container {
-    width: 704px;
     grid-template-columns: 704px;
     row-gap: 100px;
   }
 }
 /* tablet screen 768 */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .header {
-    height: 72px;
-  }
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
 }
 /* tablet screen 768 */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .container-aside {
     display: grid;
     grid-template-columns: 337px 335px;
@@ -44,21 +33,14 @@
   }
 }
 /* desctop screen  1200*/
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1439.98px) {
   .main-container {
-    width: 1392px;
     grid-template-columns: 356px 996px;
     gap: 40px;
   }
 }
 /* desctop screen  1200*/
-@media screen and (min-width: 1023px) {
-  .header {
-    width: 1440px;
-  }
-}
-/* desctop screen  1200*/
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1439.98px) {
   .container-aside {
     display: grid;
     row-gap: 86px;

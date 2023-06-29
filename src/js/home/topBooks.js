@@ -1,6 +1,7 @@
 import { BooksAPIService } from '../booksAPIService';
 import renderModal from '../modal';
 import Notiflix from 'notiflix';
+import { debounce } from 'debounce';
 
 const loader = document.querySelector('.best-sellers-loader');
 
@@ -58,11 +59,11 @@ export async function renderTopBooks() {
 
       const maxBooksToShow = 5;
 
-      if (window.innerWidth <= 767.98) {
+      if (screen.width <= 767.98) {
         const firstBook = group.books[0];
         const cardEl = createBookElement(firstBook);
         booksGroupContainer.appendChild(cardEl);
-      } else if (window.innerWidth <= 1023.98) {
+      } else if (screen.width <= 1439.98 && screen.width >= 768) {
         group.books.slice(0, 3).forEach((book, index) => {
           const cardEl = createBookElement(book);
           if (index < existingBooks.length) {
@@ -110,13 +111,18 @@ export async function renderTopBooks() {
 }
 
 if (booksContainer) {
-  window.onresize = () => {
-    while (booksContainer.firstChild) {
-      booksContainer.removeChild(booksContainer.firstChild);
-    }
-    renderTopBooks();
-  };
+  let windowWidth = document.documentElement.clientWidth;
   renderTopBooks();
+
+  window.onresize = debounce(e => {
+    if (document.documentElement.clientWidth !== windowWidth) {
+      windowWidth = document.documentElement.clientWidth;
+      while (booksContainer.firstChild) {
+        booksContainer.removeChild(booksContainer.firstChild);
+      }
+      renderTopBooks();
+    }
+  }, 100);
 }
 
 async function seeMoreBtnHandler(e) {
@@ -132,7 +138,7 @@ async function seeMoreBtnHandler(e) {
       const books = await bookApi.getBooksByCategory(category);
       const booksToShow = books.slice(start);
 
-      if (window.innerWidth <= 1023.98) {
+      if (screen.width <= 1439.98) {
         const maxBooksToShow = 3;
         booksToShow.slice(0, maxBooksToShow).forEach(book => {
           const cardEl = createBookElement(book);
@@ -186,7 +192,7 @@ function createBookElement(book) {
 
   cardEl.innerHTML = `
     ${bookImg}
-    <div class="book-group">
+    <div class="book-descr">
       <p class="book_title">${book.title}</p>
       <p class="book_author">${book.author}</p>
     </div>

@@ -1,9 +1,7 @@
 .main-content {
-  width: 335px;
   display: grid;
   grid-template-columns: 335px;
   row-gap: 40px;
-  padding-top: 40px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 40px;
@@ -26,8 +24,6 @@
     padding-top: 0;
   }
 }
-
-
 
 .support-shopping-list {
   display: none;
@@ -52,7 +48,7 @@
   line-height: calc(18 / 14);
   text-align: center;
   letter-spacing: -0.02em;
-  color:var(--shop-card-empty-text);
+  color: var(--shop-card-empty-text);
 }
 
 .shop-card-empty {
@@ -114,7 +110,6 @@
   border-radius: 8px;
 }
 
-
 .about-title {
   margin-bottom: 8px;
 }
@@ -171,9 +166,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
-
 
 .shopping-card-author {
   font-style: italic;
@@ -182,7 +175,6 @@
   letter-spacing: -0.04em;
   color: #b4afaf;
 }
-
 
 .shoplist-url-list {
   display: flex;
@@ -194,7 +186,6 @@
 .amazon {
   width: 32px;
   height: 11px;
-  
 }
 
 .apple {
@@ -237,7 +228,6 @@ svg {
   transform: scale(1.1);
   background: #eac645;
 }
-
 
 /* .shoplist-url-item:hover,
 .shoplist-url-item:focus {
@@ -282,11 +272,9 @@ svg {
     padding: 24px;
   }
 
-
   .about-author {
     display: flex;
     align-items: end;
-
   }
 
   .about-img {
