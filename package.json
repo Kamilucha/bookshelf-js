@@ -1,11 +1,11 @@
 {
-  "name": "project_team_6_js",
+  "name": "bookshelf-js",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Kamilucha.github.io/project_team_6_js",
+  "homepage": "https://Kamilucha.github.io/bookshelf-js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /project_team_6_js/"
+    "build": "parcel build src/*.html --public-url /bookshelf-js/"
   },
   "repository": {
     "type": "git",
